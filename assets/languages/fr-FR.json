@@ -41,5 +41,6 @@
   "app-attention": "Attention",
   "app-no-revert": "Une fois scannés, les contacts ne peuvent pas être annulés pour des raisons de sécurité.",
   "app-join": "Rejoindre le groupe",
-  "app-join-code": "Veuillez saisir le code de groupe à 7 chiffres"
+  "app-join-code": "Veuillez saisir le code de groupe à 7 chiffres",
+  "app-code": "Entrez le code du groupe"
 }

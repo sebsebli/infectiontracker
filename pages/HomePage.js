@@ -355,7 +355,7 @@ export default HomePage = (props) => {
                                 color: '#ffffff',
 
 
-                            }}>Gruppen-Code eingeben</Text>
+                            }}>{i18n.t('app-code') /*Gruppen-Code eingeben*/}</Text>
 
                         </TouchableOpacity>
                         <Text style={{

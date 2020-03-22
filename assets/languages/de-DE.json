@@ -41,5 +41,6 @@
   "app-attention": "Achtung",
   "app-no-revert": "Einmal gescannte Kontakte können aus Sicherheitsgründen nicht rückgängig gemacht werden.",
   "app-join": "Gruppe beitreten",
-  "app-join-code": "Bitte gib den 7-stelligen Gruppen-Code ein"
+  "app-join-code": "Bitte gib den 7-stelligen Gruppen-Code ein",
+  "app-code": "Gruppen-Code eingeben"
 }
