@@ -424,7 +424,7 @@ export default HomePage = (props) => {
                     >
                         <Ionicons name="ios-close-circle-outline" size={30} color="black"></Ionicons>
                     </TouchableOpacity>
-                    <Text style={{ textAlign: 'left', fontWeight: '500', padding: 10 }}>Bitte gib den 7-stelligen Gruppen-Code ein</Text>
+                    <Text style={{ textAlign: 'left', fontWeight: '500', padding: 10 }}>{i18n.t('app-join-code') /*Bitte gib den 7-stelligen Gruppen-Code ein*/}</Text>
                     <SmoothPinCodeInput
                         cellStyle={{
                             borderBottomWidth: 2,
