@@ -47,5 +47,6 @@
   "app-your-env-attention": "Achtung! Du bist gefährdet.",
   "app-your-env-nothing": "keine Gefahr erkannt",
   "app-your-follow": "du verfolgst",
-  "app-your-contacts": "Kontakte"
+  "app-your-contacts": "Kontakte",
+  "app-tutorial-intro": "Scannt den Code eures Kontaktes oder informiert eure Kontakte über euren Gesundheitszustand, damit wir gemeinsam die Ausbreitung des Corona-Virus reduzieren können."
 }

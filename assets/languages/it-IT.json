@@ -47,5 +47,6 @@
   "app-your-env-attention": "¡Atención! Estás en peligro.",
   "app-your-env-nothing": "no se reconoce ningún peligro",
   "app-your-follow": "si seguono",
-  "app-your-contacts": "contatti"
+  "app-your-contacts": "contatti",
+  "app-tutorial-intro": "Scannerizzate il codice del vostro contatto o informate i vostri contatti sul vostro stato di salute in modo da poter lavorare insieme per ridurre la diffusione del virus corona."
 }

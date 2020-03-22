@@ -47,5 +47,6 @@
   "app-your-env-attention": "Heads up! You are in danger.",
   "app-your-env-nothing": "no danger recognised",
   "app-your-follow": "you follow up",
-  "app-your-contacts": "contacts"
+  "app-your-contacts": "contacts",
+  "app-tutorial-intro": "Scan the code of your contact or inform your contacts about your state of health so that together we can reduce the spread of the corona virus."
 }

@@ -9,6 +9,7 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, StatusBar, Image } from 'react-native'
 import Header from '../components/Header'
+import i18n from 'i18n-js';
 export default class TutorialPage extends Component {
     render() {
         return (
@@ -22,14 +23,14 @@ export default class TutorialPage extends Component {
                         padding: 20,
                         color: '#000000',
 
-                    }}>So funktioniert's:</Text>
+                    }}>{i18n.t('drawerTutorial') /*So funktioniert's*/}:</Text>
                     <Text style={{
                         fontSize: 16,
                         fontWeight: "400",
                         padding: 20,
                         color: '#000000',
 
-                    }}>Scannt den Code eures Kontaktes oder informiert eure Kontakte über euren Gesundheitszustand, damit wir gemeinsam die Ausbreitung des Corona-Virus reduzieren können.</Text>
+                    }}>{i18n.t('app-tutorial-intro') /*Scannt den Code eures Kontaktes oder informiert eure Kontakte über euren Gesundheitszustand, damit wir gemeinsam die Ausbreitung des Corona-Virus reduzieren können.*/}</Text>
                 </View>
             </View>
         )
