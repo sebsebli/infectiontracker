@@ -28,5 +28,7 @@
   "reportState": "Bitte berichte uns sofort, sobald etwas an deinem Zustand ändert. Alle Kontakte der letzten zwei Wochen werden anonym informiert. Niemand wird deine Identität erfahren.",
   "sex-m": "männlich",
   "sex-f": "weiblich",
-  "sex-d": "divers/sonstiges"
+  "sex-d": "divers/sonstiges",
+  "symptoms-intro": "Häufigste Symptome bei Corona-Infektion",
+  "symptoms-cough": "Häufigste Symptome bei Corona-Infektion"
 }

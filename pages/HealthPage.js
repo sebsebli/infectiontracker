@@ -198,8 +198,8 @@ export default function HealthPage(props) {
 
 
                     <Text style={{ textAlign: 'left', fontWeight: '300', fontSize: 14, padding: 20 }}>
-                        häufigste Symptome bei Corona-Infektion:{'\n'}
-                        - Husten 55%{'\n'}
+                      {i18n.t('symptoms-intro') /*Häufigste Symptome bei Corona-Infektion*/}:{'\n'}
+                        - {i18n.t('symptoms-cough') /*Husten*/} 55%{'\n'}
                         - Fieber 39%{'\n'}
                         - Schnupfen 28%{'\n'}
                         - Halsschmerzen 23%{'\n'}

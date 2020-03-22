@@ -28,5 +28,6 @@
   "reportState": "Por favor, infórmenos inmediatamente si algo cambia en su condición. Todos los contactos de las últimas dos semanas serán informados anónimamente. Nadie sabrá su identidad.",
   "sex-m": "macho",
   "sex-f": "femenino",
-  "sex-d": "miscelánea/otros"
+  "sex-d": "miscelánea/otros",
+  "symptoms-intro": "Los síntomas más comunes de la infección de la corona"
 }

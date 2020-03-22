@@ -28,5 +28,6 @@
   "reportState": "Please report to us immediately if anything changes in your condition. All contacts of the last two weeks will be informed anonymously. No one will know your identity.",
   "sex-m": "male",
   "sex-f": "female",
-  "sex-d": "miscellaneous/other"
+  "sex-d": "miscellaneous/other",
+  "symptoms-intro": "Most common symptoms of corona infection"
 }
