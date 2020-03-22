@@ -35,11 +35,11 @@ const statusColor = [
 
 // i18n Version
 const statusString = [
-    i18n.t('health-state1'),
-    i18n.t('health-state2'),
-    i18n.t('health-state3'),
-    i18n.t('health-state4'),
-    i18n.t('health-state5'),
+    i18n.t('health-state-one'),
+    i18n.t('health-state-two'),
+    i18n.t('health-state-three'),
+    i18n.t('health-state-four'),
+    i18n.t('health-state-five'),
 ];
 
 export default function HealthPage(props) {
