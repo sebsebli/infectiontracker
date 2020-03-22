@@ -218,7 +218,7 @@ export default HomePage = (props) => {
 
                     // Works on both Android and iOS
                     Alert.alert(
-                        'Achtung',
+                        i18n.t('app-attention'), //Achtung
                         "Es gab einen Fehler beim Daten übertragen" + '\n' + error,
                         [
 
@@ -247,7 +247,7 @@ export default HomePage = (props) => {
 
                     // Works on both Android and iOS
                     Alert.alert(
-                        'Achtung',
+                        i18n.t('app-attention'), //Achtung
                         "Es gab einen Fehler beim Daten übertragen" + '\n' + error,
                         [
 
@@ -471,7 +471,7 @@ export default HomePage = (props) => {
                                 fontWeight: "600",
 
                                 color: '#ffffff', //
-                            }}>Zurück</Text>
+                            }}>{i18n.t('app-back') /*Zurück*/}</Text>
                         </TouchableOpacity>
 
                     </View>
