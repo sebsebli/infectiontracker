@@ -39,7 +39,7 @@
   "app-back": "Back",
   "app-scan-so": "Scan your contact's code. Scanned contacts are automatically deleted after 2 weeks.",
   "app-attention": "Attention",
-  "app-no-revert": "Once scanned, contacts cannot be undone for security reasons.",
+  "app-no-revert": "Once scanned, contacts cannot be removed for security reasons.",
   "app-join": "Join group",
   "app-join-code": "Please enter the 7-digit group code",
   "app-code": "Enter group code",
