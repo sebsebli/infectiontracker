@@ -52,5 +52,6 @@
   "app-your-follow": "you follow up",
   "app-your-contacts": "contacts",
   "app-tutorial-intro": "Scan the code of your contact or inform your contacts about your state of health so that together we can reduce the spread of the corona virus.",
-  "app-qr-scan": "Scan QR Code"
+  "app-qr-scan": "Scan QR Code",
+  "app-error": "There was an error while transferring data"
 }

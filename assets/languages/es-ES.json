@@ -52,5 +52,6 @@
   "app-your-follow": "sigues",
   "app-your-contacts": "contactos",
   "app-tutorial-intro": "Escanea el código de tu contacto o informa a tus contactos sobre tu estado de salud para que podamos trabajar juntos para reducir la propagación del virus de la corona.",
-  "app-qr-scan": "Escanear el código QR"
+  "app-qr-scan": "Escanear el código QR",
+  "app-error": "Hubo un error al transferir los datos"
 }
