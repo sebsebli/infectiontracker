@@ -94,11 +94,11 @@ export default function HealthPage(props) {
                     <View style={{ borderColor: '#7dc656', backgroundColor: '#383838', borderWidth: 4, borderRadius: 20, height: 40, width: 40, justifyContent: 'center', alignItems: 'center' }}>
                         <Ionicons name="ios-person" size={35} color="white" />
                     </View>
-                    <Text style={{ textAlign: 'left', fontWeight: '600', padding: 20, fontSize: 16 }}>Dein Gesundheitszustand</Text>
+                    <Text style={{ textAlign: 'left', fontWeight: '600', padding: 20, fontSize: 16 }}>{i18n.t('healtState') /*Dein Gesundheitszustand*/}</Text>
 
                 </View>
                 <View style={{ width: '100%', alignItems: 'center' }}>
-                    <Text style={{ textAlign: 'left', fontWeight: '300', fontSize: 14, paddingLeft: 20, paddingRight: 20 }}>Bitte berichte uns sofort, sobald etwas an deinem Zustand ändert. Alle Kontakte der letzten zwei Wochen werden anonym informiert. Niemand wird deine Identität erfahren.
+                    <Text style={{ textAlign: 'left', fontWeight: '300', fontSize: 14, paddingLeft: 20, paddingRight: 20 }}>{i18n.t('reportState') /*Bitte berichte uns sofort, sobald etwas an deinem Zustand ändert. Alle Kontakte der letzten zwei Wochen werden anonym informiert. Niemand wird deine Identität erfahren.*/}
 </Text>
 
                     <TouchableOpacity style={{
