@@ -206,7 +206,7 @@ export default function HealthPage(props) {
                         {'\n'}
                         {i18n.t('symptoms-yes') /*Wenn du Symptome aufweist, ruf bitte deinen Hausarzt an oder wende dich bei Dringlichkeit an die Notfallnummer 116 117. Bei schwerwiegenden Symptomen wie Atemnot, ruf den Rettungsdient (112).*/}
                         {'\n'}{'\n'}
-                        Weitere Infos findest du hier:{'\n'}
+                        {i18n.t('symptoms-infos') /*Weitere Infos findest du hier*/}:{'\n'}
                         <TouchableOpacity onPress={() => handlePressButtonAsync()}>
                             <Text style={{ textAlign: 'left', fontWeight: '300', fontSize: 14, padding: 20 }}>www.infektionsschutz.de/coronavirus</Text>
                         </TouchableOpacity>
