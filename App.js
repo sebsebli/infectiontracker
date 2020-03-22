@@ -17,6 +17,8 @@ import RNPickerSelect from 'react-native-picker-select';
 import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { CheckBox } from 'react-native-elements'
 import { setUID, setKEY, setmyStatus, setgid } from './helpers/GlobalState';
+import { Notifications, Permissions } from 'expo';
+
 import Constants from 'expo-constants';
 i18n.fallbacks = true;
 i18n.defaultLocale = 'de-DE';
@@ -35,7 +37,7 @@ i18n.translations = {
 // Set the locale once at the beginning of your app.
 i18n.locale = Localization.locale;
 
-// Check user credentials in storage 
+
 
 export default function App() {
 

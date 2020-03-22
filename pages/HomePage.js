@@ -20,7 +20,8 @@ import GroupsModal from '../components/GroupsModal'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useGlobalState, setgid, setcontactCount, setcontactStatus } from '../helpers/GlobalState';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input'
-
+import Toast from 'react-native-tiny-toast'
+import { Notifications } from 'expo';
 const statusColor = [
     '#7dc656',
     '#7dc656',
@@ -103,7 +104,7 @@ export default HomePage = (props) => {
     //SetInterval to update contact data --> change to BackgroundFetch in final version!!!
     setInterval(() => {
         updateUserdata();
-    }, 5000)
+    }, 60000)
 
 
 
@@ -121,6 +122,10 @@ export default HomePage = (props) => {
                 console.log(response.data)
 
 
+                Toast.show('Erfolgreich der Gruppe beigetreten', {
+                    position: Toast.position.center,
+                    containerStyle: { zIndex: 99 },
+                })
                 setLoadingGroup(false)
 
                 setmodalVisibleGrupCode(false)
@@ -212,6 +217,11 @@ export default HomePage = (props) => {
                     console.log(response)
                     setLoading(false)
                     setModalVisible(false);
+
+                    Toast.show('Kontakt hinzugefügt', {
+                        position: Toast.position.center,
+                        containerStyle: { zIndex: 99 },
+                    })
                 })
                 .catch(function (error) {
 
@@ -354,7 +364,11 @@ export default HomePage = (props) => {
                         shadowOpacity: 0.1,
                         shadowRadius: 1,
                         flexDirection: 'row'
-                    }}>
+                    }}
+                        onPress={() => {
+
+                        }}
+                    >
                         <View style={{ height: '100%', width: 40, justifyContent: 'center', alignItems: 'flex-start', marginLeft: 20 }}>
                             {contactState > 1 ?
                                 <View style={{
