@@ -39,5 +39,13 @@
   "app-back": "Zurück",
   "app-scan-so": "Scannt den Code eures Kontaktes. Gescannte Kontakte werden nach 2 Wochen automatisch gelöscht.",
   "app-attention": "Achtung",
-  "app-no-revert": "Einmal gescannte Kontakte können aus Sicherheitsgründen nicht rückgängig gemacht werden."
+  "app-no-revert": "Einmal gescannte Kontakte können aus Sicherheitsgründen nicht rückgängig gemacht werden.",
+  "app-join": "Gruppe beitreten",
+  "app-join-code": "Bitte gib den 7-stelligen Gruppen-Code ein",
+  "app-code": "Gruppen-Code eingeben",
+  "app-your-env": "Dein Umfeld",
+  "app-your-env-attention": "Achtung! Du bist gefährdet.",
+  "app-your-env-nothing": "keine Gefahr erkannt",
+  "app-your-follow": "du verfolgst",
+  "app-your-contacts": "Kontakte"
 }

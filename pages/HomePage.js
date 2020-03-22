@@ -365,9 +365,9 @@ export default HomePage = (props) => {
                     <View style={{ height: '100%', width: 180, justifyContent: 'center', marginLeft: 20 }} >
 
 
-                        <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>Dein Umfeld</Text>
-                        <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>{contactState > 2 ? 'Achtung! Du bist gefährdet.' : 'keine Gefahr erkannt'}</Text>
-                        <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>du verfolgst <Text style={{ fontWeight: '500' }}>{contactCount}</Text> Kontakte</Text>
+                        <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{i18n.t('app-your-env') /*Dein Umfeld*/}</Text>
+                        <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>{contactState > 2 ? i18n.t('app-your-env-attention') : i18n.t('app-your-env-nothing') /*'Achtung! Du bist gefährdet.' : 'keine Gefahr erkannt'*/}</Text>
+                        <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>{i18n.t('app-your-follow') /*du verfolgst*/} <Text style={{ fontWeight: '500' }}>{contactCount}</Text> {i18n.t('app-your-contacts') /*Kontakte*/}</Text>
                     </View>
                     <View style={{ height: '100%', width: 80, justifyContent: 'center', alignItems: 'flex-end', marginRight: 40 }}>
 
@@ -428,7 +428,7 @@ export default HomePage = (props) => {
                                 color: '#ffffff',
 
 
-                            }}>Gruppen-Code eingeben</Text>
+                            }}>{i18n.t('app-code') /*Gruppen-Code eingeben*/}</Text>
 
                         </TouchableOpacity>
                         <Text style={{
@@ -502,7 +502,7 @@ export default HomePage = (props) => {
                     >
                         <Ionicons name="ios-close-circle-outline" size={30} color="black"></Ionicons>
                     </TouchableOpacity>
-                    <Text style={{ textAlign: 'left', fontWeight: '500', padding: 10 }}>Bitte gib den 7-stelligen Gruppen-Code ein</Text>
+                    <Text style={{ textAlign: 'left', fontWeight: '500', padding: 10 }}>{i18n.t('app-join-code') /*Bitte gib den 7-stelligen Gruppen-Code ein*/}</Text>
                     <SmoothPinCodeInput
                         cellStyle={{
                             borderBottomWidth: 2,
@@ -546,7 +546,7 @@ export default HomePage = (props) => {
                             color: '#ffffff',
 
 
-                        }}>Gruppe beitreten</Text>
+                        }}>{i18n.t('app-join') /*Gruppe beitreten*/}</Text>
 
                     </TouchableOpacity>
                     <TouchableOpacity
