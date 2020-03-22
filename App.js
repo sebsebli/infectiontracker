@@ -28,7 +28,8 @@ i18n.translations = {
   fr: require('./assets/languages/fr-FR.json'),
   it: require('./assets/languages/it-IT.json'),
   pt: require('./assets/languages/pt-PT.json'),
-  ru: require('./assets/languages/ru-RU.json')
+  ru: require('./assets/languages/ru-RU.json'),
+  ar: require('./assets/languages/ar.json')
 };
 i18n.defaultLocale = 'de-DE';
 // Set the locale once at the beginning of your app.
