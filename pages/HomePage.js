@@ -18,7 +18,7 @@ import axios from 'axios';
 import Spinner from 'react-native-loading-spinner-overlay';
 import GroupsModal from '../components/GroupsModal'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
-
+import { useGlobalState, setgid } from '../helpers/GlobalState';
 const statusColor = [
     '#7dc656',
     '#7dc656',
@@ -42,12 +42,16 @@ export default HomePage = (props) => {
 
     const [loading, setLoading] = useState(false);
     const [loadingHome, setLoadingHome] = useState(false);
-    const [groupData, setGroupData] = useState(null);
-    const [myState, setmyState] = useState(0);
+
+
     const [contactState, setContactstate] = useState(0);
 
-    const userData = props.screenProps;
-    const infectData = "@infectData" + props.screenProps.uid;
+    const [groupData] = useGlobalState('gid');
+    const [key] = useGlobalState('key');
+    const [uid] = useGlobalState('uid');
+    const [myState] = useGlobalState('myStatus');
+
+    const infectData = "@infectData" + uid;
 
 
 
@@ -72,14 +76,14 @@ export default HomePage = (props) => {
         }
         setLoadingHome(true)
         axios.post('https://seb-vs-virus-api.herokuapp.com/group', {
-            uid: userData.uid,
+            uid: uid,
 
         })
             .then(function (response) {
 
 
                 setLoadingHome(false)
-                setGroupData(response.data)
+                setgid(response.data)
                 setgroupsVisible(true)
             })
             .catch(function (error) {
@@ -104,13 +108,13 @@ export default HomePage = (props) => {
 
     const handleBarCodeScanned = async ({ type, data }) => {
         if (data.slice(0, 11) !== "@infectData") return
-        console.log('GOT CODE', "XID: " + data.slice(11), "UID: " + userData.uid, "KEY: " + userData.key)
+        console.log('GOT CODE', "XID: " + data.slice(11), "UID: " + uid, "KEY: " + key)
         setLoading(true)
 
         axios.post('https://seb-vs-virus-api.herokuapp.com/connect', {
-            uid: userData.uid,
+            uid: uid,
             xid: data.slice(11),
-            key: userData.key
+            key: key
 
         })
             .then(function (response) {
@@ -189,7 +193,7 @@ export default HomePage = (props) => {
                     shadowRadius: 1,
                     flexDirection: 'row'
                 }}
-                    onPress={() => props.navigation.navigate("Health", { myState: myState, key: userData.key, uid: userData.uid })}
+                    onPress={() => props.navigation.navigate("Health", { myState: myState, key: key, uid: uid })}
                 >
                     <View style={{ height: '100%', width: 40, justifyContent: 'center', alignItems: 'flex-start', marginLeft: 20 }}>
 

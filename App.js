@@ -16,6 +16,8 @@ import { AsyncStorage, View, TouchableOpacity, Text, Modal, Picker, Alert } from
 import RNPickerSelect from 'react-native-picker-select';
 import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { CheckBox } from 'react-native-elements'
+import { setUID, setKEY, setmyStatus } from './helpers/GlobalState';
+import { set } from 'react-native-reanimated';
 i18n.fallbacks = true;
 i18n.translations = {
   de: require('./assets/languages/de-DE.json')
@@ -29,7 +31,7 @@ i18n.locale = Localization.locale;
 // Check user credentials in storage 
 
 export default function App() {
-  const [userCredentials, setUserCredentials] = useState({});
+
   const [finished, setFinished] = useState(false);
   const [hasData, setHasData] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
@@ -58,7 +60,8 @@ export default function App() {
         console.log(responseData)
         await AsyncStorage.setItem('@infectiontrackerFinalKEY', responseData.key);
         await AsyncStorage.setItem('@infectiontrackerFinalUID', responseData.uid);
-        setUserCredentials(responseData)
+        setKEY(responseData.key)
+        setUID(responseData.uid)
         setModalVisible(false)
         setHasData(true)
 
@@ -75,11 +78,16 @@ export default function App() {
   async function getUserData() {
     const key = await AsyncStorage.getItem('@infectiontrackerFinalKEY');
     const uid = await AsyncStorage.getItem('@infectiontrackerFinalUID');
+    const state = await AsyncStorage.getItem('@infectiontrackerFinalSTATE');
 
-    console.log(key, uid)
+    if (state !== null) {
+      setmyStatus(Number(state))
+    }
+    console.log(key, uid, state)
     if ((key !== null) && (uid !== null)) {
       //USER DOES EXIST
-      setUserCredentials({ key: key, uid: uid })
+      setKEY(key)
+      setUID(uid)
       setHasData(true)
       return
     } else {
@@ -311,7 +319,7 @@ export default function App() {
     } else {
       return (
 
-        <AppNavigator screenProps={userCredentials} />
+        <AppNavigator />
 
       );
     }

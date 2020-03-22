@@ -13,6 +13,7 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
 import Spinner from 'react-native-loading-spinner-overlay';
 import * as WebBrowser from 'expo-web-browser';
+import { useGlobalState, setmyStatus } from '../helpers/GlobalState';
 const statusColor = [
     '#7dc656',
     '#7dc656',
@@ -32,27 +33,15 @@ const statusString = [
 
 export default function HealthPage(props) {
 
-    const state = props.navigation.state.params.myState
-    const mykey = props.navigation.state.params.key
-    const uid = props.navigation.state.params.uid
-    const [myState, setmyState] = useState(state);
+    const [myState] = useGlobalState('myStatus');
+    const [mykey] = useGlobalState('key');
+    const [uid] = useGlobalState('uid');
     const [loading, setLoading] = useState(false);
-    async function handlePressButtonAsync() {
+    async function handlePressButtonAsync(props) {
         let result = await WebBrowser.openBrowserAsync('https://www.infektionsschutz.de/coronavirus');
 
     };
-    async function getUserData() {
 
-        const state = await AsyncStorage.getItem('@infectiontrackerFinalSTATE');
-
-
-        console.log(state)
-        if (state !== null) {
-            //USER DOES EXIST
-            setmyState(Number(state))
-        }
-
-    }
     async function handleStateChange(state) {
         setLoading(true)
         console.log(uid, mykey, state)
@@ -64,9 +53,11 @@ export default function HealthPage(props) {
             .then(async function (response) {
                 console.log(response)
                 try {
-                    setmyState(state);
+                    setmyStatus(state);
                     await AsyncStorage.setItem('@infectiontrackerFinalSTATE', state.toString());
                     setLoading(false)
+                    props.navigation.navigate('Home')
+
                 } catch (error) {
                     console.log(error)
                     setLoading(false)
@@ -77,7 +68,6 @@ export default function HealthPage(props) {
             })
     };
 
-    getUserData();
     return (
         <View style={{ flex: 1 }}>
             <StatusBar backgroundColor="#293241" barStyle="light-content" />

@@ -23,6 +23,7 @@
     "i18n-js": "^3.5.1",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
+    "react-hooks-global-state": "^1.0.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
     "react-native-app-intro-slider": "^3.0.0",
     "react-native-custom-qr-codes-expo": "^2.2.0",
