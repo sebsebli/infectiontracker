@@ -79,7 +79,7 @@ export default GroupsModal = (props) => {
                         fontWeight: "600",
 
                         color: '#ffffff', //
-                    }}>Zurück</Text>
+                    }}>{i18n.t('app-back') /*Zurück*/}</Text>
                 </TouchableOpacity>
 
             </View>

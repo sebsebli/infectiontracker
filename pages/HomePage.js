@@ -278,7 +278,7 @@ export default HomePage = (props) => {
                     <View style={{ height: '100%', width: 180, justifyContent: 'center', marginLeft: 20 }} >
 
 
-                        <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>Dein Gesundheitszustand</Text>
+                        <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{i18n.t('healtState') /*Dein Gesundheitszustand*/}</Text>
                         <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>{statusString[myState]}</Text>
                     </View>
                     <View style={{ height: '100%', width: 80, justifyContent: 'center', alignItems: 'flex-end', marginRight: 40 }}>
@@ -386,10 +386,10 @@ export default HomePage = (props) => {
                         </TouchableOpacity>
                         <Text style={{
                             padding: 20, fontSize: 16, textAlign: 'center',
-                        }}>Scannt den Code eures Kontaktes. Gescannte Kontakte werden nach 2 Wochen automatisch gelöscht.</Text>
+                        }}>{i18n.t('app-scan-so') /*Scannt den Code eures Kontaktes. Gescannte Kontakte werden nach 2 Wochen automatisch gelöscht.*/}</Text>
                         <Text style={{
                             padding: 5, fontSize: 16, textAlign: 'center', color: '#fb3640'
-                        }}><Text style={{ fontWeight: '600' }}>Achtung:</Text> Einmal gescannte Kontakte können aus Sicherheitsgründen nicht rückgängig gemacht werden.</Text>
+                        }}><Text style={{ fontWeight: '600' }}>{i18n.t('app-attention') /*Achtung*/}:</Text> {i18n.t('app-no-revert') /*Einmal gescannte Kontakte können aus Sicherheitsgründen nicht rückgängig gemacht werden.*/}</Text>
 
 
 

@@ -33,5 +33,11 @@
   "symptoms-cough": "Tossisci",
   "symptoms-fever": "Febbre",
   "symptoms-cold": "Naso che cola",
-  "symptoms-throat": "Gola dolorante"
+  "symptoms-throat": "Gola dolorante",
+  "symptoms-yes": "Se avete dei sintomi, chiamate il vostro medico di famiglia. In caso di sintomi gravi come la mancanza di fiato, chiamare i servizi di emergenza (112).",
+  "symptoms-infos": "Potete trovare ulteriori informazioni qui",
+  "app-back": "Indietro",
+  "app-scan-so": "Scansiona il codice del tuo contatto. I contatti scansionati vengono automaticamente cancellati dopo 2 settimane.",
+  "app-attention": "Attenzione",
+  "app-no-revert": "Una volta effettuata la scansione, i contatti non possono essere cancellati per motivi di sicurezza."
 }

@@ -33,5 +33,11 @@
   "symptoms-cough": "Toux",
   "symptoms-fever": "Fièvre",
   "symptoms-cold": "Renifle",
-  "symptoms-throat": "Mal de gorge"
+  "symptoms-throat": "Mal de gorge",
+  "symptoms-yes": "Si tiene síntomas, por favor llame a su médico de cabecera. Si tiene síntomas graves, como falta de aliento, llame a los servicios de emergencia (112).",
+  "symptoms-infos": "Vous trouverez de plus amples informations ici",
+  "app-back": "Retour",
+  "app-scan-so": "Scannez le code de votre contact. Les contacts scannés sont automatiquement supprimés après 2 semaines.",
+  "app-attention": "Attention",
+  "app-no-revert": "Une fois scannés, les contacts ne peuvent pas être annulés pour des raisons de sécurité."
 }

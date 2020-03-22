@@ -33,5 +33,11 @@
   "symptoms-cough": "Cough",
   "symptoms-fever": "Fever",
   "symptoms-cold": "Cold",
-  "symptoms-throat": "Sore throat"
+  "symptoms-throat": "Sore throat",
+  "symptoms-yes": "If you have symptoms, please call your family doctor. If you have serious symptoms such as shortness of breath, call the emergency services (911).",
+  "symptoms-infos": "You can find further information here",
+  "app-back": "Back",
+  "app-scan-so": "Scan your contact's code. Scanned contacts are automatically deleted after 2 weeks.",
+  "app-attention": "Attention",
+  "app-no-revert": "Once scanned, contacts cannot be undone for security reasons."
 }
