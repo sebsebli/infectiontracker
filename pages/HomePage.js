@@ -20,7 +20,6 @@ import GroupsModal from '../components/GroupsModal'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useGlobalState, setgid, setcontactCount, setcontactStatus } from '../helpers/GlobalState';
 
-import i18n from 'i18n-js';
 
 const statusColor = [
     '#7dc656',
