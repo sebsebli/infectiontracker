@@ -16,7 +16,7 @@ import { AsyncStorage, View, TouchableOpacity, Text, Modal, Picker, Alert } from
 import RNPickerSelect from 'react-native-picker-select';
 import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { CheckBox } from 'react-native-elements'
-import { setUID, setKEY, setmyStatus,setgid } from './helpers/GlobalState';
+import { setUID, setKEY, setmyStatus, setgid } from './helpers/GlobalState';
 import * as BackgroundFetch from 'expo-background-fetch';
 import * as TaskManager from 'expo-task-manager';
 import getUpdates from './helpers/BackgroundUpdate'
@@ -326,7 +326,10 @@ export default function App() {
             onPress={() => setModalVisible(true)}>
             <Text style={{ color: '#ffffff', fontSize: 16, fontWeight: '600' }}>{i18n.t('homeNew')}</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={{ width: '80%', height: 50, borderColor: '#293241', borderWidth: 2, alignItems: 'center', justifyContent: 'center', margin: 10, }}>
+          <TouchableOpacity style={{ width: '80%', height: 50, borderColor: '#293241', borderWidth: 2, alignItems: 'center', justifyContent: 'center', margin: 10, }}
+
+            onPress={() => Alert.alert('Dieses Feature wird noch nicht unterstützt.')}
+          >
             <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600' }}>{i18n.t('homeRestore')}</Text>
           </TouchableOpacity>
         </View >
