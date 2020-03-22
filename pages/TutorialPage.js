@@ -15,15 +15,21 @@ export default class TutorialPage extends Component {
             <View style={{ flex: 1 }}>
                 <StatusBar backgroundColor="#293241" barStyle="light-content" />
                 <Header />
-                <View style={{ flex: 1, height: '100%', paddingTop:20,justifyContent: 'center' }}>
-                    <Image source={require('../assets/icon.png')} style={{ height: 200, width: 200 }}></Image>
+                <View style={{ flex: 1, height: '100%' }}>
+                    <Text style={{
+                        fontSize: 16,
+                        fontWeight: "600",
+                        padding: 20,
+                        color: '#000000',
+
+                    }}>So funktioniert's:</Text>
                     <Text style={{
                         fontSize: 16,
                         fontWeight: "400",
                         padding: 20,
                         color: '#000000',
-                        textAlign: 'center'
-                    }}>Zukünftige App-Versionen ermöglichen das Wiederherstellen eines Accounts über einen Wiederherstellungs-Code</Text>
+
+                    }}>Scannt den Code eures Kontaktes oder informiert eure Kontakte über euren Gesundheitszustand, damit wir gemeinsam die Ausbreitung des Corona-Virus reduzieren können.</Text>
                 </View>
             </View>
         )

@@ -72,7 +72,7 @@ export default HomePage = (props) => {
     //SetInterval to update contact data --> change to BackgroundFetch in final version!!!
     setInterval(() => {
         updateUserdata()
-    }, 5000)
+    }, 60000)
 
     updateUserdata = async () => {
 
