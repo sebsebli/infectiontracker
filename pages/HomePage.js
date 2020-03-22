@@ -19,6 +19,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import GroupsModal from '../components/GroupsModal'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useGlobalState, setgid } from '../helpers/GlobalState';
+import getUpdates from '../helpers/BackgroundUpdate'
 const statusColor = [
     '#7dc656',
     '#7dc656',
@@ -53,7 +54,7 @@ export default HomePage = (props) => {
 
     const infectData = "@infectData" + uid;
 
-
+    getUpdates();
 
     useEffect(() => {
         (async () => {

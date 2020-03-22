@@ -40,6 +40,12 @@ export default function App() {
   const [check1, setCheck1] = useState(false);
   const [check2, setCheck2] = useState(false);
   const [check3, setCheck3] = useState(false);
+
+
+
+
+
+  
   async function register(sex, age) {
     return fetch('https://seb-vs-virus-api.herokuapp.com/register',
       {
