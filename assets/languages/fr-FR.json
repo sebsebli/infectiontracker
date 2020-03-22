@@ -29,5 +29,6 @@
   "sex-m": "homme",
   "sex-f": "femme",
   "sex-d": "Varie/altro",
-  "symptoms-intro": "Les symptômes les plus courants de l'infection corona"
+  "symptoms-intro": "Les symptômes les plus courants de l'infection corona",
+  "symptoms-cough": "Toux"
 }

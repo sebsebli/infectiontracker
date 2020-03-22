@@ -29,5 +29,6 @@
   "sex-m": "macho",
   "sex-f": "femenino",
   "sex-d": "miscelánea/otros",
-  "symptoms-intro": "Los síntomas más comunes de la infección de la corona"
+  "symptoms-intro": "Los síntomas más comunes de la infección de la corona",
+  "symptoms-cough": "Tos"
 }

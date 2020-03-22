@@ -29,5 +29,6 @@
   "sex-m": "male",
   "sex-f": "female",
   "sex-d": "miscellaneous/other",
-  "symptoms-intro": "Most common symptoms of corona infection"
+  "symptoms-intro": "Most common symptoms of corona infection",
+  "symptoms-cough": "Cough"
 }
