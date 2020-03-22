@@ -308,7 +308,7 @@ export default HomePage = (props) => {
                         fontWeight: "600",
 
                         color: '#ffffff', //
-                    }}>Gruppen-Code {groupData ? 'anzeigen' : 'generieren'}</Text>
+                    }}>{i18n.t('app-code-plain') /*Gruppen-Code*/} {groupData ? i18n.t('app-code-show') : i18n.t('app-code-generate') /*'anzeigen' 'generieren'*/}</Text>
 
                 </TouchableOpacity>
                 <TouchableOpacity style={{
