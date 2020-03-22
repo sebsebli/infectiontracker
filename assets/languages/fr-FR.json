@@ -23,5 +23,6 @@
   "status-02": "testé : test négatif",
   "status-03": "Contact avec une personne testée positivement",
   "status-04": "non testé, symptômes corona typiques",
-  "status-05": "testé : test positif"
+  "status-05": "testé : test positif",
+  "healtState": "État de santé"
 }

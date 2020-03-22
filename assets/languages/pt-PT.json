@@ -23,5 +23,6 @@
   "status-02": "testado: teste negativo",
   "status-03": "Contacto com pessoa testada positivamente",
   "status-04": "não testado, sintomas típicos da coroa",
-  "status-05": "testado: teste positivo"
+  "status-05": "testado: teste positivo",
+  "healtState": "estado de saúde"
 }

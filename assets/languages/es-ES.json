@@ -23,5 +23,6 @@
   "status-02": "probada: prueba negativa",
   "status-03": "El contacto con la persona probada positivamente",
   "status-04": "no probado, síntomas típicos de la corona",
-  "status-05": "probado: prueba positiva"
+  "status-05": "probado: prueba positiva",
+  "healtState": "Estado de salud"
 }
