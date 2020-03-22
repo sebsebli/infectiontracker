@@ -10,6 +10,7 @@ import React, { Component } from 'react'
 import { Text, StyleSheet, View, StatusBar, Image } from 'react-native'
 import Header from '../components/Header'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import i18n from 'i18n-js';
 export default class TutorialPage extends Component {
     render() {
         return (
