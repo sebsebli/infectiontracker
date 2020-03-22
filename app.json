@@ -4,11 +4,7 @@
     "slug": "infectiontracker",
     "privacy": "public",
     "sdkVersion": "36.0.0",
-    "platforms": [
-      "ios",
-      "android",
-      "web"
-    ],
+    "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,16 +13,17 @@
       "resizeMode": "contain",
       "backgroundColor": "#293241"
     },
+    "owner": "Sebastian Lindner",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "me.lindner.infectiontracker",
+      "buildNumber": "1.0.0"
     },
-    "description": "",
+    "description": "This app aimes at informing people about the health status of recent contacts to reduce the spread of corona virus.",
     "githubUrl": "https://github.com/sebsebli/infectiontracker"
   }
 }
