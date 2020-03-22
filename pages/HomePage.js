@@ -252,7 +252,7 @@ export default HomePage = (props) => {
                     <View style={{ height: '100%', width: 180, justifyContent: 'center', marginLeft: 20 }} >
 
 
-                        <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>Dein Gesundheitszustand</Text>
+                        <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{i18n.t('healtState') /*Dein Gesundheitszustand*/}</Text>
                         <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>{statusString[myState]}</Text>
                     </View>
                     <View style={{ height: '100%', width: 80, justifyContent: 'center', alignItems: 'flex-end', marginRight: 40 }}>
