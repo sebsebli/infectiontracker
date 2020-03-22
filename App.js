@@ -16,7 +16,7 @@ import { AsyncStorage, View, TouchableOpacity, Text, Modal, Picker, Alert } from
 import RNPickerSelect from 'react-native-picker-select';
 import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { CheckBox } from 'react-native-elements'
-import { setUID, setKEY, setmyStatus } from './helpers/GlobalState';
+import { setUID, setKEY, setmyStatus,setgid } from './helpers/GlobalState';
 import * as BackgroundFetch from 'expo-background-fetch';
 import * as TaskManager from 'expo-task-manager';
 import getUpdates from './helpers/BackgroundUpdate'
@@ -88,6 +88,10 @@ export default function App() {
     const key = await AsyncStorage.getItem('@infectiontrackerFinalKEY');
     const uid = await AsyncStorage.getItem('@infectiontrackerFinalUID');
     const state = await AsyncStorage.getItem('@infectiontrackerFinalSTATE');
+    const group = await AsyncStorage.getItem('@infectiontrackerFinalGROUP');
+    if (group !== null) {
+      setgid(group)
+    }
 
     if (state !== null) {
       setmyStatus(Number(state))

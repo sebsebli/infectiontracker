@@ -52,7 +52,7 @@ export default GroupsModal = (props) => {
                     fontWeight: "400",
                     padding: 20,
                     color: '#000000',
-                    testAlign: 'center',
+                    textAlign: 'center',
                     letterSpacing: 20,
                 }}>{props.groups.shortcode}</Text>
 

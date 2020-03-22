@@ -72,7 +72,7 @@ export default HomePage = (props) => {
     //SetInterval to update contact data --> change to BackgroundFetch in final version!!!
     setInterval(() => {
         updateUserdata()
-    }, 60000)
+    }, 5000)
 
     updateUserdata = async () => {
 
@@ -84,11 +84,18 @@ export default HomePage = (props) => {
             uid: uid,
             key: key
         })
+        let groupAlive = axios.post('https://seb-vs-virus-api.herokuapp.com/groupalive', {
+            gid: groupData,
+        })
 
 
-        axios.all([contactCount, contactStatus]).then(axios.spread((...responses) => {
+
+        axios.all([contactCount, contactStatus, groupAlive]).then(axios.spread((...responses) => {
             const count = responses[0].data
             const status = responses[1].data
+            const alive = responses[2].data
+            console.log("alive", alive)
+
             setcontactCount(count)
             setcontactStatus(status)
 
@@ -160,12 +167,14 @@ export default HomePage = (props) => {
             uid: uid,
 
         })
-            .then(function (response) {
+            .then(async function (response) {
 
 
                 setLoadingHome(false)
                 setgid(response.data)
                 setgroupsVisible(true)
+                await AsyncStorage.setItem('@infectiontrackerFinalGROUP', responseData.uid);
+
             })
             .catch(function (error) {
 
