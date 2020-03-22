@@ -56,8 +56,8 @@ export default function App() {
 
 
         console.log(responseData)
-        await AsyncStorage.setItem('@infectiontrackerKEY', responseData.key);
-        await AsyncStorage.setItem('@infectiontrackerUID', responseData.uid);
+        await AsyncStorage.setItem('@infectiontrackerFinalKEY', responseData.key);
+        await AsyncStorage.setItem('@infectiontrackerFinalUID', responseData.uid);
         setUserCredentials(responseData)
         setModalVisible(false)
         setHasData(true)
@@ -73,8 +73,8 @@ export default function App() {
 
 
   async function getUserData() {
-    const key = await AsyncStorage.getItem('@infectiontrackerKEY');
-    const uid = await AsyncStorage.getItem('@infectiontrackerUID');
+    const key = await AsyncStorage.getItem('@infectiontrackerFinalKEY');
+    const uid = await AsyncStorage.getItem('@infectiontrackerFinalUID');
 
     console.log(key, uid)
     if ((key !== null) && (uid !== null)) {

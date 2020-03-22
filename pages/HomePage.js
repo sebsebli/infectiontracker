@@ -45,10 +45,11 @@ export default HomePage = (props) => {
     const [groupData, setGroupData] = useState(null);
     const [myState, setmyState] = useState(0);
     const [contactState, setContactstate] = useState(0);
+
     const userData = props.screenProps;
     const infectData = "@infectData" + props.screenProps.uid;
 
-    console.log("HI")
+
 
     useEffect(() => {
         (async () => {
@@ -141,7 +142,6 @@ export default HomePage = (props) => {
             <Header />
             <Spinner
                 visible={loadingHome}
-                textContent={'Lädt...'}
                 overlayColor="rgba(0,0,0,0.7)"
                 size="large"
             />
@@ -260,8 +260,7 @@ export default HomePage = (props) => {
                 style={{ flex: 1, backgroundColor: 'none', height: '100%' }}>
                 <View style={{ flex: 1, }}>
                     <Spinner
-                        visible={loading}
-                        textContent={'Lädt...'}
+
                         overlayColor="rgba(0,0,0,0.7)"
                         size="large"
                     />

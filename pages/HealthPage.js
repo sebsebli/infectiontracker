@@ -7,10 +7,11 @@
 // work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
 import React, { useState, useEffect } from 'react'
-import { Text, StyleSheet, StatusBar, TouchableOpacity, View } from 'react-native'
+import { Text, StyleSheet, StatusBar, TouchableOpacity, View, AsyncStorage } from 'react-native'
 import Header from '../components/Header'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
+import Spinner from 'react-native-loading-spinner-overlay';
 import * as WebBrowser from 'expo-web-browser';
 const statusColor = [
     '#7dc656',
@@ -35,31 +36,57 @@ export default function HealthPage(props) {
     const mykey = props.navigation.state.params.key
     const uid = props.navigation.state.params.uid
     const [myState, setmyState] = useState(state);
-
+    const [loading, setLoading] = useState(false);
     async function handlePressButtonAsync() {
         let result = await WebBrowser.openBrowserAsync('https://www.infektionsschutz.de/coronavirus');
 
     };
+    async function getUserData() {
 
+        const state = await AsyncStorage.getItem('@infectiontrackerFinalSTATE');
+
+
+        console.log(state)
+        if (state !== null) {
+            //USER DOES EXIST
+            setmyState(Number(state))
+        }
+
+    }
     async function handleStateChange(state) {
+        setLoading(true)
         console.log(uid, mykey, state)
         axios.post('https://seb-vs-virus-api.herokuapp.com/status', {
             uid: uid,
             key: mykey,
             status: state,
         })
-            .then(function (response) {
-                setmyState(state);
+            .then(async function (response) {
+                console.log(response)
+                try {
+                    setmyState(state);
+                    await AsyncStorage.setItem('@infectiontrackerFinalSTATE', state.toString());
+                    setLoading(false)
+                } catch (error) {
+                    console.log(error)
+                    setLoading(false)
+                }
             })
             .catch(function (error) {
+                setLoading(false)
             })
     };
 
+    getUserData();
     return (
         <View style={{ flex: 1 }}>
             <StatusBar backgroundColor="#293241" barStyle="light-content" />
             <Header></Header>
-
+            <Spinner
+                visible={loading}
+                overlayColor="rgba(0,0,0,0.7)"
+                size="large"
+            />
             <View style={{ flex: 1, width: '100%', alignItems: 'center' }} >
                 <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%', padding: 20 }}>
                     <View style={{ borderColor: '#7dc656', backgroundColor: '#383838', borderWidth: 4, borderRadius: 20, height: 40, width: 40, justifyContent: 'center', alignItems: 'center' }}>
