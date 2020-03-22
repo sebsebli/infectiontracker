@@ -29,24 +29,6 @@ const statusColor = [
     '#fb3640',
 ];
 
-// Non replaced
-// const statusString = [
-//     'nicht getestet, keine Symptome',
-//     'getestet: Test negativ',
-//     'Kontakt mit positiv getester Person',
-//     'nicht getestet, Corona-typische Symptome',
-//     'getestet: Test positiv',
-// ];
-
-// i18n Version
-const statusString = [
-    i18n.t('health-state-one'),
-    i18n.t('health-state-two'),
-    i18n.t('health-state-three'),
-    i18n.t('health-state-four'),
-    i18n.t('health-state-five'),
-];
-
 export default HomePage = (props) => {
     const [hasPermission, setHasPermission] = useState(null);
     const [modalVisible, setModalVisible] = useState(false);
@@ -68,6 +50,24 @@ export default HomePage = (props) => {
 
     const infectData = "@infectDataUS" + uid;
     const codeInputRef = useRef();
+
+    // Non replaced
+  // const statusString = [
+  //     'nicht getestet, keine Symptome',
+  //     'getestet: Test negativ',
+  //     'Kontakt mit positiv getester Person',
+  //     'nicht getestet, Corona-typische Symptome',
+  //     'getestet: Test positiv',
+  // ];
+
+  // i18n Version
+  const statusString = [
+    i18n.t('health-state-one'),
+    i18n.t('health-state-two'),
+    i18n.t('health-state-three'),
+    i18n.t('health-state-four'),
+    i18n.t('health-state-five'),
+  ];
 
     const updateUserdata = async () => {
 
