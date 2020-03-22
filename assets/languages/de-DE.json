@@ -30,5 +30,6 @@
   "sex-f": "weiblich",
   "sex-d": "divers/sonstiges",
   "symptoms-intro": "Häufigste Symptome bei Corona-Infektion",
-  "symptoms-cough": "Husten"
+  "symptoms-cough": "Husten",
+  "symptoms-fever": "Fieber"
 }

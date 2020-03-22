@@ -30,5 +30,6 @@
   "sex-f": "femme",
   "sex-d": "Varie/altro",
   "symptoms-intro": "Les symptômes les plus courants de l'infection corona",
-  "symptoms-cough": "Toux"
+  "symptoms-cough": "Toux",
+  "symptoms-fever": "Fièvre"
 }
