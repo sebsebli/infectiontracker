@@ -328,7 +328,7 @@ export default function App() {
           </TouchableOpacity>
           <TouchableOpacity style={{ width: '80%', height: 50, borderColor: '#293241', borderWidth: 2, alignItems: 'center', justifyContent: 'center', margin: 10, }}
 
-            onPress={() => Alert.alert('Dieses Feature wird noch nicht unterstützt.')}
+            onPress={() => Alert.alert(i18n.t('app-not-supported')) /*Dieses Feature wird noch nicht unterstützt.*/}
           >
             <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600' }}>{i18n.t('homeRestore')}</Text>
           </TouchableOpacity>
