@@ -52,22 +52,22 @@ export default HomePage = (props) => {
     const codeInputRef = useRef();
 
     // Non replaced
-  // const statusString = [
-  //     'nicht getestet, keine Symptome',
-  //     'getestet: Test negativ',
-  //     'Kontakt mit positiv getester Person',
-  //     'nicht getestet, Corona-typische Symptome',
-  //     'getestet: Test positiv',
-  // ];
+    // const statusString = [
+    //     'nicht getestet, keine Symptome',
+    //     'getestet: Test negativ',
+    //     'Kontakt mit positiv getester Person',
+    //     'nicht getestet, Corona-typische Symptome',
+    //     'getestet: Test positiv',
+    // ];
 
-  // i18n Version
-  const statusString = [
-    i18n.t('health-state-one'),
-    i18n.t('health-state-two'),
-    i18n.t('health-state-three'),
-    i18n.t('health-state-four'),
-    i18n.t('health-state-five'),
-  ];
+    // i18n Version
+    const statusString = [
+        i18n.t('health-state-one'),
+        i18n.t('health-state-two'),
+        i18n.t('health-state-three'),
+        i18n.t('health-state-four'),
+        i18n.t('health-state-five'),
+    ];
 
     const updateUserdata = async () => {
 
@@ -607,7 +607,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#EE6C4D',
         borderRadius: 35,
         position: 'absolute',
-        bottom: 20,
+        bottom: 0,
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',

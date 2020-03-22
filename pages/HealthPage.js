@@ -7,7 +7,7 @@
 // work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
 import React, { useState, useEffect } from 'react'
-import { Text, StyleSheet, StatusBar, TouchableOpacity, View, AsyncStorage } from 'react-native'
+import { Text, StyleSheet, StatusBar, TouchableOpacity, View, AsyncStorage, ScrollView } from 'react-native'
 import Header from '../components/Header'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
@@ -86,134 +86,136 @@ export default function HealthPage(props) {
                 overlayColor="rgba(0,0,0,0.7)"
                 size="large"
             />
-            <View style={{ flex: 1, width: '100%', alignItems: 'center' }} >
-                <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%', padding: 20 }}>
-                    <View style={{ borderColor: '#7dc656', backgroundColor: '#383838', borderWidth: 4, borderRadius: 20, height: 40, width: 40, justifyContent: 'center', alignItems: 'center' }}>
-                        <Ionicons name="ios-person" size={35} color="white" />
+            <ScrollView>
+                <View style={{ flex: 1, width: '100%', alignItems: 'center' }} >
+                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', width: '100%', padding: 20 }}>
+                        <View style={{ borderColor: '#7dc656', backgroundColor: '#383838', borderWidth: 4, borderRadius: 20, height: 40, width: 40, justifyContent: 'center', alignItems: 'center' }}>
+                            <Ionicons name="ios-person" size={35} color="white" />
+                        </View>
+                        <Text style={{ textAlign: 'left', fontWeight: '600', padding: 20, fontSize: 16 }}>{i18n.t('healtState') /*Dein Gesundheitszustand*/}</Text>
+
                     </View>
-                    <Text style={{ textAlign: 'left', fontWeight: '600', padding: 20, fontSize: 16 }}>{i18n.t('healtState') /*Dein Gesundheitszustand*/}</Text>
+                    <View style={{ width: '100%', alignItems: 'center' }}>
+                        <Text style={{ textAlign: 'left', fontWeight: '300', fontSize: 14, paddingLeft: 20, paddingRight: 20 }}>{i18n.t('reportState') /*Bitte berichte uns sofort, sobald etwas an deinem Zustand ändert. Alle Kontakte der letzten zwei Wochen werden anonym informiert. Niemand wird deine Identität erfahren.*/}
+                        </Text>
 
-                </View>
-                <View style={{ width: '100%', alignItems: 'center' }}>
-                    <Text style={{ textAlign: 'left', fontWeight: '300', fontSize: 14, paddingLeft: 20, paddingRight: 20 }}>{i18n.t('reportState') /*Bitte berichte uns sofort, sobald etwas an deinem Zustand ändert. Alle Kontakte der letzten zwei Wochen werden anonym informiert. Niemand wird deine Identität erfahren.*/}
-                    </Text>
+                        <TouchableOpacity style={{
+                            marginTop: 20,
+                            width: '95%', borderWidth: 1, borderColor: myState === 0 ? '#000000' : '#d6d6d6', height: 60, alignItems: 'center', justifyContent: 'flex-start', shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 2,
+                            },
+                            shadowOpacity: 0.1,
+                            shadowRadius: 1,
+                            flexDirection: 'row'
+                        }}
+                            onPress={() => handleStateChange(0)}
+                        >
+                            <View style={{ marginLeft: 20, marginRight: 20, borderColor: statusColor[0], backgroundColor: statusColor[0], borderWidth: 4, borderRadius: 13, height: 26, width: 26, justifyContent: 'center', alignItems: 'center' }}>
 
-                    <TouchableOpacity style={{
-                        marginTop: 20,
-                        width: '95%', borderWidth: 1, borderColor: myState === 0 ? '#000000' : '#d6d6d6', height: 60, alignItems: 'center', justifyContent: 'flex-start', shadowColor: "#000",
-                        shadowOffset: {
-                            width: 0,
-                            height: 2,
-                        },
-                        shadowOpacity: 0.1,
-                        shadowRadius: 1,
-                        flexDirection: 'row'
-                    }}
-                        onPress={() => handleStateChange(0)}
-                    >
-                        <View style={{ marginLeft: 20, marginRight: 20, borderColor: statusColor[0], backgroundColor: statusColor[0], borderWidth: 4, borderRadius: 13, height: 26, width: 26, justifyContent: 'center', alignItems: 'center' }}>
+                            </View>
+                            <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{statusString[0]}</Text>
 
-                        </View>
-                        <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{statusString[0]}</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{
+                            marginTop: 5,
+                            width: '95%', borderWidth: 1, borderColor: myState === 1 ? '#000000' : '#d6d6d6', height: 60, alignItems: 'center', justifyContent: 'flex-start', shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 2,
+                            },
+                            shadowOpacity: 0.1,
+                            shadowRadius: 1,
+                            flexDirection: 'row'
+                        }} onPress={() => handleStateChange(1)}
+                        >
+                            <View style={{ marginLeft: 20, marginRight: 20, borderColor: statusColor[1], backgroundColor: statusColor[1], borderWidth: 4, borderRadius: 13, height: 26, width: 26, justifyContent: 'center', alignItems: 'center' }}>
 
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{
-                        marginTop: 5,
-                        width: '95%', borderWidth: 1, borderColor: myState === 1 ? '#000000' : '#d6d6d6', height: 60, alignItems: 'center', justifyContent: 'flex-start', shadowColor: "#000",
-                        shadowOffset: {
-                            width: 0,
-                            height: 2,
-                        },
-                        shadowOpacity: 0.1,
-                        shadowRadius: 1,
-                        flexDirection: 'row'
-                    }} onPress={() => handleStateChange(1)}
-                    >
-                        <View style={{ marginLeft: 20, marginRight: 20, borderColor: statusColor[1], backgroundColor: statusColor[1], borderWidth: 4, borderRadius: 13, height: 26, width: 26, justifyContent: 'center', alignItems: 'center' }}>
+                            </View>
+                            <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{statusString[1]}</Text>
 
-                        </View>
-                        <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{statusString[1]}</Text>
+                        </TouchableOpacity>
 
-                    </TouchableOpacity>
+                        <TouchableOpacity style={{
+                            marginTop: 5,
+                            width: '95%', borderWidth: 1, borderColor: myState === 2 ? '#000000' : '#d6d6d6', height: 60, alignItems: 'center', justifyContent: 'flex-start', shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 2,
+                            },
+                            shadowOpacity: 0.1,
+                            shadowRadius: 1,
+                            flexDirection: 'row'
+                        }} onPress={() => handleStateChange(2)}
+                        >
+                            <View style={{ marginLeft: 20, marginRight: 20, borderColor: statusColor[2], backgroundColor: statusColor[2], borderWidth: 4, borderRadius: 13, height: 26, width: 26, justifyContent: 'center', alignItems: 'center' }}>
 
-                    <TouchableOpacity style={{
-                        marginTop: 5,
-                        width: '95%', borderWidth: 1, borderColor: myState === 2 ? '#000000' : '#d6d6d6', height: 60, alignItems: 'center', justifyContent: 'flex-start', shadowColor: "#000",
-                        shadowOffset: {
-                            width: 0,
-                            height: 2,
-                        },
-                        shadowOpacity: 0.1,
-                        shadowRadius: 1,
-                        flexDirection: 'row'
-                    }} onPress={() => handleStateChange(2)}
-                    >
-                        <View style={{ marginLeft: 20, marginRight: 20, borderColor: statusColor[2], backgroundColor: statusColor[2], borderWidth: 4, borderRadius: 13, height: 26, width: 26, justifyContent: 'center', alignItems: 'center' }}>
+                            </View>
+                            <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{statusString[2]}</Text>
 
-                        </View>
-                        <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{statusString[2]}</Text>
+                        </TouchableOpacity>
 
-                    </TouchableOpacity>
+                        <TouchableOpacity style={{
+                            marginTop: 5,
+                            width: '95%', borderWidth: 1, borderColor: myState === 3 ? '#000000' : '#d6d6d6', height: 60, alignItems: 'center', justifyContent: 'flex-start', shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 2,
+                            },
+                            shadowOpacity: 0.1,
+                            shadowRadius: 1,
+                            flexDirection: 'row'
+                        }} onPress={() => handleStateChange(3)}
+                        >
+                            <View style={{ marginLeft: 20, marginRight: 20, borderColor: statusColor[3], backgroundColor: statusColor[3], borderWidth: 4, borderRadius: 13, height: 26, width: 26, justifyContent: 'center', alignItems: 'center' }}>
 
-                    <TouchableOpacity style={{
-                        marginTop: 5,
-                        width: '95%', borderWidth: 1, borderColor: myState === 3 ? '#000000' : '#d6d6d6', height: 60, alignItems: 'center', justifyContent: 'flex-start', shadowColor: "#000",
-                        shadowOffset: {
-                            width: 0,
-                            height: 2,
-                        },
-                        shadowOpacity: 0.1,
-                        shadowRadius: 1,
-                        flexDirection: 'row'
-                    }} onPress={() => handleStateChange(3)}
-                    >
-                        <View style={{ marginLeft: 20, marginRight: 20, borderColor: statusColor[3], backgroundColor: statusColor[3], borderWidth: 4, borderRadius: 13, height: 26, width: 26, justifyContent: 'center', alignItems: 'center' }}>
+                            </View>
+                            <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{statusString[3]}</Text>
 
-                        </View>
-                        <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{statusString[3]}</Text>
+                        </TouchableOpacity>
 
-                    </TouchableOpacity>
+                        <TouchableOpacity style={{
+                            marginTop: 5,
+                            width: '95%', borderWidth: 1, borderColor: myState === 4 ? '#000000' : '#d6d6d6', height: 60, alignItems: 'center', justifyContent: 'flex-start', shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 2,
+                            },
+                            shadowOpacity: 0.1,
+                            shadowRadius: 1,
+                            flexDirection: 'row'
+                        }} onPress={() => handleStateChange(4)}
+                        >
+                            <View style={{ marginLeft: 20, marginRight: 20, borderColor: statusColor[4], backgroundColor: statusColor[4], borderWidth: 4, borderRadius: 13, height: 26, width: 26, justifyContent: 'center', alignItems: 'center' }}>
 
-                    <TouchableOpacity style={{
-                        marginTop: 5,
-                        width: '95%', borderWidth: 1, borderColor: myState === 4 ? '#000000' : '#d6d6d6', height: 60, alignItems: 'center', justifyContent: 'flex-start', shadowColor: "#000",
-                        shadowOffset: {
-                            width: 0,
-                            height: 2,
-                        },
-                        shadowOpacity: 0.1,
-                        shadowRadius: 1,
-                        flexDirection: 'row'
-                    }} onPress={() => handleStateChange(4)}
-                    >
-                        <View style={{ marginLeft: 20, marginRight: 20, borderColor: statusColor[4], backgroundColor: statusColor[4], borderWidth: 4, borderRadius: 13, height: 26, width: 26, justifyContent: 'center', alignItems: 'center' }}>
+                            </View>
+                            <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{statusString[4]}</Text>
 
-                        </View>
-                        <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{statusString[4]}</Text>
-
-                    </TouchableOpacity>
+                        </TouchableOpacity>
 
 
-                    <Text style={{ textAlign: 'left', fontWeight: '300', fontSize: 14, padding: 20 }}>
-                        {i18n.t('symptoms-intro') /*Häufigste Symptome bei Corona-Infektion*/}:{'\n'}
+                        <Text style={{ textAlign: 'left', fontWeight: '300', fontSize: 14, padding: 20 }}>
+                            {i18n.t('symptoms-intro') /*Häufigste Symptome bei Corona-Infektion*/}:{'\n'}
                         - {i18n.t('symptoms-cough') /*Husten*/} 55%{'\n'}
                         - {i18n.t('symptoms-fever') /*Fieber*/} 39%{'\n'}
                         - {i18n.t('symptoms-cold') /*Schnupfen*/} 28%{'\n'}
                         - {i18n.t('symptoms-throat') /*Halsschmerzen*/} 23%{'\n'}
-                        {'\n'}
-                        {i18n.t('symptoms-yes') /*Wenn du Symptome aufweist, ruf bitte deinen Hausarzt an oder wende dich bei Dringlichkeit an die Notfallnummer 116 117. Bei schwerwiegenden Symptomen wie Atemnot, ruf den Rettungsdient (112).*/}
-                        {'\n'}{'\n'}
-                        {i18n.t('symptoms-infos') /*Weitere Infos findest du hier*/}:  www.infektionsschutz.de/coronavirus
+                            {'\n'}
+                            {i18n.t('symptoms-yes') /*Wenn du Symptome aufweist, ruf bitte deinen Hausarzt an oder wende dich bei Dringlichkeit an die Notfallnummer 116 117. Bei schwerwiegenden Symptomen wie Atemnot, ruf den Rettungsdient (112).*/}
+                            {'\n'}{'\n'}
+                            {i18n.t('symptoms-infos') /*Weitere Infos findest du hier*/}:  www.infektionsschutz.de/coronavirus
 
 
 
                     </Text>
 
 
+                    </View>
+
+
                 </View>
-
-
-            </View>
+            </ScrollView>
         </View >
     )
 

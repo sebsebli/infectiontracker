@@ -40,7 +40,6 @@ class DrawerTrigger extends React.Component {
 const styles = StyleSheet.create({
     trigger: {
         marginLeft: 27.5,
-        marginTop: 20,
         borderRadius: 30,
         width: 60,
         height: 50,
