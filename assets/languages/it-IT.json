@@ -42,5 +42,10 @@
   "app-no-revert": "Una volta effettuata la scansione, i contatti non possono essere cancellati per motivi di sicurezza.",
   "app-join": "Unisciti al gruppo",
   "app-join-code": "Inserire il codice di gruppo a 7 cifre",
-  "app-code": "Inserire il codice del gruppo"
+  "app-code": "Inserire il codice del gruppo",
+  "app-your-env": "Su entorno",
+  "app-your-env-attention": "¡Atención! Estás en peligro.",
+  "app-your-env-nothing": "no se reconoce ningún peligro",
+  "app-your-follow": "si seguono",
+  "app-your-contacts": "contatti"
 }

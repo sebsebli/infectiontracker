@@ -42,5 +42,10 @@
   "app-no-revert": "Uma vez escaneados, os contatos não podem ser desfeitos por razões de segurança.",
   "app-join": "Junte-se ao grupo",
   "app-join-code": "Por favor introduza o código de grupo de 7 dígitos",
-  "app-code": "Digite o código do grupo"
+  "app-code": "Digite o código do grupo",
+  "app-your-env": "O seu ambiente",
+  "app-your-env-attention": "Atenção! Você está em perigo.",
+  "app-your-env-nothing": "nenhum perigo reconhecido",
+  "app-your-follow": "você segue",
+  "app-your-contacts": "contatos"
 }
