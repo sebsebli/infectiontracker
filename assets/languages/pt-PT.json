@@ -18,5 +18,10 @@
   "homeNew": "Eu sou novo aqui.",
   "homeRestore": "Restaurar",
   "homeYourCode": "O seu código pessoal",
-  "homeGroupCodeButton": "Gerar código de grupo"
+  "homeGroupCodeButton": "Gerar código de grupo",
+  "status-01": "não testado, sem sintomas",
+  "status-02": "testado: teste negativo",
+  "status-03": "Contacto com pessoa testada positivamente",
+  "status-04": "não testado, sintomas típicos da coroa",
+  "status-05": "testado: teste positivo"
 }
