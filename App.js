@@ -22,13 +22,17 @@ import * as TaskManager from 'expo-task-manager';
 import getUpdates from './helpers/BackgroundUpdate'
 i18n.fallbacks = true;
 i18n.translations = {
-  de: require('./assets/languages/de-DE.json')
+  de: require('./assets/languages/de-DE.json'),
+  en: require('./assets/languages/en-US.json'),
+  es: require('./assets/languages/es-ES.json'),
+  fr: require('./assets/languages/fr-FR.json'),
+  it: require('./assets/languages/it-IT.json'),
+  pt: require('./assets/languages/pt-PT.json'),
+  ru: require('./assets/languages/ru-RU.json')
 };
-i18n.defaultLocale = 'de-DE'
+i18n.defaultLocale = 'de-DE';
 // Set the locale once at the beginning of your app.
 i18n.locale = Localization.locale;
-
-
 
 // Check user credentials in storage 
 

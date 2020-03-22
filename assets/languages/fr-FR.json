@@ -1,0 +1,22 @@
+{
+  "appName": "Infection Tracker",
+  "noSelect": "non spécifié",
+  "continue": "Continuer",
+  "welcome": "Bienvenue à ",
+  "errorMessage": "Il y a eu une erreur ! Essayez encore une fois.",
+  "welcomeDesc": "En évaluant des données anonymes, nous pouvons mieux comprendre le virus et mieux agir contre lui. Toute information est volontaire et ne peut vous être communiquée.",
+  "welcomeAge": "Groupe d'âge",
+  "welcomeSex": "Genre",
+  "welcomeRisk": "Appartenez-vous à un ou plusieurs des groupes à risque suivants ?",
+  "welcomeCheck1": "Fumeur",
+  "welcomeCheck2": "Asthme",
+  "welcomeCheck3": "Maladies cardiovasculaires",
+  "drawerHome": "Démarrer",
+  "drawerReset": "Restaurer",
+  "drawerTutorial": "C'est ainsi que cela fonctionne.",
+  "drawerImprint": "Mentions légales",
+  "homeNew": "Je suis nouveau ici",
+  "homeRestore": "Restaurer",
+  "homeYourCode": "Votre code personnel",
+  "homeGroupCodeButton": "Générer un code de groupe"
+}
