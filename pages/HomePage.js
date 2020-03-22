@@ -19,7 +19,7 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import GroupsModal from '../components/GroupsModal'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useGlobalState, setgid, setcontactCount, setcontactStatus } from '../helpers/GlobalState';
-
+import SmoothPinCodeInput from 'react-native-smooth-pincode-input'
 
 const statusColor = [
     '#7dc656',
@@ -50,12 +50,12 @@ const statusString = [
 export default HomePage = (props) => {
     const [hasPermission, setHasPermission] = useState(null);
     const [modalVisible, setModalVisible] = useState(false);
-
+    const [modalVisibleGrupCode, setmodalVisibleGrupCode] = useState(false);
     const [groupsVisible, setgroupsVisible] = useState(false);
-
+    const [groupCode, setGroupCode] = useState('');
     const [loading, setLoading] = useState(false);
     const [loadingHome, setLoadingHome] = useState(false);
-
+    const [canJoin, setCanJoin] = useState(true);
     const [contactState] = useGlobalState('contactStatus');
     const [contactCount] = useGlobalState('contactCount');
     const [groupData] = useGlobalState('gid');
@@ -342,7 +342,12 @@ export default HomePage = (props) => {
                             shadowOpacity: 0.15,
                             shadowRadius: 3.84,
                             height: 50, borderRadius: 15, width: 200, alignItems: 'center', justifyContent: 'center', marginTop: 20,
-                        }}>
+                        }}
+                            onPress={() => {
+                                setModalVisible(false)
+                                setmodalVisibleGrupCode(true)
+                            }}
+                        >
                             <Text style={{
                                 fontSize: 14,
                                 fontWeight: "600",
@@ -392,7 +397,85 @@ export default HomePage = (props) => {
 
 
             </Modal>
+            <Modal
+                animationType="slide"
+                transparent={false}
+                visible={modalVisibleGrupCode}
+                onRequestClose={() => {
 
+                }}
+
+                style={{ flex: 1, backgroundColor: 'none', height: '100%' }}>
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity
+                        style={{
+
+
+                            alignItems: 'center', justifyContent: 'center',
+                            position: 'absolute',
+                            top: 30, right: 20,
+                            height: 40, width: 40
+
+                        }}
+                        onPress={() => {
+                            setModalVisible(true)
+                            setmodalVisibleGrupCode(false)
+                        }}
+                    >
+                        <Ionicons name="ios-close-circle-outline" size={30} color="black"></Ionicons>
+                    </TouchableOpacity>
+                    <Text style={{ textAlign: 'left', fontWeight: '500', padding: 10 }}>Bitte gib den 7-stelligen Gruppen-Code ein</Text>
+                    <SmoothPinCodeInput
+                        cellStyle={{
+                            borderBottomWidth: 2,
+                            borderColor: 'gray',
+                        }}
+                        cellStyleFocused={{
+                            borderColor: 'black',
+                        }}
+                        codeLength={7}
+                        value={groupCode}
+                        onTextChange={code => setGroupCode(code)}
+                        animated={false}
+                        onFulfill={() => setCanJoin(false)}
+                        onBackspace={() => setCanJoin(true)}
+                    />
+                    <TouchableOpacity
+                        disabled={canJoin}
+                        style={{
+                            backgroundColor: '#293241',
+                            shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 2,
+                            },
+                            shadowOpacity: 0.15,
+                            shadowRadius: 3.84,
+                            height: 50, borderRadius: 15, width: 200, alignItems: 'center', justifyContent: 'center', marginTop: 20,
+                        }}
+                        onPress={() => {
+                            setModalVisible(false)
+                            setmodalVisibleGrupCode(true)
+                        }}
+                    >
+                        <Text style={{
+                            fontSize: 14,
+                            fontWeight: "600",
+
+                            color: '#ffffff',
+
+
+                        }}>Gruppe beitreten</Text>
+
+                    </TouchableOpacity>
+
+
+
+
+                </View>
+
+
+            </Modal>
         </View >
     )
 
