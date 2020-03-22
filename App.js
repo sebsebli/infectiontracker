@@ -29,6 +29,7 @@ i18n.translations = {
   it: require('./assets/languages/it-IT.json'),
   pt: require('./assets/languages/pt-PT.json'),
   ru: require('./assets/languages/ru-RU.json'),
+  hi: require('./assets/languages/hi.json'),
   ar: require('./assets/languages/ar.json')
 };
 i18n.defaultLocale = 'de-DE';
