@@ -248,9 +248,9 @@ export default function App() {
                     }}
                     value={sex}
                     items={[
-                      { label: 'männlich', value: '1' },
-                      { label: 'weiblich', value: '2' },
-                      { label: 'divers/sonstiges', value: '3' },
+                      { label: i18n.t('sex-m'), value: '1' },
+                      { label: i18n.t('sex-f'), value: '2' },
+                      { label: i18n.t('sex-d'), value: '3' },
 
                     ]}
                     Icon={() => {

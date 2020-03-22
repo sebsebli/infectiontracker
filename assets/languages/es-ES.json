@@ -25,5 +25,13 @@
   "status-04": "no probado, síntomas típicos de la corona",
   "status-05": "probado: prueba positiva",
   "healtState": "Estado de salud",
-  "reportState": "Por favor, infórmenos inmediatamente si algo cambia en su condición. Todos los contactos de las últimas dos semanas serán informados anónimamente. Nadie sabrá su identidad."
+  "reportState": "Por favor, infórmenos inmediatamente si algo cambia en su condición. Todos los contactos de las últimas dos semanas serán informados anónimamente. Nadie sabrá su identidad.",
+  "sex-m": "macho",
+  "sex-f": "femenino",
+  "sex-d": "miscelánea/otros",
+  "symptoms-intro": "Los síntomas más comunes de la infección de la corona",
+  "symptoms-cough": "Tos",
+  "symptoms-fever": "Fiebre",
+  "symptoms-cold": "Nariz que moquea",
+  "symptoms-throat": "Dolor de garganta"
 }
