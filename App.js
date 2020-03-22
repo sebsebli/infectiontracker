@@ -21,6 +21,7 @@ import * as BackgroundFetch from 'expo-background-fetch';
 import * as TaskManager from 'expo-task-manager';
 import getUpdates from './helpers/BackgroundUpdate'
 i18n.fallbacks = true;
+i18n.defaultLocale = 'de-DE';
 i18n.translations = {
   de: require('./assets/languages/de-DE.json'),
   en: require('./assets/languages/en-US.json'),
@@ -32,7 +33,7 @@ i18n.translations = {
   hi: require('./assets/languages/hi.json'),
   ar: require('./assets/languages/ar.json')
 };
-i18n.defaultLocale = 'de-DE';
+
 // Set the locale once at the beginning of your app.
 i18n.locale = Localization.locale;
 
