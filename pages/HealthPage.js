@@ -98,7 +98,7 @@ export default function HealthPage(props) {
 
                 </View>
                 <View style={{ width: '100%', alignItems: 'center' }}>
-                    <Text style={{ textAlign: 'left', fontWeight: '300', fontSize: 14, paddingLeft: 20, paddingRight: 20 }}>Bitte berichte uns sofort, sobald etwas an deinem Zustand ändert. Alle Kontakte der letzten zwei Wochen werden anonym informiert. Niemand wird deine Identität erfahren.
+                    <Text style={{ textAlign: 'left', fontWeight: '300', fontSize: 14, paddingLeft: 20, paddingRight: 20 }}>{i18n.t('reportState') /*Bitte berichte uns sofort, sobald etwas an deinem Zustand ändert. Alle Kontakte der letzten zwei Wochen werden anonym informiert. Niemand wird deine Identität erfahren.*/}
 </Text>
 
                     <TouchableOpacity style={{

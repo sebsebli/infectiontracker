@@ -24,5 +24,6 @@
   "status-03": "El contacto con la persona probada positivamente",
   "status-04": "no probado, síntomas típicos de la corona",
   "status-05": "probado: prueba positiva",
-  "healtState": "Estado de salud"
+  "healtState": "Estado de salud",
+  "reportState": "Por favor, infórmenos inmediatamente si algo cambia en su condición. Todos los contactos de las últimas dos semanas serán informados anónimamente. Nadie sabrá su identidad."
 }

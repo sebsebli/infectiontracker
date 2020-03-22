@@ -24,5 +24,6 @@
   "status-03": "Contacto com pessoa testada positivamente",
   "status-04": "não testado, sintomas típicos da coroa",
   "status-05": "testado: teste positivo",
-  "healtState": "estado de saúde"
+  "healtState": "estado de saúde",
+  "reportState": "Por favor, informe-nos imediatamente se algo mudar na sua condição. Todos os contatos das últimas duas semanas serão informados anonimamente. Ninguém vai saber a sua identidade."
 }

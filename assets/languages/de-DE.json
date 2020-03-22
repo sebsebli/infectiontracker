@@ -24,5 +24,6 @@
   "status-03": "Kontakt mit positiv getester Person",
   "status-04": "nicht getestet, Corona-typische Symptome",
   "status-05": "getestet: Test positiv",
-  "healtState": "Dein Gesundheitszustand"
+  "healtState": "Dein Gesundheitszustand",
+  "reportState": "Bitte berichte uns sofort, sobald etwas an deinem Zustand ändert. Alle Kontakte der letzten zwei Wochen werden anonym informiert. Niemand wird deine Identität erfahren."
 }

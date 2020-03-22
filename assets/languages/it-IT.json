@@ -24,5 +24,6 @@
   "status-03": "Contatto con la persona testata positivamente",
   "status-04": "non testato, sintomi tipici della corona",
   "status-05": "testato: test positivo",
-  "healtState": "Stato di salute"
+  "healtState": "Stato di salute",
+  "reportState": "Vi preghiamo di segnalarci immediatamente se qualcosa cambia nelle vostre condizioni. Tutti i contatti delle ultime due settimane saranno informati in forma anonima. Nessuno conoscerà la tua identità."
 }
