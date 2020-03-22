@@ -36,5 +36,6 @@
   "symptoms-throat": "Dolor de garganta",
   "symptoms-yes": "Si tiene síntomas, por favor llame a su médico de cabecera. Si tiene síntomas graves, como falta de aliento, llame a los servicios de emergencia (112).",
   "symptoms-infos": "Puede encontrar más información aquí",
-  "app-back": "Volver"
+  "app-back": "Volver",
+  "app-scan-so": "Escanea el código de tu contacto. Los contactos escaneados se eliminan automáticamente después de 2 semanas."
 }
