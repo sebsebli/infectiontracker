@@ -17,6 +17,8 @@ import RNPickerSelect from 'react-native-picker-select';
 import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { CheckBox } from 'react-native-elements'
 import { setUID, setKEY, setmyStatus } from './helpers/GlobalState';
+import * as BackgroundFetch from 'expo-background-fetch';
+import * as TaskManager from 'expo-task-manager';
 import getUpdates from './helpers/BackgroundUpdate'
 i18n.fallbacks = true;
 i18n.translations = {
@@ -43,8 +45,17 @@ export default function App() {
 
 
 
-  getUpdates();
-
+  TaskManager.defineTask("UpdateContactData", async () => {
+    try {
+      const response = await axios.post('https://seb-vs-virus-api.herokuapp.com/group', {
+        uid: uid,
+      });
+      console.log(response)
+      return response ? BackgroundFetch.Result.NewData : BackgroundFetch.Result.NoData;
+    } catch (error) {
+      return BackgroundFetch.Result.Failed;
+    }
+  });
 
 
   async function register(sex, age) {
