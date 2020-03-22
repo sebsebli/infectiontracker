@@ -45,7 +45,7 @@ export default GroupsModal = (props) => {
                     padding: 20,
                     color: '#ababab'
                 }}>Neuer Gruppen-Code:</Text>
-                <QRCode content={infectData} codeStyle='dot' logo={require('../assets/images/logo.png')} size={200, 200} logoSize={50} />
+                <QRCode content={"@infectDataGR" + infectData} codeStyle='dot' logo={require('../assets/images/logo.png')} size={200, 200} logoSize={50} />
 
                 <Text style={{
                     fontSize: 40,

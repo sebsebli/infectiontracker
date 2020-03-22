@@ -6,7 +6,7 @@
 // You should have received a copy of the license along with this
 // work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Text, StyleSheet, StatusBar, TouchableOpacity, View, Modal, Image, Alert, ScrollView } from 'react-native'
 import Header from '../components/Header'
 import { QRCode } from 'react-native-custom-qr-codes-expo';
@@ -66,8 +66,8 @@ export default HomePage = (props) => {
     const [uid] = useGlobalState('uid');
     const [myState] = useGlobalState('myStatus');
 
-    const infectData = "@infectData" + uid;
-    let codeInputRef = null;
+    const infectData = "@infectDataUS" + uid;
+    const codeInputRef = useRef();
 
     //SetInterval to update contact data --> change to BackgroundFetch in final version!!!
     setInterval(() => {
@@ -102,30 +102,38 @@ export default HomePage = (props) => {
 
     }
 
-    async function joinGroup() {
+    joinGroup = () => {
         setLoadingGroup(true)
-        let joingGroup = axios.post('https://seb-vs-virus-api.herokuapp.com/join', {
+
+        console.log(groupCode)
+        axios.post('https://seb-vs-virus-api.herokuapp.com/join', {
             uid: uid,
             key: key,
-            shortcode: groupCode
+            shortcode: groupCode.toString()
+
         })
+            .then(function (response) {
+                console.log(response.data)
 
 
-        axios.all([joingGroup]).then(axios.spread((...responses) => {
-            const data = responses[0]
-            console.log(data.status)
+                setLoadingGroup(false)
 
-            setLoadingGroup(false)
-
-            setmodalVisibleGrupCode(false)
+                setmodalVisibleGrupCode(false)
 
 
-        })).catch(errors => {
-            console.log(errors.response.status)
-            setLoadingGroup(false)
-            codeInputRef.shake()
-            setGroupCode('')
-        })
+            })
+            .catch(function (error) {
+                console.log(error)
+                setLoadingGroup(false)
+
+                codeInputRef.current.shake()
+
+                setGroupCode('')
+
+            });
+
+
+
     }
 
     useEffect(() => {
@@ -180,35 +188,74 @@ export default HomePage = (props) => {
 
 
     const handleBarCodeScanned = async ({ type, data }) => {
-        if (data.slice(0, 11) !== "@infectData") return
-        console.log('GOT CODE', "XID: " + data.slice(11), "UID: " + uid, "KEY: " + key)
-        setLoading(true)
+        let temp = data.slice(0, 13);
 
-        axios.post('https://seb-vs-virus-api.herokuapp.com/connect', {
-            uid: uid,
-            xid: data.slice(11),
-            key: key
+        console.log('GOT CODE', data)
+        if (temp === "@infectDataUS") {
+            setLoading(true)
 
-        })
-            .then(function (response) {
-                console.log(response)
-                setLoading(false)
-                setModalVisible(false);
+            axios.post('https://seb-vs-virus-api.herokuapp.com/connect', {
+                uid: uid,
+                xid: data.slice(13),
+                key: key
+
             })
-            .catch(function (error) {
+                .then(function (response) {
+                    console.log(response)
+                    setLoading(false)
+                    setModalVisible(false);
+                })
+                .catch(function (error) {
 
-                // Works on both Android and iOS
-                Alert.alert(
-                    'Achtung',
-                    "Es gab einen Fehler beim Daten übertragen" + '\n' + error,
-                    [
+                    // Works on both Android and iOS
+                    Alert.alert(
+                        'Achtung',
+                        "Es gab einen Fehler beim Daten übertragen" + '\n' + error,
+                        [
 
-                        { text: 'OK', onPress: () => setLoading(false) },
-                    ],
-                    { cancelable: false }
-                );
+                            { text: 'OK', onPress: () => setLoading(false) },
+                        ],
+                        { cancelable: false }
+                    );
 
-            });
+                });
+
+        }
+        if (temp === "@infectDataGR") {
+            setLoading(true)
+            axios.post('https://seb-vs-virus-api.herokuapp.com/join', {
+                uid: uid,
+                gid: data.slice(13),
+                key: key
+
+            })
+                .then(function (response) {
+                    console.log(response)
+                    setLoading(false)
+                    setModalVisible(false);
+                })
+                .catch(function (error) {
+
+                    // Works on both Android and iOS
+                    Alert.alert(
+                        'Achtung',
+                        "Es gab einen Fehler beim Daten übertragen" + '\n' + error,
+                        [
+
+                            { text: 'OK', onPress: () => setLoading(false) },
+                        ],
+                        { cancelable: false }
+                    );
+
+                });
+
+        }
+        return
+
+
+
+
+
 
 
 
@@ -449,7 +496,7 @@ export default HomePage = (props) => {
 
                         }}
                         onPress={() => {
-                            setModalVisible(true)
+                            setModalVisible(false)
                             setmodalVisibleGrupCode(false)
                         }}
                     >
@@ -470,10 +517,10 @@ export default HomePage = (props) => {
                         codeLength={7}
                         value={groupCode}
                         onTextChange={code => setGroupCode(code)}
-                        animated={false}
+                        animated={true}
                         onFulfill={() => setCanJoin(false)}
                         onBackspace={() => setCanJoin(true)}
-                        ref={(input) => { codeInputRef = input; }} />
+                        ref={codeInputRef}
                     />
                     <TouchableOpacity
                         disabled={canJoin}
@@ -502,7 +549,35 @@ export default HomePage = (props) => {
                         }}>Gruppe beitreten</Text>
 
                     </TouchableOpacity>
+                    <TouchableOpacity
+                        disabled={canJoin}
+                        style={{
+                            backgroundColor: '#293241',
+                            shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 2,
+                            },
+                            shadowOpacity: 0.15,
+                            shadowRadius: 3.84,
+                            height: 50, borderRadius: 15, width: 200, alignItems: 'center', justifyContent: 'center', marginTop: 20,
+                        }}
+                        onPress={() => {
+                            setModalVisible(true)
+                            setmodalVisibleGrupCode(false)
+                        }
+                        }
+                    >
+                        <Text style={{
+                            fontSize: 14,
+                            fontWeight: "600",
 
+                            color: '#ffffff',
+
+
+                        }}>QR-Code scannen</Text>
+
+                    </TouchableOpacity>
 
 
 
