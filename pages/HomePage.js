@@ -180,8 +180,8 @@ export default HomePage = (props) => {
 
                 // Works on both Android and iOS
                 Alert.alert(
-                    'Achtung',
-                    "Es gab einen Fehler beim Daten übertragen" + '\n' + error,
+                  i18n.t('app-attention'), //Achtung
+                  i18n.t('app-error') + '\n' + error, //"Es gab einen Fehler beim Daten übertragen"
                     [
 
                         { text: 'OK', onPress: () => setLoadingHome(false) },
@@ -219,7 +219,7 @@ export default HomePage = (props) => {
                     // Works on both Android and iOS
                     Alert.alert(
                         i18n.t('app-attention'), //Achtung
-                        "Es gab einen Fehler beim Daten übertragen" + '\n' + error,
+                      i18n.t('app-error') + '\n' + error, //"Es gab einen Fehler beim Daten übertragen"
                         [
 
                             { text: 'OK', onPress: () => setLoading(false) },
@@ -248,7 +248,7 @@ export default HomePage = (props) => {
                     // Works on both Android and iOS
                     Alert.alert(
                         i18n.t('app-attention'), //Achtung
-                        "Es gab einen Fehler beim Daten übertragen" + '\n' + error,
+                      i18n.t('app-error') + '\n' + error, //"Es gab einen Fehler beim Daten übertragen"
                         [
 
                             { text: 'OK', onPress: () => setLoading(false) },

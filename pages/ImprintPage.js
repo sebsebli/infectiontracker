@@ -46,6 +46,26 @@ export default class ImprintPage extends Component {
 
                     <Text style={{
                         fontSize: 16,
+                        fontWeight: "400",
+                        paddingRight: 20,
+                        paddingLeft: 20,
+                        color: '#000000',
+                        alignSelf: 'flex-start'
+
+                    }}>This app was developed within 48h as part of the  <Text style={{
+
+                        fontWeight: "600",
+
+                        color: '#000000',
+                        alignSelf: 'flex-start'
+
+                    }}>#WIRVSVIRUS-Hackathons</Text> and supports all necessary functions of
+                        of the intended target. We still have a lot of ideas how to extend the app. We are looking for cooperations and hope
+                        to see the app in practical use soon, so that we can get through the Corona crisis in the best possible way.
+                    </Text>
+
+                    <Text style={{
+                        fontSize: 16,
                         fontWeight: "600",
                         padding: 20,
                         color: '#000000',
@@ -93,7 +113,7 @@ export default class ImprintPage extends Component {
                         color: '#000000',
                         alignSelf: 'flex-start'
 
-                    }}>Linzenz: CC BY-NC-SA 4.0</Text>
+                    }}>License: CC BY-NC-SA 4.0</Text>
 
                 </View>
             </View>

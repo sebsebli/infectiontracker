@@ -39,7 +39,7 @@ export default class TutorialPage extends Component {
 
                         color: '#000000',
 
-                    }}>Scann starten</Text> oder informiert eure Kontakte über euren <Text style={{
+                    }}>Scan starten</Text> oder informiert eure Kontakte über euren <Text style={{
                         fontSize: 16,
                         fontWeight: "600",
 
@@ -127,7 +127,7 @@ export default class TutorialPage extends Component {
                                     fontWeight: "600",
                                     color: '#000000',
 
-                                }}>Dein Gesundheitszustand:</Text>{'\n'}Ändere ihn, um deine Kontakte zu informieren.</Text>
+                                }}>{i18n.t('healtState') /*Dein Gesundheitszustand*/}:</Text>{'\n'}Ändere ihn, um deine Kontakte zu informieren.</Text>
 
                             </View>
 
@@ -169,7 +169,7 @@ export default class TutorialPage extends Component {
 
                                     color: '#000000',
 
-                                }}>Dein Umfeld:</Text>{'\n'}Hier kannst du nachvollziehen, ob eine der Personen, mit denen du innerhalb der letzen 2 Wochen Kontakt hattest, Corona-Symptome aufweist oder bereits positiv auf Corona getestet wurde.</Text>
+                                }}>{i18n.t('app-your-env') /*Dein Umfeld*/}:</Text>{'\n'}Hier kannst du nachvollziehen, ob eine der Personen, mit denen du innerhalb der letzen 2 Wochen Kontakt hattest, Corona-Symptome aufweist oder bereits positiv auf Corona getestet wurde.</Text>
 
 
                             </View>

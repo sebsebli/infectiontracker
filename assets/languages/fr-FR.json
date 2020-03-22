@@ -52,5 +52,7 @@
   "app-your-follow": "vous suivez",
   "app-your-contacts": "contacts",
   "app-tutorial-intro": "Scannez le code de votre contact ou informez vos contacts de votre état de santé afin que nous puissions travailler ensemble pour réduire la propagation du virus corona.",
-  "app-qr-scan": "Scanner le code QR"
+  "app-qr-scan": "Scanner le code QR",
+  "app-error": "Il y a eu une erreur lors du transfert des données",
+  "app-not-supported": "Cette fonction n'est pas encore prise en charge."
 }
