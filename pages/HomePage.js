@@ -18,7 +18,7 @@ import axios from 'axios';
 import Spinner from 'react-native-loading-spinner-overlay';
 import GroupsModal from '../components/GroupsModal'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import { useGlobalState, setgid } from '../helpers/GlobalState';
+import { useGlobalState, setgid, setcontactCount, setcontactStatus } from '../helpers/GlobalState';
 
 const statusColor = [
     '#7dc656',
@@ -44,15 +44,50 @@ export default HomePage = (props) => {
     const [loading, setLoading] = useState(false);
     const [loadingHome, setLoadingHome] = useState(false);
 
-
-    const [contactState, setContactstate] = useState(0);
-
+    const [contactState] = useGlobalState('contactStatus');
+    const [contactCount] = useGlobalState('contactCount');
     const [groupData] = useGlobalState('gid');
     const [key] = useGlobalState('key');
     const [uid] = useGlobalState('uid');
     const [myState] = useGlobalState('myStatus');
 
     const infectData = "@infectData" + uid;
+
+
+    //SetInterval to update contact data --> change to BackgroundFetch in final version!!!
+    setInterval(() => {
+        updateUserdata()
+    }, 5000)
+
+
+    updateUserdata = async () => {
+
+        let contactCount = axios.post('https://seb-vs-virus-api.herokuapp.com/count', {
+            uid: uid,
+            key: key
+        })
+        let contactStatus = axios.post('https://seb-vs-virus-api.herokuapp.com/check', {
+            uid: uid,
+            key: key
+        })
+
+
+        axios.all([contactCount, contactStatus]).then(axios.spread((...responses) => {
+            const count = responses[0].data
+            const status = responses[1].data
+            setcontactCount(count)
+            setcontactStatus(status)
+
+
+        })).catch(errors => {
+
+        })
+
+
+
+
+    }
+
 
 
     useEffect(() => {
@@ -238,7 +273,7 @@ export default HomePage = (props) => {
 
                         <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>Dein Umfeld</Text>
                         <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>{contactState > 2 ? 'Achtung! Du bist gefährdet.' : 'keine Gefahr erkannt'}</Text>
-                        <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>du trackst <Text style={{ fontWeight: '500' }}>18</Text> Kontakte</Text>
+                        <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>du verfolgst <Text style={{ fontWeight: '500' }}>{contactCount}</Text> Kontakte</Text>
                     </View>
                     <View style={{ height: '100%', width: 80, justifyContent: 'center', alignItems: 'flex-end', marginRight: 40 }}>
 
