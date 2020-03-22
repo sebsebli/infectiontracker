@@ -465,7 +465,7 @@ export default HomePage = (props) => {
                             color: '#ffffff',
 
 
-                        }}>Gruppe beitreten</Text>
+                        }}>{i18n.t('app-join') /*Gruppe beitreten*/}</Text>
 
                     </TouchableOpacity>
 

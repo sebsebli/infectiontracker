@@ -39,5 +39,6 @@
   "app-back": "Retour",
   "app-scan-so": "Scannez le code de votre contact. Les contacts scannés sont automatiquement supprimés après 2 semaines.",
   "app-attention": "Attention",
-  "app-no-revert": "Une fois scannés, les contacts ne peuvent pas être annulés pour des raisons de sécurité."
+  "app-no-revert": "Une fois scannés, les contacts ne peuvent pas être annulés pour des raisons de sécurité.",
+  "app-join": "Rejoindre le groupe"
 }

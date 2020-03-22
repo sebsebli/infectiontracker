@@ -39,5 +39,6 @@
   "app-back": "Voltar",
   "app-scan-so": "Digitalize o código do seu contacto. Os contatos escaneados são automaticamente apagados após 2 semanas.",
   "app-attention": "Atenção",
-  "app-no-revert": "Uma vez escaneados, os contatos não podem ser desfeitos por razões de segurança."
+  "app-no-revert": "Uma vez escaneados, os contatos não podem ser desfeitos por razões de segurança.",
+  "app-join": "Junte-se ao grupo"
 }
