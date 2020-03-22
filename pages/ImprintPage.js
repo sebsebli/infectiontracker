@@ -12,10 +12,90 @@ import Header from '../components/Header'
 export default class ImprintPage extends Component {
     render() {
         return (
-            <View>
+            <View style={{ flex: 1 }}>
                 <StatusBar backgroundColor="#293241" barStyle="light-content" />
                 <Header />
-                <Text> textInComponent </Text>
+                <View style={{ flex: 1, height: '100%', alignItems: 'center', }}>
+                    <Text style={{
+                        fontSize: 16,
+                        fontWeight: "600",
+                        padding: 20,
+                        color: '#000000',
+                        alignSelf: 'flex-start'
+
+                    }}>Impressum</Text>
+                    <Text style={{
+                        fontSize: 16,
+                        fontWeight: "400",
+                        paddingRight: 20,
+                        paddingLeft: 20,
+                        color: '#000000',
+                        alignSelf: 'flex-start'
+
+                    }}>Diese App wurde innerhalb von 48h im Rahmen des  <Text style={{
+
+                        fontWeight: "600",
+
+                        color: '#000000',
+                        alignSelf: 'flex-start'
+
+                    }}>#WIRVSVIRUS-Hackathons</Text> entwickelt und unterstützt alle notwendigen Funktionen der
+                        des anvisierten Ziels. Wir haben weiterhin vielzählige Ideen, wie wir die App erweitern können. Wir wünschen uns Kooperationen und hoffen
+                        die App bald im Praxisgebrauch zu sehen, damit wir die Corona-Krise bestmöglich überstehen können.
+                    </Text>
+
+                    <Text style={{
+                        fontSize: 16,
+                        fontWeight: "600",
+                        padding: 20,
+                        color: '#000000',
+                        alignSelf: 'flex-start'
+
+                    }}>Unser Team</Text>
+                    <Text style={{
+                        fontSize: 16,
+                        fontWeight: "400",
+                        paddingRight: 20,
+                        paddingLeft: 20,
+                        color: '#000000',
+                        alignSelf: 'flex-start'
+
+                    }}>
+                        - Sebastian Lindner (Ideengeber/Frontend){'\n'}
+                        - Kai Raschke (Backend){'\n'}
+                        - Fabian Glück (Designer){'\n'}
+                        - Tim Eberhardt (Organisation u. Ideen){'\n'}
+                    </Text>
+
+                    <Text style={{
+                        fontSize: 16,
+                        fontWeight: "600",
+                        padding: 20,
+                        color: '#000000',
+                        alignSelf: 'flex-start'
+
+                    }}>Kooperation</Text>
+                    <Text style={{
+                        fontSize: 16,
+                        fontWeight: "400",
+                        paddingRight: 20,
+                        paddingLeft: 20,
+                        color: '#000000',
+                        alignSelf: 'flex-start'
+
+                    }}>
+                        Kontaktieren Sie uns bei Bedarf unter sebastian@lindner.me
+                    </Text>
+                    <Text style={{
+                        fontSize: 16,
+                        fontWeight: "600",
+                        padding: 20,
+                        color: '#000000',
+                        alignSelf: 'flex-start'
+
+                    }}>Linzenz: CC BY-NC-SA 4.0</Text>
+
+                </View>
             </View>
         )
     }
