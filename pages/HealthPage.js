@@ -14,22 +14,34 @@ import axios from 'axios';
 import Spinner from 'react-native-loading-spinner-overlay';
 import * as WebBrowser from 'expo-web-browser';
 import { useGlobalState, setmyStatus } from '../helpers/GlobalState';
+
+import i18n from 'i18n-js';
+
 const statusColor = [
     '#7dc656',
     '#7dc656',
     '#f1c056',
     '#EE6c4d',
     '#fb3640',
-]
+];
+
+// Non replaced
+// const statusString = [
+//     'nicht getestet, keine Symptome',
+//     'getestet: Test negativ',
+//     'Kontakt mit positiv getester Person',
+//     'nicht getestet, Corona-typische Symptome',
+//     'getestet: Test positiv',
+// ];
+
+// i18n Version
 const statusString = [
-    'nicht getestet, keine Symptome',
-    'getestet: Test negativ',
-    'Kontakt mit positiv getester Person',
-    'nicht getestet, Corona-typische Symptome',
-    'getestet: Test positiv',
-]
-
-
+  i18n.t('status-01'),
+  i18n.t('status-02'),
+  i18n.t('status-03'),
+  i18n.t('status-04'),
+  i18n.t('status-05'),
+];
 
 export default function HealthPage(props) {
 
