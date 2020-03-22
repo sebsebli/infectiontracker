@@ -7,7 +7,7 @@
 // work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, SafeAreaView, StyleSheet } from 'react-native';
 
 // pull in from DrawerTrigger.js
 import DrawerTrigger from './DrawerTrigger'
@@ -15,16 +15,18 @@ import DrawerTrigger from './DrawerTrigger'
 class Header extends React.Component {
     render() {
         return (
+
             <View style={styles.header}>
                 <DrawerTrigger />
             </View>
+
         )
     }
 }
 
 const styles = StyleSheet.create({
     header: {
-        paddingTop: 40,
+        paddingTop: 0,
         backgroundColor: '#293241'
     }
 });

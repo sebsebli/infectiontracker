@@ -41,7 +41,6 @@ export default ResetPage = () => {
 
     return (
         <View style={{ flex: 1 }}>
-            <StatusBar backgroundColor="#293241" barStyle="light-content" />
             <Header />
             <View style={{ flex: 1, height: '100%', alignItems: 'center', justifyContent: 'center' }}>
                 <TouchableOpacity onPress={() => updateCounter()}>

@@ -15,7 +15,6 @@ export default class TutorialPage extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <StatusBar backgroundColor="#293241" barStyle="light-content" />
                 <Header />
                 <View style={{ flex: 1, height: '100%', alignItems: 'center', width: '90%' }}>
                     <Text style={{

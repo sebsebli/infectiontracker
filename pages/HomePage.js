@@ -270,7 +270,7 @@ export default HomePage = (props) => {
     };
     return (
         <View style={{ flex: 1 }}>
-            <StatusBar backgroundColor="#293241" barStyle="light-content" />
+
             <Header />
             <Spinner
                 visible={loadingHome}
@@ -278,113 +278,115 @@ export default HomePage = (props) => {
                 size="large"
             />
 
-            <View style={{ flex: 1, width: '100%', alignItems: 'center', marginTop: 30 }}>
-                <GroupsModal visible={groupsVisible} groups={groupData || {}} hide={() => setgroupsVisible(false)}></GroupsModal>
-                <Text style={{
-                    fontSize: 14,
-                    fontWeight: "400",
-                    padding: 20,
-                    color: '#ababab'
-                }}>{i18n.t('homeYourCode')}</Text>
-                <QRCode content={infectData} codeStyle='dot' logo={require('../assets/images/logo.png')} size={200, 200} logoSize={50} />
-
-                <TouchableOpacity style={{
-                    backgroundColor: '#293241',
-                    shadowColor: "#000",
-                    shadowOffset: {
-                        width: 0,
-                        height: 2,
-                    },
-                    shadowOpacity: 0.15,
-                    shadowRadius: 3.84,
-                    height: 50, borderRadius: 15, width: 200, alignItems: 'center', justifyContent: 'center', marginTop: 20,
-                }}
-                    onPress={() => generateGroupCode()}
-
-                >
+            <ScrollView>
+                <View style={{ flex: 1, width: '100%', alignItems: 'center', marginTop: 10 }}>
+                    <GroupsModal visible={groupsVisible} groups={groupData || {}} hide={() => setgroupsVisible(false)}></GroupsModal>
                     <Text style={{
                         fontSize: 14,
-                        fontWeight: "600",
+                        fontWeight: "400",
+                        padding: 20,
+                        color: '#ababab'
+                    }}>{i18n.t('homeYourCode')}</Text>
+                    <QRCode content={infectData} codeStyle='dot' logo={require('../assets/images/logo.png')} size={200, 200} logoSize={50} />
 
-                        color: '#ffffff', //
-                    }}>{i18n.t('app-code-plain') /*Gruppen-Code*/} {groupData ? i18n.t('app-code-show') : i18n.t('app-code-generate') /*'anzeigen' 'generieren'*/}</Text>
+                    <TouchableOpacity style={{
+                        backgroundColor: '#293241',
+                        shadowColor: "#000",
+                        shadowOffset: {
+                            width: 0,
+                            height: 2,
+                        },
+                        shadowOpacity: 0.15,
+                        shadowRadius: 3.84,
+                        height: 50, borderRadius: 15, width: 200, alignItems: 'center', justifyContent: 'center', marginTop: 20,
+                    }}
+                        onPress={() => generateGroupCode()}
 
-                </TouchableOpacity>
-                <TouchableOpacity style={{
-                    marginTop: 20,
-                    width: '95%', borderWidth: 1, borderColor: '#d6d6d6', height: 80, alignItems: 'center', justifyContent: 'space-between', shadowColor: "#000",
-                    shadowOffset: {
-                        width: 0,
-                        height: 2,
-                    },
-                    shadowOpacity: 0.1,
-                    shadowRadius: 1,
-                    flexDirection: 'row'
-                }}
-                    onPress={() => props.navigation.navigate("Health", { myState: myState, key: key, uid: uid })}
-                >
-                    <View style={{ height: '100%', width: 40, justifyContent: 'center', alignItems: 'flex-start', marginLeft: 20 }}>
+                    >
+                        <Text style={{
+                            fontSize: 14,
+                            fontWeight: "600",
 
-                        <View style={{ borderColor: statusColor[myState], backgroundColor: '#383838', borderWidth: 4, borderRadius: 20, height: 40, width: 40, justifyContent: 'center', alignItems: 'center' }}>
+                            color: '#ffffff', //
+                        }}>{i18n.t('app-code-plain') /*Gruppen-Code*/} {groupData ? i18n.t('app-code-show') : i18n.t('app-code-generate') /*'anzeigen' 'generieren'*/}</Text>
 
-                            <Ionicons name="ios-person" size={35} color="white" />
-                        </View>
-                    </View>
-                    <View style={{ height: '100%', width: 180, justifyContent: 'center', marginLeft: 20 }} >
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{
+                        marginTop: 20,
+                        width: '95%', borderWidth: 1, borderColor: '#d6d6d6', height: 80, alignItems: 'center', justifyContent: 'space-between', shadowColor: "#000",
+                        shadowOffset: {
+                            width: 0,
+                            height: 2,
+                        },
+                        shadowOpacity: 0.1,
+                        shadowRadius: 1,
+                        flexDirection: 'row'
+                    }}
+                        onPress={() => props.navigation.navigate("Health", { myState: myState, key: key, uid: uid })}
+                    >
+                        <View style={{ height: '100%', width: 40, justifyContent: 'center', alignItems: 'flex-start', marginLeft: 20 }}>
 
+                            <View style={{ borderColor: statusColor[myState], backgroundColor: '#383838', borderWidth: 4, borderRadius: 20, height: 40, width: 40, justifyContent: 'center', alignItems: 'center' }}>
 
-                        <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{i18n.t('healtState') /*Dein Gesundheitszustand*/}</Text>
-                        <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>{statusString[myState]}</Text>
-                    </View>
-                    <View style={{ height: '100%', width: 80, justifyContent: 'center', alignItems: 'flex-end', marginRight: 40 }}>
-
-
-                        <Ionicons name="ios-settings" size={20} color='#383838' />
-
-                    </View>
-                </TouchableOpacity>
-                <TouchableOpacity style={{
-                    marginTop: 20,
-                    width: '95%', borderWidth: 1, borderColor: '#d6d6d6', height: 80, alignItems: 'center', justifyContent: 'space-between', shadowColor: "#000",
-                    shadowOffset: {
-                        width: 0,
-                        height: 2,
-                    },
-                    shadowOpacity: 0.1,
-                    shadowRadius: 1,
-                    flexDirection: 'row'
-                }}>
-                    <View style={{ height: '100%', width: 40, justifyContent: 'center', alignItems: 'flex-start', marginLeft: 20 }}>
-                        {contactState > 1 ?
-                            <View style={{
-                                borderColor: statusColor[contactState],
-                                backgroundColor: statusColor[contactState],
-                                borderRadius: 10, height: 20, width: 20, justifyContent: 'center', alignItems: 'center', marginLeft: 30, marginBottom: -5,
-                            }}>
-
-                                <FontAwesome name="info" size={10} color="white" />
+                                <Ionicons name="ios-person" size={35} color="white" />
                             </View>
-                            : null}
-                        <View style={{ borderColor: statusColor[contactState], backgroundColor: '#383838', borderWidth: 4, borderRadius: 20, height: 40, width: 40, justifyContent: 'center', alignItems: 'center' }}>
-
-                            <FontAwesome name="bell" size={20} color="white" />
                         </View>
-                    </View>
-                    <View style={{ height: '100%', width: 180, justifyContent: 'center', marginLeft: 20 }} >
+                        <View style={{ height: '100%', width: 180, justifyContent: 'center', marginLeft: 20 }} >
 
 
-                        <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{i18n.t('app-your-env') /*Dein Umfeld*/}</Text>
-                        <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>{contactState > 2 ? i18n.t('app-your-env-attention') : i18n.t('app-your-env-nothing') /*'Achtung! Du bist gefährdet.' : 'keine Gefahr erkannt'*/}</Text>
-                        <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>{i18n.t('app-your-follow') /*du verfolgst*/} <Text style={{ fontWeight: '500' }}>{contactCount}</Text> {i18n.t('app-your-contacts') /*Kontakte*/}</Text>
-                    </View>
-                    <View style={{ height: '100%', width: 80, justifyContent: 'center', alignItems: 'flex-end', marginRight: 40 }}>
+                            <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{i18n.t('healtState') /*Dein Gesundheitszustand*/}</Text>
+                            <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>{statusString[myState]}</Text>
+                        </View>
+                        <View style={{ height: '100%', width: 80, justifyContent: 'center', alignItems: 'flex-end', marginRight: 40 }}>
 
 
-                        <FontAwesome name="info-circle" size={20} color='#383838' />
+                            <Ionicons name="ios-settings" size={20} color='#383838' />
 
-                    </View>
-                </TouchableOpacity>
-            </View>
+                        </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{
+                        marginTop: 20,
+                        width: '95%', borderWidth: 1, borderColor: '#d6d6d6', height: 80, alignItems: 'center', justifyContent: 'space-between', shadowColor: "#000",
+                        shadowOffset: {
+                            width: 0,
+                            height: 2,
+                        },
+                        shadowOpacity: 0.1,
+                        shadowRadius: 1,
+                        flexDirection: 'row'
+                    }}>
+                        <View style={{ height: '100%', width: 40, justifyContent: 'center', alignItems: 'flex-start', marginLeft: 20 }}>
+                            {contactState > 1 ?
+                                <View style={{
+                                    borderColor: statusColor[contactState],
+                                    backgroundColor: statusColor[contactState],
+                                    borderRadius: 10, height: 20, width: 20, justifyContent: 'center', alignItems: 'center', marginLeft: 30, marginBottom: -5,
+                                }}>
+
+                                    <FontAwesome name="info" size={10} color="white" />
+                                </View>
+                                : null}
+                            <View style={{ borderColor: statusColor[contactState], backgroundColor: '#383838', borderWidth: 4, borderRadius: 20, height: 40, width: 40, justifyContent: 'center', alignItems: 'center' }}>
+
+                                <FontAwesome name="bell" size={20} color="white" />
+                            </View>
+                        </View>
+                        <View style={{ height: '100%', width: 180, justifyContent: 'center', marginLeft: 20 }} >
+
+
+                            <Text style={{ textAlign: 'left', fontWeight: '500', padding: 2 }}>{i18n.t('app-your-env') /*Dein Umfeld*/}</Text>
+                            <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>{contactState > 2 ? i18n.t('app-your-env-attention') : i18n.t('app-your-env-nothing') /*'Achtung! Du bist gefährdet.' : 'keine Gefahr erkannt'*/}</Text>
+                            <Text style={{ textAlign: 'left', fontWeight: '300', padding: 2, fontSize: 12 }}>{i18n.t('app-your-follow') /*du verfolgst*/} <Text style={{ fontWeight: '500' }}>{contactCount}</Text> {i18n.t('app-your-contacts') /*Kontakte*/}</Text>
+                        </View>
+                        <View style={{ height: '100%', width: 80, justifyContent: 'center', alignItems: 'flex-end', marginRight: 40 }}>
+
+
+                            <FontAwesome name="info-circle" size={20} color='#383838' />
+
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
 
             <TouchableOpacity style={styles.FABStyle} onPress={() => setModalVisible(true)}>
 

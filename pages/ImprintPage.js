@@ -13,7 +13,6 @@ export default class ImprintPage extends Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <StatusBar backgroundColor="#293241" barStyle="light-content" />
                 <Header />
                 <View style={{ flex: 1, height: '100%', alignItems: 'center', }}>
                     <Text style={{

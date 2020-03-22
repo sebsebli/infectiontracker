@@ -81,7 +81,6 @@ export default function HealthPage(props) {
 
     return (
         <View style={{ flex: 1 }}>
-            <StatusBar backgroundColor="#293241" barStyle="light-content" />
             <Header></Header>
             <Spinner
                 visible={loading}
