@@ -54,7 +54,10 @@ export default HomePage = (props) => {
     const [groupsVisible, setgroupsVisible] = useState(false);
     const [groupCode, setGroupCode] = useState('');
     const [loading, setLoading] = useState(false);
+
+    const [groupError, setGroupError] = useState(false);
     const [loadingHome, setLoadingHome] = useState(false);
+    const [loadingGroup, setLoadingGroup] = useState(false);
     const [canJoin, setCanJoin] = useState(true);
     const [contactState] = useGlobalState('contactStatus');
     const [contactCount] = useGlobalState('contactCount');
@@ -64,13 +67,12 @@ export default HomePage = (props) => {
     const [myState] = useGlobalState('myStatus');
 
     const infectData = "@infectData" + uid;
-
+    let codeInputRef = null;
 
     //SetInterval to update contact data --> change to BackgroundFetch in final version!!!
     setInterval(() => {
         updateUserdata()
-    }, 5000)
-
+    }, 60000)
 
     updateUserdata = async () => {
 
@@ -100,7 +102,31 @@ export default HomePage = (props) => {
 
     }
 
+    async function joinGroup() {
+        setLoadingGroup(true)
+        let joingGroup = axios.post('https://seb-vs-virus-api.herokuapp.com/join', {
+            uid: uid,
+            key: key,
+            shortcode: groupCode
+        })
 
+
+        axios.all([joingGroup]).then(axios.spread((...responses) => {
+            const data = responses[0]
+            console.log(data.status)
+
+            setLoadingGroup(false)
+
+            setmodalVisibleGrupCode(false)
+
+
+        })).catch(errors => {
+            console.log(errors.response.status)
+            setLoadingGroup(false)
+            codeInputRef.shake()
+            setGroupCode('')
+        })
+    }
 
     useEffect(() => {
         (async () => {
@@ -406,6 +432,11 @@ export default HomePage = (props) => {
                 }}
 
                 style={{ flex: 1, backgroundColor: 'none', height: '100%' }}>
+                <Spinner
+                    visible={loadingGroup}
+                    overlayColor="rgba(0,0,0,0.7)"
+                    size="large"
+                />
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <TouchableOpacity
                         style={{
@@ -433,12 +464,16 @@ export default HomePage = (props) => {
                         cellStyleFocused={{
                             borderColor: 'black',
                         }}
+                        restrictToNumbers={true}
+                        keyboardType="number-pad"
+                        autoFocus={true}
                         codeLength={7}
                         value={groupCode}
                         onTextChange={code => setGroupCode(code)}
                         animated={false}
                         onFulfill={() => setCanJoin(false)}
                         onBackspace={() => setCanJoin(true)}
+                        ref={(input) => { codeInputRef = input; }} />
                     />
                     <TouchableOpacity
                         disabled={canJoin}
@@ -453,10 +488,9 @@ export default HomePage = (props) => {
                             shadowRadius: 3.84,
                             height: 50, borderRadius: 15, width: 200, alignItems: 'center', justifyContent: 'center', marginTop: 20,
                         }}
-                        onPress={() => {
-                            setModalVisible(false)
-                            setmodalVisibleGrupCode(true)
-                        }}
+                        onPress={() =>
+                            joinGroup()
+                        }
                     >
                         <Text style={{
                             fontSize: 14,
