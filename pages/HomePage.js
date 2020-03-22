@@ -7,7 +7,7 @@
 // work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
 import React, { useState, useEffect, useRef } from 'react'
-import { Text, StyleSheet, StatusBar, TouchableOpacity, View, Modal, Image, Alert, ScrollView } from 'react-native'
+import { Text, StyleSheet, StatusBar, TouchableOpacity, View, Modal, Image, Alert, ScrollView, Vibration } from 'react-native'
 import Header from '../components/Header'
 import { QRCode } from 'react-native-custom-qr-codes-expo';
 import { BarCodeScanner, } from 'expo-barcode-scanner';
@@ -214,6 +214,7 @@ export default HomePage = (props) => {
 
             })
                 .then(function (response) {
+                    Vibration.vibrate();
                     console.log(response)
                     setLoading(false)
                     setModalVisible(false);
@@ -308,7 +309,7 @@ export default HomePage = (props) => {
                         },
                         shadowOpacity: 0.15,
                         shadowRadius: 3.84,
-                        height: 50, borderRadius: 15, width: 200, alignItems: 'center', justifyContent: 'center', marginTop: 20,
+                        height: 50, borderRadius: 25, width: 200, alignItems: 'center', justifyContent: 'center', marginTop: 20,
                     }}
                         onPress={() => generateGroupCode()}
 
@@ -438,7 +439,7 @@ export default HomePage = (props) => {
                             },
                             shadowOpacity: 0.15,
                             shadowRadius: 3.84,
-                            height: 50, borderRadius: 15, width: 200, alignItems: 'center', justifyContent: 'center', marginTop: 20,
+                            height: 50, borderRadius: 25, width: 200, alignItems: 'center', justifyContent: 'center', marginTop: 20,
                         }}
                             onPress={() => {
                                 setModalVisible(false)
@@ -621,7 +622,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#EE6C4D',
         borderRadius: 35,
         position: 'absolute',
-        bottom: 0,
+        bottom: 5,
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf: 'center',
