@@ -12,7 +12,6 @@ import Header from '../components/Header'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
 import Spinner from 'react-native-loading-spinner-overlay';
-import * as WebBrowser from 'expo-web-browser';
 import { useGlobalState, setmyStatus } from '../helpers/GlobalState';
 
 import i18n from 'i18n-js';
@@ -36,11 +35,11 @@ const statusColor = [
 
 // i18n Version
 const statusString = [
-  i18n.t('status-01'),
-  i18n.t('status-02'),
-  i18n.t('status-03'),
-  i18n.t('status-04'),
-  i18n.t('status-05'),
+    i18n.t('status-01'),
+    i18n.t('status-02'),
+    i18n.t('status-03'),
+    i18n.t('status-04'),
+    i18n.t('status-05'),
 ];
 
 export default function HealthPage(props) {
@@ -99,7 +98,7 @@ export default function HealthPage(props) {
                 </View>
                 <View style={{ width: '100%', alignItems: 'center' }}>
                     <Text style={{ textAlign: 'left', fontWeight: '300', fontSize: 14, paddingLeft: 20, paddingRight: 20 }}>{i18n.t('reportState') /*Bitte berichte uns sofort, sobald etwas an deinem Zustand ändert. Alle Kontakte der letzten zwei Wochen werden anonym informiert. Niemand wird deine Identität erfahren.*/}
-</Text>
+                    </Text>
 
                     <TouchableOpacity style={{
                         marginTop: 20,
@@ -198,7 +197,7 @@ export default function HealthPage(props) {
 
 
                     <Text style={{ textAlign: 'left', fontWeight: '300', fontSize: 14, padding: 20 }}>
-                      {i18n.t('symptoms-intro') /*Häufigste Symptome bei Corona-Infektion*/}:{'\n'}
+                        {i18n.t('symptoms-intro') /*Häufigste Symptome bei Corona-Infektion*/}:{'\n'}
                         - {i18n.t('symptoms-cough') /*Husten*/} 55%{'\n'}
                         - {i18n.t('symptoms-fever') /*Fieber*/} 39%{'\n'}
                         - {i18n.t('symptoms-cold') /*Schnupfen*/} 28%{'\n'}
@@ -206,10 +205,10 @@ export default function HealthPage(props) {
                         {'\n'}
                         {i18n.t('symptoms-yes') /*Wenn du Symptome aufweist, ruf bitte deinen Hausarzt an oder wende dich bei Dringlichkeit an die Notfallnummer 116 117. Bei schwerwiegenden Symptomen wie Atemnot, ruf den Rettungsdient (112).*/}
                         {'\n'}{'\n'}
-                        {i18n.t('symptoms-infos') /*Weitere Infos findest du hier*/}:{'\n'}
-                        <TouchableOpacity onPress={() => handlePressButtonAsync()}>
-                            <Text style={{ textAlign: 'left', fontWeight: '300', fontSize: 14, padding: 20 }}>www.infektionsschutz.de/coronavirus</Text>
-                        </TouchableOpacity>
+                        {i18n.t('symptoms-infos') /*Weitere Infos findest du hier*/}:  www.infektionsschutz.de/coronavirus
+
+
+
                     </Text>
 
 
