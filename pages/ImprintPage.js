@@ -47,6 +47,7 @@ export default class ImprintPage extends Component {
                     <Text style={{
                         fontSize: 16,
                         fontWeight: "400",
+                        paddingTop: 20,
                         paddingRight: 20,
                         paddingLeft: 20,
                         color: '#000000',
