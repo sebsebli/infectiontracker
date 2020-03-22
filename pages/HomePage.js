@@ -69,12 +69,7 @@ export default HomePage = (props) => {
     const infectData = "@infectDataUS" + uid;
     const codeInputRef = useRef();
 
-    //SetInterval to update contact data --> change to BackgroundFetch in final version!!!
-    setInterval(() => {
-        updateUserdata()
-    }, 60000)
-
-    updateUserdata = async () => {
+    const updateUserdata = async () => {
 
         let contactCount = axios.post('https://seb-vs-virus-api.herokuapp.com/count', {
             uid: uid,
@@ -103,11 +98,14 @@ export default HomePage = (props) => {
         })).catch(errors => {
 
         })
-
-
-
-
     }
+
+    //SetInterval to update contact data --> change to BackgroundFetch in final version!!!
+    setInterval(() => {
+        updateUserdata();
+    }, 5000)
+
+
 
     joinGroup = () => {
         setLoadingGroup(true)
@@ -142,6 +140,7 @@ export default HomePage = (props) => {
 
 
     }
+
 
     useEffect(() => {
         (async () => {
@@ -180,8 +179,8 @@ export default HomePage = (props) => {
 
                 // Works on both Android and iOS
                 Alert.alert(
-                  i18n.t('app-attention'), //Achtung
-                  i18n.t('app-error') + '\n' + error, //"Es gab einen Fehler beim Daten übertragen"
+                    i18n.t('app-attention'), //Achtung
+                    i18n.t('app-error') + '\n' + error, //"Es gab einen Fehler beim Daten übertragen"
                     [
 
                         { text: 'OK', onPress: () => setLoadingHome(false) },
@@ -219,7 +218,7 @@ export default HomePage = (props) => {
                     // Works on both Android and iOS
                     Alert.alert(
                         i18n.t('app-attention'), //Achtung
-                      i18n.t('app-error') + '\n' + error, //"Es gab einen Fehler beim Daten übertragen"
+                        i18n.t('app-error') + '\n' + error, //"Es gab einen Fehler beim Daten übertragen"
                         [
 
                             { text: 'OK', onPress: () => setLoading(false) },
@@ -248,7 +247,7 @@ export default HomePage = (props) => {
                     // Works on both Android and iOS
                     Alert.alert(
                         i18n.t('app-attention'), //Achtung
-                      i18n.t('app-error') + '\n' + error, //"Es gab einen Fehler beim Daten übertragen"
+                        i18n.t('app-error') + '\n' + error, //"Es gab einen Fehler beim Daten übertragen"
                         [
 
                             { text: 'OK', onPress: () => setLoading(false) },
