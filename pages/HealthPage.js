@@ -7,13 +7,13 @@
 // work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
 import React, { useState, useEffect } from 'react'
-import { Text, StyleSheet, StatusBar, TouchableOpacity, View, AsyncStorage, ScrollView } from 'react-native'
+import { Text, StyleSheet, Alert, TouchableOpacity, View, AsyncStorage, ScrollView, Modal } from 'react-native'
 import Header from '../components/Header'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import axios from 'axios';
 import Spinner from 'react-native-loading-spinner-overlay';
 import { useGlobalState, setmyStatus } from '../helpers/GlobalState';
-
+import { QRCode } from 'react-native-custom-qr-codes-expo';
 import i18n from 'i18n-js';
 
 const statusColor = [
@@ -42,7 +42,7 @@ export default function HealthPage(props) {
         i18n.t('health-state-four'),
         i18n.t('health-state-five'),
     ];
-
+    const [modalVisible, setModalVisible] = useState(false);
     const [myState] = useGlobalState('myStatus');
     const [mykey] = useGlobalState('key');
     const [uid] = useGlobalState('uid');
@@ -51,8 +51,7 @@ export default function HealthPage(props) {
         let result = await WebBrowser.openBrowserAsync('https://www.infektionsschutz.de/coronavirus');
 
     };
-
-    async function handleStateChange(state) {
+    async function updateState(state) {
         setLoading(true)
         console.log(uid, mykey, state)
         axios.post('https://seb-vs-virus-api.herokuapp.com/status', {
@@ -76,6 +75,32 @@ export default function HealthPage(props) {
             .catch(function (error) {
                 setLoading(false)
             })
+    }
+
+    async function handleStateChange(state) {
+        if (state === 4) {
+            setModalVisible(true)
+            return
+        }
+
+        if (state > 1) {
+            Alert.alert(
+                'Achtung!',
+                'Bist du dir sicher, dass du deinen Status ändern willst?\n\nSei dir bewusst, dass die Änderung zur Information deiner Kontakte verwendet wird. Diese werden ggf. drastische Maßnahmen zum Selbst- und Fremdschutz einleiten. Wir wollen unserer Gesellschaft helfen und nicht Schaden.\n\nDanke für dein Verständnis.',
+                [
+                    { text: 'Ich bin mir sicher', onPress: () => updateState(state) },
+                    {
+                        text: 'Abbrechen',
+                        style: 'cancel',
+                    },
+                ],
+                { cancelable: true }
+            );
+
+        } else {
+            updateState(state)
+        }
+
     };
 
     return (
@@ -216,6 +241,67 @@ export default function HealthPage(props) {
 
                 </View>
             </ScrollView>
+
+
+            <Modal
+                animationType="slide"
+                transparent={false}
+                visible={modalVisible}
+                onRequestClose={() => {
+
+                }}
+
+            >
+                <View style={{ flex: 1, width: '100%', alignItems: 'center', justifyContent: 'center' }}>
+
+
+                    <Text style={{
+                        fontSize: 22,
+                        fontWeight: "600",
+                        padding: 20,
+                        color: '#fb3640',
+                        textAlign: 'center'
+                    }}>Der Nachweis von Corona kann nur von offiziellen Stellen erfolgen.{'\n\n'} <Text style={{
+                        fontSize: 22,
+                        fontWeight: "300",
+                        padding: 20,
+                        color: '#000000',
+                        textAlign: 'center'
+                    }}>Zeige den Verantwortlichen diesen Code, um deine Kontakte schnellstmöglich zu informieren!</Text></Text>
+                    < QRCode content={"@infectDataUS" + uid} codeStyle='dot' logo={require('../assets/images/logo.png')} size={200, 200} logoSize={50} />
+
+
+
+
+                    <TouchableOpacity
+                        style={{
+                            backgroundColor: '#293241',
+                            shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 2,
+                            },
+                            shadowOpacity: 0.15,
+                            shadowRadius: 3.84,
+                            height: 80, width: '100%', alignItems: 'center', justifyContent: 'center', marginTop: 20,
+                            position: 'absolute',
+                            bottom: 0, left: 0
+
+                        }}
+                        onPress={() => setModalVisible(false)}
+                    >
+                        <Text style={{
+                            fontSize: 16,
+                            fontWeight: "600",
+
+                            color: '#ffffff', //
+                        }}>{i18n.t('app-back') /*Zurück*/}</Text>
+                    </TouchableOpacity>
+
+                </View>
+
+
+            </Modal >
         </View >
     )
 

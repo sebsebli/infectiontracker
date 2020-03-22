@@ -15,6 +15,7 @@ import TutorialPage from '../pages/TutorialPage';
 import ImprintPage from '../pages/ImprintPage';
 import CustomDrawer from '../components/CustomDrawer';
 import HealthPage from '../pages/HealthPage';
+import InfoPage from '../pages/InfoPage';
 
 
 
@@ -24,6 +25,7 @@ const DrawerNavigator = createDrawerNavigator({
     Tutorial: TutorialPage,
     Imprint: ImprintPage,
     Health: HealthPage,
+    Info: InfoPage,
 
 }, { contentComponent: CustomDrawer });
 

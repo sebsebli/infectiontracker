@@ -7,7 +7,7 @@
 // work. If not, see <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
 
 import React, { useState, useEffect, useRef } from 'react'
-import { Text, StyleSheet, StatusBar, TouchableOpacity, View, Modal, Image, Alert, ScrollView, Vibration } from 'react-native'
+import { Text, StyleSheet, AsyncStorage, TouchableOpacity, View, Modal, Image, Alert, ScrollView, Vibration } from 'react-native'
 import Header from '../components/Header'
 import { QRCode } from 'react-native-custom-qr-codes-expo';
 import { BarCodeScanner, } from 'expo-barcode-scanner';
@@ -18,10 +18,10 @@ import axios from 'axios';
 import Spinner from 'react-native-loading-spinner-overlay';
 import GroupsModal from '../components/GroupsModal'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import { useGlobalState, setgid, setcontactCount, setcontactStatus } from '../helpers/GlobalState';
+import { useGlobalState, setgid, setcontactCount, setcontactStatus, } from '../helpers/GlobalState';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input'
 import Toast from 'react-native-tiny-toast'
-import { Notifications } from 'expo';
+import { Updates } from 'expo';
 const statusColor = [
     '#7dc656',
     '#7dc656',
@@ -29,12 +29,31 @@ const statusColor = [
     '#EE6c4d',
     '#fb3640',
 ];
+function useInterval(callback, delay) {
+    const savedCallback = useRef();
 
+    // Remember the latest callback.
+    useEffect(() => {
+        savedCallback.current = callback;
+    }, [callback]);
+
+    // Set up the interval.
+    useEffect(() => {
+        function tick() {
+            savedCallback.current();
+        }
+        if (delay !== null) {
+            let id = setInterval(tick, delay);
+            return () => clearInterval(id);
+        }
+    }, [delay]);
+}
 export default HomePage = (props) => {
     const [hasPermission, setHasPermission] = useState(null);
     const [modalVisible, setModalVisible] = useState(false);
     const [modalVisibleGrupCode, setmodalVisibleGrupCode] = useState(false);
     const [groupsVisible, setgroupsVisible] = useState(false);
+    const [pause, setPause] = useState(false);
     const [groupCode, setGroupCode] = useState('');
     const [loading, setLoading] = useState(false);
 
@@ -42,6 +61,8 @@ export default HomePage = (props) => {
     const [loadingHome, setLoadingHome] = useState(false);
     const [loadingGroup, setLoadingGroup] = useState(false);
     const [canJoin, setCanJoin] = useState(true);
+
+
     const [contactState] = useGlobalState('contactStatus');
     const [contactCount] = useGlobalState('contactCount');
     const [groupData] = useGlobalState('gid');
@@ -70,41 +91,7 @@ export default HomePage = (props) => {
         i18n.t('health-state-five'),
     ];
 
-    const updateUserdata = async () => {
 
-        let contactCount = axios.post('https://seb-vs-virus-api.herokuapp.com/count', {
-            uid: uid,
-            key: key
-        })
-        let contactStatus = axios.post('https://seb-vs-virus-api.herokuapp.com/check', {
-            uid: uid,
-            key: key
-        })
-        let groupAlive = axios.post('https://seb-vs-virus-api.herokuapp.com/groupalive', {
-            gid: groupData,
-        })
-
-
-
-        axios.all([contactCount, contactStatus, groupAlive]).then(axios.spread((...responses) => {
-            const count = responses[0].data
-            const status = responses[1].data
-            const alive = responses[2].data
-            console.log("alive", alive)
-
-            setcontactCount(count)
-            setcontactStatus(status)
-
-
-        })).catch(errors => {
-
-        })
-    }
-
-    //SetInterval to update contact data --> change to BackgroundFetch in final version!!!
-    setInterval(() => {
-        updateUserdata();
-    }, 60000)
 
 
 
@@ -149,17 +136,53 @@ export default HomePage = (props) => {
 
     useEffect(() => {
         (async () => {
+
             const { status } = await BarCodeScanner.requestPermissionsAsync();
+
             setHasPermission(status === 'granted');
+
         })();
     }, []);
 
-    if (hasPermission === null) {
-        return <Text>Requesting for camera permission</Text>;
+
+
+
+
+
+
+
+    const updateMe = () => {
+        let contactCount = axios.post('https://seb-vs-virus-api.herokuapp.com/count', {
+            uid: uid,
+            key: key
+        })
+        let contactStatus = axios.post('https://seb-vs-virus-api.herokuapp.com/check', {
+            uid: uid,
+            key: key
+        })
+        /*  let groupAlive = axios.post('https://seb-vs-virus-api.herokuapp.com/groupalive', {
+              gid: groupData,
+          })*/
+        axios.all([contactCount, contactStatus]).then(axios.spread((...responses) => {
+            const count = responses[0].data
+            const status = responses[1].data
+
+            console.log("alive", count, status)
+
+            setcontactCount(count)
+            setcontactStatus(status)
+
+
+        })).catch(errors => {
+            console.log("alive", errors)
+
+        })
     }
-    if (hasPermission === false) {
-        return <Text>No access to camera</Text>;
-    }
+
+    useInterval(() => {
+        updateMe()
+    }, 20000);
+    updateMe();
 
     generateGroupCode = async () => {
         if (groupData) {
@@ -169,7 +192,6 @@ export default HomePage = (props) => {
         setLoadingHome(true)
         axios.post('https://seb-vs-virus-api.herokuapp.com/group', {
             uid: uid,
-
         })
             .then(async function (response) {
 
@@ -177,22 +199,14 @@ export default HomePage = (props) => {
                 setLoadingHome(false)
                 setgid(response.data)
                 setgroupsVisible(true)
-                await AsyncStorage.setItem('@infectiontrackerFinalGROUP', responseData.uid);
 
             })
             .catch(function (error) {
-
-                // Works on both Android and iOS
-                Alert.alert(
-                    i18n.t('app-attention'), //Achtung
-                    i18n.t('app-error') + '\n' + error, //"Es gab einen Fehler beim Daten übertragen"
-                    [
-
-                        { text: 'OK', onPress: () => setLoadingHome(false) },
-                    ],
-                    { cancelable: false }
-                );
-
+                setLoadingHome(false)
+                Toast.show('Es gab einen Fehler', {
+                    position: Toast.position.center,
+                    containerStyle: { zIndex: 99 },
+                })
             });
 
 
@@ -367,7 +381,7 @@ export default HomePage = (props) => {
                         flexDirection: 'row'
                     }}
                         onPress={() => {
-
+                            props.navigation.navigate('Info')
                         }}
                     >
                         <View style={{ height: '100%', width: 40, justifyContent: 'center', alignItems: 'flex-start', marginLeft: 20 }}>
@@ -417,11 +431,7 @@ export default HomePage = (props) => {
 
                 style={{ flex: 1, backgroundColor: 'none', height: '100%' }}>
                 <View style={{ flex: 1, }}>
-                    <Spinner
 
-                        overlayColor="rgba(0,0,0,0.7)"
-                        size="large"
-                    />
                     <View style={{ height: '50%' }}>
                         <BarCodeScanner
                             onBarCodeScanned={handleBarCodeScanned}

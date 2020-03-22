@@ -15,12 +15,19 @@ const { setGlobalState, useGlobalState } = createGlobalState({
     contactStatus: 0,
     contactCount: 0,
     gid: 0,
+    sex: 0,
+    age: 0,
 });
 
+export const setSex = (s) => {
+    setGlobalState('sex', s);
+};
+export const setAge = (s) => {
+    setGlobalState('age', s);
+};
 export const setUID = (s) => {
     setGlobalState('uid', s);
 };
-
 export const setKEY = (s) => {
     setGlobalState('key', s);
 };

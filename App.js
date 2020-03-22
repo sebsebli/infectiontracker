@@ -16,9 +16,10 @@ import { AsyncStorage, View, TouchableOpacity, Text, Modal, SafeAreaView, Alert,
 import RNPickerSelect from 'react-native-picker-select';
 import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { CheckBox } from 'react-native-elements'
-import { setUID, setKEY, setmyStatus, setgid } from './helpers/GlobalState';
+import { setUID, setKEY, setmyStatus, setgid, setSex, setAge, useGlobalState } from './helpers/GlobalState';
 import { Notifications, Permissions } from 'expo';
-
+import Spinner from 'react-native-loading-spinner-overlay';
+import axios from 'axios';
 import Constants from 'expo-constants';
 i18n.fallbacks = true;
 i18n.defaultLocale = 'de-DE';
@@ -42,47 +43,45 @@ i18n.locale = Localization.locale;
 export default function App() {
 
   const [finished, setFinished] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [hasData, setHasData] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
-  const [age, setAge] = useState(0);
-  const [sex, setSex] = useState(0);
+
   const [check1, setCheck1] = useState(false);
   const [check2, setCheck2] = useState(false);
   const [check3, setCheck3] = useState(false);
+  const [age] = useGlobalState('age');
+  const [sex] = useGlobalState('sex');
 
 
-
-  async function register(sex, age) {
-    return fetch('https://seb-vs-virus-api.herokuapp.com/register',
-      {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          age: age,
-          sex: sex,
-        }),
-      })
-      .then((response) => response.json())
-      .then(async (responseData) => {
+  function register() {
+    setLoading(true);
+    axios.post('https://seb-vs-virus-api.herokuapp.com/register', {
+      age: age,
+      sex: sex,
 
 
-        console.log(responseData)
-        await AsyncStorage.setItem('@infectiontrackerFinalKEY', responseData.key);
-        await AsyncStorage.setItem('@infectiontrackerFinalUID', responseData.uid);
-        setKEY(responseData.key)
-        setUID(responseData.uid)
+    })
+      .then(async function (response) {
+
+        await AsyncStorage.setItem('@infectiontrackerFinalKEY', response.data.key);
+        await AsyncStorage.setItem('@infectiontrackerFinalUID', response.data.uid);
+        setKEY(response.data.key)
+        setUID(response.data.uid)
         setModalVisible(false)
         setHasData(true)
 
 
-
+        setLoading(false);
       })
-      .catch(error => {
+      .catch(function (error) {
+        setLoading(false);
         Alert.alert(i18n.t('errorMessage'))
+
       });
+
+
+
   }
 
 
@@ -91,10 +90,7 @@ export default function App() {
     const key = await AsyncStorage.getItem('@infectiontrackerFinalKEY');
     const uid = await AsyncStorage.getItem('@infectiontrackerFinalUID');
     const state = await AsyncStorage.getItem('@infectiontrackerFinalSTATE');
-    const group = await AsyncStorage.getItem('@infectiontrackerFinalGROUP');
-    if (group !== null) {
-      setgid(group)
-    }
+
 
     if (state !== null) {
       setmyStatus(Number(state))
@@ -335,6 +331,11 @@ export default function App() {
               <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600' }}>{i18n.t('homeRestore')}</Text>
             </TouchableOpacity>
           </View>
+          <Spinner
+            visible={loading}
+            overlayColor="rgba(0,0,0,0.7)"
+            size="large"
+          />
         </SafeAreaView >
 
       );
