@@ -584,7 +584,7 @@ export default HomePage = (props) => {
                             color: '#ffffff',
 
 
-                        }}>QR-Code scannen</Text>
+                        }}>{i18n.t('app-qr-scan') /*QR-Code scannen*/}</Text>
 
                     </TouchableOpacity>
 
