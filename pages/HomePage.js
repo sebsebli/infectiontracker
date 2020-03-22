@@ -218,7 +218,7 @@ export default HomePage = (props) => {
 
                     // Works on both Android and iOS
                     Alert.alert(
-                        'Achtung',
+                        i18n.t('app-attention'), //Achtung
                         "Es gab einen Fehler beim Daten übertragen" + '\n' + error,
                         [
 
@@ -247,7 +247,7 @@ export default HomePage = (props) => {
 
                     // Works on both Android and iOS
                     Alert.alert(
-                        'Achtung',
+                        i18n.t('app-attention'), //Achtung
                         "Es gab einen Fehler beim Daten übertragen" + '\n' + error,
                         [
 
@@ -308,7 +308,7 @@ export default HomePage = (props) => {
                         fontWeight: "600",
 
                         color: '#ffffff', //
-                    }}>Gruppen-Code {groupData ? 'anzeigen' : 'generieren'}</Text>
+                    }}>{i18n.t('app-code-plain') /*Gruppen-Code*/} {groupData ? i18n.t('app-code-show') : i18n.t('app-code-generate') /*'anzeigen' 'generieren'*/}</Text>
 
                 </TouchableOpacity>
                 <TouchableOpacity style={{
@@ -471,7 +471,7 @@ export default HomePage = (props) => {
                                 fontWeight: "600",
 
                                 color: '#ffffff', //
-                            }}>Zurück</Text>
+                            }}>{i18n.t('app-back') /*Zurück*/}</Text>
                         </TouchableOpacity>
 
                     </View>
@@ -584,7 +584,7 @@ export default HomePage = (props) => {
                             color: '#ffffff',
 
 
-                        }}>QR-Code scannen</Text>
+                        }}>{i18n.t('app-qr-scan') /*QR-Code scannen*/}</Text>
 
                     </TouchableOpacity>
 

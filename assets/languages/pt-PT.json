@@ -43,9 +43,14 @@
   "app-join": "Junte-se ao grupo",
   "app-join-code": "Por favor introduza o código de grupo de 7 dígitos",
   "app-code": "Digite o código do grupo",
+  "app-code-plain": "Código do grupo",
+  "app-code-show": "mostrar",
+  "app-code-generate": "gerar",
   "app-your-env": "O seu ambiente",
   "app-your-env-attention": "Atenção! Você está em perigo.",
   "app-your-env-nothing": "nenhum perigo reconhecido",
   "app-your-follow": "você segue",
-  "app-your-contacts": "contatos"
+  "app-your-contacts": "contatos",
+  "app-tutorial-intro": "Verifique o código do seu contacto ou informe os seus contactos sobre o seu estado de saúde para que possamos trabalhar em conjunto para reduzir a propagação do vírus corona.",
+  "app-qr-scan": "Digitalizar Código QR"
 }

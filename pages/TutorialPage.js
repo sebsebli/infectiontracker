@@ -24,7 +24,7 @@ export default class TutorialPage extends Component {
                         color: '#000000',
                         alignSelf: 'flex-start'
 
-                    }}>So funktioniert's:</Text>
+                    }}>{i18n.t('drawerTutorial') /*So funktioniert's*/}:</Text>
                     <Text style={{
                         fontSize: 16,
                         fontWeight: "400",
