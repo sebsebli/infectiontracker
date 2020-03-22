@@ -33,5 +33,6 @@
   "symptoms-cough": "Toux",
   "symptoms-fever": "Fièvre",
   "symptoms-cold": "Renifle",
-  "symptoms-throat": "Mal de gorge"
+  "symptoms-throat": "Mal de gorge",
+  "symptoms-yes": "Si tiene síntomas, por favor llame a su médico de cabecera. Si tiene síntomas graves, como falta de aliento, llame a los servicios de emergencia (112)."
 }

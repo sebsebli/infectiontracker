@@ -204,7 +204,7 @@ export default function HealthPage(props) {
                         - {i18n.t('symptoms-cold') /*Schnupfen*/} 28%{'\n'}
                         - {i18n.t('symptoms-throat') /*Halsschmerzen*/} 23%{'\n'}
                         {'\n'}
-                        Wenn du Symptome aufweist, ruf bitte deinen Hausarzt an oder wende dich bei Dringlichkeit an die Notfallnummer 116 117. Bei schwerwiegenden Symptomen wie Atemnot, ruf den Rettungsdient (112).
+                        {i18n.t('symptoms-yes') /*Wenn du Symptome aufweist, ruf bitte deinen Hausarzt an oder wende dich bei Dringlichkeit an die Notfallnummer 116 117. Bei schwerwiegenden Symptomen wie Atemnot, ruf den Rettungsdient (112).*/}
                         {'\n'}{'\n'}
                         Weitere Infos findest du hier:{'\n'}
                         <TouchableOpacity onPress={() => handlePressButtonAsync()}>
