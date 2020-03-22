@@ -39,13 +39,13 @@
   "app-back": "Back",
   "app-scan-so": "Scan your contact's code. Scanned contacts are automatically deleted after 2 weeks.",
   "app-attention": "Attention",
-  "app-no-revert": "Once scanned, contacts cannot be undone for security reasons.",
+  "app-no-revert": "Once scanned, contacts cannot be removed for security reasons.",
   "app-join": "Join group",
   "app-join-code": "Please enter the 7-digit group code",
   "app-code": "Enter group code",
-  "app-code-plain": "Group code",
-  "app-code-show": "show",
-  "app-code-generate": "generate",
+  "app-code-plain": "",
+  "app-code-show": "Show group code",
+  "app-code-generate": "Generate group code",
   "app-your-env": "Your environment",
   "app-your-env-attention": "Heads up! You are in danger.",
   "app-your-env-nothing": "no danger recognised",
@@ -54,5 +54,6 @@
   "app-tutorial-intro": "Scan the code of your contact or inform your contacts about your state of health so that together we can reduce the spread of the corona virus.",
   "app-qr-scan": "Scan QR Code",
   "app-error": "There was an error while transferring data",
-  "app-not-supported": "This feature is not yet supported."
+  "app-not-supported": "This feature is not yet supported.",
+  "app-reset-unsupported": "Future app versions will allow the recovery of an account via a recovery code."
 }

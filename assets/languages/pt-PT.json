@@ -54,5 +54,6 @@
   "app-tutorial-intro": "Verifique o código do seu contacto ou informe os seus contactos sobre o seu estado de saúde para que possamos trabalhar em conjunto para reduzir a propagação do vírus corona.",
   "app-qr-scan": "Digitalizar Código QR",
   "app-error": "Houve um erro durante a transferência de dados",
-  "app-not-supported": "Esta funcionalidade ainda não é suportada."
+  "app-not-supported": "Esta funcionalidade ainda não é suportada.",
+  "app-reset-unsupported": "As futuras versões do aplicativo permitirão a recuperação de uma conta através de um código de recuperação."
 }
