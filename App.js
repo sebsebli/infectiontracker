@@ -17,7 +17,7 @@ import RNPickerSelect from 'react-native-picker-select';
 import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { CheckBox } from 'react-native-elements'
 import { setUID, setKEY, setmyStatus } from './helpers/GlobalState';
-import { set } from 'react-native-reanimated';
+import getUpdates from './helpers/BackgroundUpdate'
 i18n.fallbacks = true;
 i18n.translations = {
   de: require('./assets/languages/de-DE.json')
@@ -43,9 +43,10 @@ export default function App() {
 
 
 
+  getUpdates();
 
 
-  
+
   async function register(sex, age) {
     return fetch('https://seb-vs-virus-api.herokuapp.com/register',
       {
