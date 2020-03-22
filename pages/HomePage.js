@@ -363,7 +363,7 @@ export default HomePage = (props) => {
                         }}>{i18n.t('app-scan-so') /*Scannt den Code eures Kontaktes. Gescannte Kontakte werden nach 2 Wochen automatisch gelöscht.*/}</Text>
                         <Text style={{
                             padding: 5, fontSize: 16, textAlign: 'center', color: '#fb3640'
-                        }}><Text style={{ fontWeight: '600' }}>Achtung:</Text> Einmal gescannte Kontakte können aus Sicherheitsgründen nicht rückgängig gemacht werden.</Text>
+                        }}><Text style={{ fontWeight: '600' }}>{i18n.t('app-attention') /*Achtung*/}:</Text> {i18n.t('app-no-revert') /*Einmal gescannte Kontakte können aus Sicherheitsgründen nicht rückgängig gemacht werden.*/}</Text>
 
 
 

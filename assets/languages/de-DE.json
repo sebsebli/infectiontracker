@@ -37,5 +37,7 @@
   "symptoms-yes": "Wenn du Symptome aufweist, ruf bitte deinen Hausarzt an oder wende dich bei Dringlichkeit an die Notfallnummer 116 117. Bei schwerwiegenden Symptomen wie Atemnot, ruf den Rettungsdient (112).",
   "symptoms-infos": "Weitere Infos findest du hier",
   "app-back": "Zurück",
-  "app-scan-so": "Scannt den Code eures Kontaktes. Gescannte Kontakte werden nach 2 Wochen automatisch gelöscht."
+  "app-scan-so": "Scannt den Code eures Kontaktes. Gescannte Kontakte werden nach 2 Wochen automatisch gelöscht.",
+  "app-attention": "Achtung",
+  "app-no-revert": "Einmal gescannte Kontakte können aus Sicherheitsgründen nicht rückgängig gemacht werden."
 }
