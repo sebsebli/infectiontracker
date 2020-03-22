@@ -22,6 +22,27 @@
       "bundleIdentifier": "me.lindner.infectiontracker",
       "buildNumber": "1.1.0"
     },
+    "android": {
+      "package": "me.lindner.infectiontracker",
+      "versionCode": "1.1.0",
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "READ_PHONE_STATE",
+        "VIBRATE",
+        "com.anddoes.launcher.permission.UPDATE_COUNT",
+        "com.android.launcher.permission.INSTALL_SHORTCUT",
+        "com.google.android.c2dm.permission.RECEIVE",
+        "com.google.android.gms.permission.ACTIVITY_RECOGNITION",
+        "com.google.android.providers.gsf.permission.READ_GSERVICES",
+        "com.htc.launcher.permission.READ_SETTINGS",
+        "com.htc.launcher.permission.UPDATE_SHORTCUT",
+        "com.majeur.launcher.permission.UPDATE_BADGE",
+        "com.sec.android.provider.badge.permission.READ",
+        "com.sec.android.provider.badge.permission.WRITE",
+        "com.sonyericsson.home.permission.BROADCAST_BADGE"
+      ]
+    },
     "description": "This app aims at informing people about the health status of recent contacts to reduce the spread of corona virus.",
     "githubUrl": "https://github.com/sebsebli/infectiontracker"
   }
