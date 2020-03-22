@@ -40,11 +40,11 @@ const statusColor = [
 
 // i18n Version
 const statusString = [
-  i18n.t('status-01'),
-  i18n.t('status-02'),
-  i18n.t('status-03'),
-  i18n.t('status-04'),
-  i18n.t('status-05'),
+    i18n.t('status-01'),
+    i18n.t('status-02'),
+    i18n.t('status-03'),
+    i18n.t('status-04'),
+    i18n.t('status-05'),
 ];
 
 export default HomePage = (props) => {
@@ -274,7 +274,16 @@ export default HomePage = (props) => {
                     flexDirection: 'row'
                 }}>
                     <View style={{ height: '100%', width: 40, justifyContent: 'center', alignItems: 'flex-start', marginLeft: 20 }}>
+                        {contactState > 1 ?
+                            <View style={{
+                                borderColor: statusColor[contactState],
+                                backgroundColor: statusColor[contactState],
+                                borderRadius: 10, height: 20, width: 20, justifyContent: 'center', alignItems: 'center', marginLeft: 30, marginBottom: -5,
+                            }}>
 
+                                <FontAwesome name="info" size={10} color="white" />
+                            </View>
+                            : null}
                         <View style={{ borderColor: statusColor[contactState], backgroundColor: '#383838', borderWidth: 4, borderRadius: 20, height: 40, width: 40, justifyContent: 'center', alignItems: 'center' }}>
 
                             <FontAwesome name="bell" size={20} color="white" />
