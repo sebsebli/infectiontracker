@@ -9,6 +9,7 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, StatusBar, Image } from 'react-native'
 import Header from '../components/Header'
+import i18n from 'i18n-js';
 export default class ResetPage extends Component {
     render() {
         return (
@@ -23,7 +24,7 @@ export default class ResetPage extends Component {
                         padding: 20,
                         color: '#000000',
                         textAlign: 'center'
-                    }}>Zukünftige App-Versionen ermöglichen das Wiederherstellen eines Accounts über einen Wiederherstellungs-Code</Text>
+                    }}>{i18n.t('app-reset-unsupported') /*Zukünftige App-Versionen ermöglichen das Wiederherstellen eines Accounts über einen Wiederherstellungs-Code*/}</Text>
                 </View>
             </View>
         )
