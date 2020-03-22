@@ -201,7 +201,7 @@ export default function HealthPage(props) {
                       {i18n.t('symptoms-intro') /*Häufigste Symptome bei Corona-Infektion*/}:{'\n'}
                         - {i18n.t('symptoms-cough') /*Husten*/} 55%{'\n'}
                         - {i18n.t('symptoms-fever') /*Fieber*/} 39%{'\n'}
-                        - Schnupfen 28%{'\n'}
+                        - {i18n.t('symptoms-cold') /*Schnupfen*/} 28%{'\n'}
                         - Halsschmerzen 23%{'\n'}
                         {'\n'}
                         Wenn du Symptome aufweist, ruf bitte deinen Hausarzt an oder wende dich bei Dringlichkeit an die Notfallnummer 116 117. Bei schwerwiegenden Symptomen wie Atemnot, ruf den Rettungsdient (112).
