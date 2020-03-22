@@ -18,5 +18,10 @@
   "homeNew": "I'm new here",
   "homeRestore": "Restore",
   "homeYourCode": "Your personal code",
-  "homeGroupCodeButton": "Generate group code"
+  "homeGroupCodeButton": "Generate group code",
+  "status-01": "not tested, no symptoms",
+  "status-02": "tested: test negative",
+  "status-03": "Contact with positively tested person",
+  "status-04": "not tested, typical corona symptoms",
+  "status-05": "tested: test positive"
 }

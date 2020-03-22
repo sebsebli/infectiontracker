@@ -18,5 +18,10 @@
   "homeNew": "Je suis nouveau ici",
   "homeRestore": "Restaurer",
   "homeYourCode": "Votre code personnel",
-  "homeGroupCodeButton": "Générer un code de groupe"
+  "homeGroupCodeButton": "Générer un code de groupe",
+  "status-01": "non testé, aucun symptôme",
+  "status-02": "testé : test négatif",
+  "status-03": "Contact avec une personne testée positivement",
+  "status-04": "non testé, symptômes corona typiques",
+  "status-05": "testé : test positif"
 }
