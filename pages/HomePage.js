@@ -40,11 +40,11 @@ const statusColor = [
 
 // i18n Version
 const statusString = [
-    i18n.t('status-01'),
-    i18n.t('status-02'),
-    i18n.t('status-03'),
-    i18n.t('status-04'),
-    i18n.t('status-05'),
+    i18n.t('health-state1'),
+    i18n.t('health-state2'),
+    i18n.t('health-state3'),
+    i18n.t('health-state4'),
+    i18n.t('health-state5'),
 ];
 
 export default HomePage = (props) => {
