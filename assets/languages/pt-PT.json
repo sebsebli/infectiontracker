@@ -25,5 +25,8 @@
   "status-04": "não testado, sintomas típicos da coroa",
   "status-05": "testado: teste positivo",
   "healtState": "estado de saúde",
-  "reportState": "Por favor, informe-nos imediatamente se algo mudar na sua condição. Todos os contatos das últimas duas semanas serão informados anonimamente. Ninguém vai saber a sua identidade."
+  "reportState": "Por favor, informe-nos imediatamente se algo mudar na sua condição. Todos os contatos das últimas duas semanas serão informados anonimamente. Ninguém vai saber a sua identidade.",
+  "sex-m": "homem",
+  "sex-f": "feminino",
+  "sex-d": "diversos/outros"
 }
