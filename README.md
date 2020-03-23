@@ -17,6 +17,12 @@ Die App kann über https://exp.host/@sebsebli/infectiontracker getestet werden, 
 
 Running instance of https://github.com/kai-raschke/seb_vs_virus_api
 
+## Features
+
+View your code, check your connections and there health status
+
+![alt text](https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen.jpg)
+
 ## Install
 
 ``` npm install expo-cli --global ```
