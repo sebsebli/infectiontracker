@@ -19,11 +19,14 @@ import { Text, StyleSheet, StatusBar, TouchableOpacity, View, Modal, Image, Aler
 
 import { QRCode } from 'react-native-custom-qr-codes-expo';
 import AppIntroSlider from 'react-native-app-intro-slider';
+import { Linking } from 'expo'
 import i18n from 'i18n-js';
 
 export default GroupsModal = (props) => {
     const hide = props.hide;
-    const infectData = "@infectGroupData" + props.groups.gid;
+
+
+    let infectData = Linking.makeUrl('INFECTIONTRACKERQR', { uid: props.groups.gid, type: 'group' });
     console.log(props.groups)
     return (
 
@@ -45,7 +48,7 @@ export default GroupsModal = (props) => {
                     padding: 20,
                     color: '#ababab'
                 }}>Neuer Gruppen-Code:</Text>
-                <QRCode content={"@infectDataGR" + infectData} codeStyle='dot' logo={require('../assets/images/logo.png')} size={200, 200} logoSize={50} />
+                <QRCode content={infectData} codeStyle='dot' logo={require('../assets/images/logo.png')} size={200, 200} logoSize={50} />
 
                 <Text style={{
                     fontSize: 40,

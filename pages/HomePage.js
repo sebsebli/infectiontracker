@@ -18,10 +18,12 @@ import axios from 'axios';
 import Spinner from 'react-native-loading-spinner-overlay';
 import GroupsModal from '../components/GroupsModal'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
-import { useGlobalState, setgid, setcontactCount, setcontactStatus, } from '../helpers/GlobalState';
+import { useGlobalState, setgid, setcontactCount, setcontactStatus, setMYQR } from '../helpers/GlobalState';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input'
 import Toast from 'react-native-tiny-toast'
 import { Updates } from 'expo';
+
+import { Linking } from 'expo';
 const statusColor = [
     '#7dc656',
     '#7dc656',
@@ -61,17 +63,19 @@ export default HomePage = (props) => {
     const [loadingHome, setLoadingHome] = useState(false);
     const [loadingGroup, setLoadingGroup] = useState(false);
     const [canJoin, setCanJoin] = useState(true);
-
+    const [error, setError] = useState(false);
 
     const [contactState] = useGlobalState('contactStatus');
     const [contactCount] = useGlobalState('contactCount');
     const [groupData] = useGlobalState('gid');
     const [key] = useGlobalState('key');
     const [uid] = useGlobalState('uid');
+    const [myQR] = useGlobalState('myQRURL');
     const [myState] = useGlobalState('myStatus');
 
     const infectData = "@infectDataUS" + uid;
     const codeInputRef = useRef();
+    let myQRURL = Linking.makeUrl('INFECTIONTRACKERQR', { uid: uid, type: 'user' });
 
     // Non replaced
     // const statusString = [
@@ -91,7 +95,14 @@ export default HomePage = (props) => {
         i18n.t('health-state-five'),
     ];
 
+    useEffect(() => {
+        (async () => {
 
+            setMYQR(myQRURL)
+            console.log((myQR))
+
+        })();
+    }, []);
 
 
 
@@ -108,19 +119,20 @@ export default HomePage = (props) => {
             .then(function (response) {
                 console.log(response.data)
 
-
+                setLoadingGroup(false)
+                setmodalVisibleGrupCode(false)
                 Toast.show('Erfolgreich der Gruppe beigetreten', {
                     position: Toast.position.center,
                     containerStyle: { zIndex: 99 },
                 })
-                setLoadingGroup(false)
 
-                setmodalVisibleGrupCode(false)
+
+
 
 
             })
             .catch(function (error) {
-                console.log(error)
+
                 setLoadingGroup(false)
 
                 codeInputRef.current.shake()
@@ -143,7 +155,6 @@ export default HomePage = (props) => {
 
         })();
     }, []);
-
 
 
 
@@ -196,8 +207,11 @@ export default HomePage = (props) => {
             .then(async function (response) {
 
 
-                setLoadingHome(false)
+
+
+
                 setgid(response.data)
+                setLoadingHome(false)
                 setgroupsVisible(true)
 
             })
@@ -214,16 +228,15 @@ export default HomePage = (props) => {
     };
 
 
-    const handleBarCodeScanned = async ({ type, data }) => {
-        let temp = data.slice(0, 13);
 
-        console.log('GOT CODE', data)
-        if (temp === "@infectDataUS") {
+    const addToContacts = (type, id) => {
+        console.log(type)
+        if (type === "user") {
             setLoading(true)
 
             axios.post('https://seb-vs-virus-api.herokuapp.com/connect', {
                 uid: uid,
-                xid: data.slice(13),
+                xid: id,
                 key: key
 
             })
@@ -239,14 +252,14 @@ export default HomePage = (props) => {
                     })
                 })
                 .catch(function (error) {
-
+                    setError(true)
                     // Works on both Android and iOS
                     Alert.alert(
                         i18n.t('app-attention'), //Achtung
                         i18n.t('app-error') + '\n' + error, //"Es gab einen Fehler beim Daten übertragen"
                         [
 
-                            { text: 'OK', onPress: () => setLoading(false) },
+                            { text: 'OK', onPress: () => { setLoading(false); setError(false) } },
                         ],
                         { cancelable: false }
                     );
@@ -254,11 +267,11 @@ export default HomePage = (props) => {
                 });
 
         }
-        if (temp === "@infectDataGR") {
+        if (type === "group") {
             setLoading(true)
             axios.post('https://seb-vs-virus-api.herokuapp.com/join', {
                 uid: uid,
-                gid: data.slice(13),
+                gid: id,
                 key: key
 
             })
@@ -266,6 +279,10 @@ export default HomePage = (props) => {
                     console.log(response)
                     setLoading(false)
                     setModalVisible(false);
+                    Toast.show('Gruppe beigetreten', {
+                        position: Toast.position.center,
+                        containerStyle: { zIndex: 99 },
+                    })
                 })
                 .catch(function (error) {
 
@@ -275,7 +292,7 @@ export default HomePage = (props) => {
                         i18n.t('app-error') + '\n' + error, //"Es gab einen Fehler beim Daten übertragen"
                         [
 
-                            { text: 'OK', onPress: () => setLoading(false) },
+                            { text: 'OK', onPress: () => { setLoading(false); setError(false) } },
                         ],
                         { cancelable: false }
                     );
@@ -283,16 +300,33 @@ export default HomePage = (props) => {
                 });
 
         }
+    }
+
+
+
+    const handleBarCodeScanned = async ({ type, data }) => {
+        if (error) return
+        let temp = Linking.parse(data);
+        if (temp.queryParams.type && temp.queryParams.uid) {
+            addToContacts(temp.queryParams.type, temp.queryParams.uid)
+
+        }
         return
 
 
-
-
-
-
-
-
     };
+
+
+    const _handleUrl = (url) => {
+
+        let temp = Linking.parse(url);
+        console.log(url, temp.queryParams)
+        if (temp.queryParams.type && temp.queryParams.uid) {
+            addToContacts(temp.queryParams.type, temp.queryParams.uid)
+        }
+        return
+    };
+    Linking.addEventListener('url', (url) => { _handleUrl(url.url) });
     return (
         <View style={{ flex: 1 }}>
 
@@ -312,7 +346,7 @@ export default HomePage = (props) => {
                         padding: 20,
                         color: '#ababab'
                     }}>{i18n.t('homeYourCode')}</Text>
-                    <QRCode content={infectData} codeStyle='dot' logo={require('../assets/images/logo.png')} size={200, 200} logoSize={50} />
+                    <QRCode content={myQRURL} codeStyle='dot' logo={require('../assets/images/logo.png')} size={200, 200} logoSize={50} />
 
                     <TouchableOpacity style={{
                         backgroundColor: '#293241',

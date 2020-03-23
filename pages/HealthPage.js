@@ -46,6 +46,7 @@ export default function HealthPage(props) {
     const [myState] = useGlobalState('myStatus');
     const [mykey] = useGlobalState('key');
     const [uid] = useGlobalState('uid');
+    const [myQR] = useGlobalState('myQRURL');
     const [loading, setLoading] = useState(false);
     async function handlePressButtonAsync(props) {
         let result = await WebBrowser.openBrowserAsync('https://www.infektionsschutz.de/coronavirus');
@@ -268,7 +269,7 @@ export default function HealthPage(props) {
                         color: '#000000',
                         textAlign: 'center'
                     }}>Zeige den Verantwortlichen diesen Code, um deine Kontakte schnellstmöglich zu informieren!</Text></Text>
-                    < QRCode content={"@infectDataUS" + uid} codeStyle='dot' logo={require('../assets/images/logo.png')} size={200, 200} logoSize={50} />
+                    < QRCode content={myQR} codeStyle='dot' logo={require('../assets/images/logo.png')} size={200, 200} logoSize={50} />
 
 
 

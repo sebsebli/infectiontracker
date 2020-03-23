@@ -17,8 +17,11 @@ const { setGlobalState, useGlobalState } = createGlobalState({
     gid: 0,
     sex: 0,
     age: 0,
+    myQRURL: ''
 });
-
+export const setMYQR= (s) => {
+    setGlobalState('myQRURL', s);
+};
 export const setSex = (s) => {
     setGlobalState('sex', s);
 };
