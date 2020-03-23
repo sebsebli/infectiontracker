@@ -1,5 +1,6 @@
-![](https://github.com/sebsebli/infectiontracker/blob/master/logo_mit_text.png?v=4&s=200)
-
+<p align="center">
+  <img width="460" height="300" src="https://github.com/sebsebli/infectiontracker/blob/master/logo_mit_text.png">
+</p>
 
 # infectiontracker
 **InfectionTracker** soll es ermöglichen, Infektionsketten aufzudecken und so zur schnellen Information von potenziell-betroffenen BürgerInnen beizutragen. Nicht zu vermeidende Kontakte (z.B. durch Umzüge, Arbeit, familiäre Betreuung) können so über einen QR-Code aufgenommen werden. Sollten eine Kontaktperson innerhalb von zwei Wochen Symptome zeigen oder positiv auf Corona getestet werden, so werden alle Kontakte der vergangenen zwei Wochen automatisiert über die potenzielle Gefährdung informiert. Weiterhin bieten wir in diesem Fall Informationen und Handlungsanweisungen, um eine weitere Verbreitung des Virus zu verhindern. Wir verfolgen einen Ansatz, der die Anonymität und den Datenschutz der Nutzer im Fokus hat, ohne die notwendigen Informationen gefährdeten Kontakten vorzuenthalten. Wir hoffen mit unserem Beitrag einen Teil zur Reduzierung der Ausbreitung beitragen zu können.
