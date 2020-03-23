@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="460" height="300" src="https://github.com/sebsebli/infectiontracker/blob/master/logo_mit_text.png">
+  <img width="300" height="300" src="https://github.com/sebsebli/infectiontracker/blob/master/logo_mit_text.png">
 </p>
 
 # infectiontracker
