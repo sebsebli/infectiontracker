@@ -12,7 +12,7 @@ import AppNavigator from './navigation/AppNavigator'
 import * as Localization from 'expo-localization';
 import i18n from 'i18n-js';
 import { AppLoading } from 'expo';
-import { AsyncStorage, View, TouchableOpacity, Text, Modal, SafeAreaView, Alert } from 'react-native';
+import { AsyncStorage, View, TouchableOpacity, Text, Modal, SafeAreaView, Alert, Image } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { CheckBox } from 'react-native-elements'
@@ -319,7 +319,7 @@ export default function App() {
 
 
             </Modal>
-
+            <Image source={require('./assets/icon.png')} style={{ height: 200, width: 200 }}></Image>
             <TouchableOpacity style={{ width: '80%', height: 50, backgroundColor: '#293241', alignItems: 'center', justifyContent: 'center', margin: 10, }}
               onPress={() => setModalVisible(true)}>
               <Text style={{ color: '#ffffff', fontSize: 16, fontWeight: '600' }}>{i18n.t('homeNew')}</Text>

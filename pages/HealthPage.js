@@ -239,7 +239,30 @@ export default function HealthPage(props) {
 
                     </View>
 
+                    <TouchableOpacity
+                        style={{
+                            backgroundColor: '#293241',
+                            shadowColor: "#000",
+                            shadowOffset: {
+                                width: 0,
+                                height: 2,
+                            },
+                            shadowOpacity: 0.15,
+                            shadowRadius: 3.84,
+                            height: 80, width: '100%', alignItems: 'center', justifyContent: 'center', marginTop: 20,
+                            position: 'absolute',
+                            bottom: 0, left: 0
 
+                        }}
+                        onPress={() => props.navigation.navigate('Home')}
+                    >
+                        <Text style={{
+                            fontSize: 16,
+                            fontWeight: "600",
+
+                            color: '#ffffff', //
+                        }}>{i18n.t('app-back') /*Zurück*/}</Text>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
 
