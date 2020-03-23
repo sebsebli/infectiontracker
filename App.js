@@ -17,7 +17,7 @@ import RNPickerSelect from 'react-native-picker-select';
 import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { CheckBox } from 'react-native-elements'
 import { setUID, setKEY, setmyStatus, setgid, setSex, setAge, useGlobalState } from './helpers/GlobalState';
-import { Notifications, Permissions } from 'expo';
+import Toast from 'react-native-tiny-toast'
 import Spinner from 'react-native-loading-spinner-overlay';
 import axios from 'axios';
 import Constants from 'expo-constants';
@@ -76,7 +76,10 @@ export default function App() {
       })
       .catch(function (error) {
         setLoading(false);
-        Alert.alert(i18n.t('errorMessage'))
+        Toast.show('Es gab einen Fehler', {
+          position: Toast.position.center,
+          containerStyle: { zIndex: 99 },
+        })
 
       });
 
@@ -305,7 +308,7 @@ export default function App() {
                   checkedColor='#ee6c4d'
                 />
                 <TouchableOpacity style={{ position: 'absolute', width: '100%', borderColor: '#ebebeb', borderWidth: 2, justifyContent: 'center', alignItems: 'center', height: 80, bottom: 0 }}
-                  onPress={() => register()}
+                  onPress={() => { setModalVisible(false); register(); }}
                 >
 
                   <Text style={{
