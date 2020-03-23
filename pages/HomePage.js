@@ -127,10 +127,7 @@ export default HomePage = (props) => {
                     position: Toast.position.center,
                     containerStyle: { zIndex: 99 },
                 })
-
-
-
-
+                setGroupCode('')
 
             })
             .catch(function (error) {
