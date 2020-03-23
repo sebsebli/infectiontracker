@@ -13,7 +13,7 @@ import { QRCode } from 'react-native-custom-qr-codes-expo';
 import { BarCodeScanner, } from 'expo-barcode-scanner';
 import i18n from 'i18n-js';
 import { BlurView } from 'expo-blur';
-import * as Permissions from 'expo-permissions';
+
 import axios from 'axios';
 import Spinner from 'react-native-loading-spinner-overlay';
 import GroupsModal from '../components/GroupsModal'
@@ -21,8 +21,8 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useGlobalState, setgid, setcontactCount, setcontactStatus, setMYQR } from '../helpers/GlobalState';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input'
 import Toast from 'react-native-tiny-toast'
-import { Updates } from 'expo';
-
+import * as Permissions from 'expo-permissions'
+import { Constants, Notifications } from 'expo';
 import { Linking } from 'expo';
 const statusColor = [
     '#7dc656',
@@ -31,6 +31,18 @@ const statusColor = [
     '#EE6c4d',
     '#fb3640',
 ];
+
+const localNotification = {
+    title: 'Achtung!',
+    body: 'Einer deiner Kontakte hat seinen Status in einen kritischen Zustand geändert!',
+    android: {
+        sound: true,
+    },
+    ios: {
+        sound: true,
+        _displayInForeground: true,
+    },
+};
 
 
 function useInterval(callback, delay) {
@@ -53,7 +65,6 @@ function useInterval(callback, delay) {
     }, [delay]);
 }
 export default HomePage = (props) => {
-    const [hasPermission, setHasPermission] = useState(null);
     const [modalVisible, setModalVisible] = useState(false);
     const [modalVisibleGrupCode, setmodalVisibleGrupCode] = useState(false);
     const [groupsVisible, setgroupsVisible] = useState(false);
@@ -149,8 +160,13 @@ export default HomePage = (props) => {
         (async () => {
 
             const { status } = await BarCodeScanner.requestPermissionsAsync();
+            const { statusPush } = await Permissions.getAsync(
+                Permissions.NOTIFICATIONS
+            );
+            if (statusPush !== 'granted') {
+                await Permissions.askAsync(Permissions.NOTIFICATIONS);
+            }
 
-            setHasPermission(status === 'granted');
 
         })();
     }, []);
@@ -178,7 +194,9 @@ export default HomePage = (props) => {
             const status = responses[1].data
 
             console.log("alive", count, status)
-
+            if ((status > 2) && (status > contactState)) {
+                Notifications.presentLocalNotificationAsync(localNotification)
+            }
             setcontactCount(count)
             setcontactStatus(status)
 
