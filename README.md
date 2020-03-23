@@ -19,10 +19,15 @@ Running instance of https://github.com/kai-raschke/seb_vs_virus_api
 
 ## Features
 
-View your code, check your connections and there health status
+- View your code, check your connections and their health status
+- Change your health status
+- Scan code of someone else to connect to each other
+- Use a group code to connect to several people at once (eg. in a meeting)
 
 <a href="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-01.jpg"><img src="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-01.jpg" width="200"/></a>
 <a href="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-02.jpg"><img src="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-02.jpg" width="200"/></a>
+<a href="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-03.jpg"><img src="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-03.jpg" width="200"/></a>
+<a href="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-04.jpg"><img src="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-04.jpg" width="200"/></a>
 
 ## Install
 
