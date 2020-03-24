@@ -11,7 +11,7 @@ Wir sind gerne zum Austausch und zur Kooperation bereit.
 Meldet euch bei Interesse per E-Mail: [sebastian@lindner.me](mailto:sebastin@lindner.me "sebastin@lindner.me")
 
 ## Was uns abhebt
-* Bei uns bleiben die **Nutzer anonym**. Wir bieten damit eine Möglichkeitj sich auch mit unbekannten Personen zu vernetzen, um zwar informiert und gewarnt zu bleiben, aber ohne den eigenen Gesundheitszustand allen Personen zugänglich zu machen. Wir kennen zu jedem Nutzer nur eine zufallsgenerierte Zeichenkette.
+* Bei uns bleiben die **Nutzer anonym**. Wir bieten damit eine Möglichkeit, sich auch mit unbekannten Personen zu vernetzen, um zwar informiert und gewarnt zu bleiben, aber ohne den eigenen Gesundheitszustand allen Personen zugänglich zu machen. Wir kennen zu jedem Nutzer nur eine zufallsgenerierte Zeichenkette.
 * Der Infektionsstatus muss von Behördern autorisiert werden, um **keine Falschinformationen** zu verbreiten.
 * Wir legen größten Wert auf **Datenschutz**. Unsere erhobenen Daten können keiner Person zugeordnet werden. Wir verzichten auf das aufzeichnen von Standortdaten.
 * Unsere freien Schnittstellen ermöglichen die **statistische Auswertung** von Infektionsdaten und -verläufen.
