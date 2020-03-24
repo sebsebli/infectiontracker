@@ -50,7 +50,6 @@ Running instance of https://github.com/kai-raschke/seb_vs_virus_api or use curre
 ## Start
 
 ``` npm start ```
->>>>>>> master
 
 ## Demo
 Die App kann über https://exp.host/@sebsebli/infectiontracker getestet werden, sofern der Expo-Client (Android, iOS) installiert ist. Die API abfragen werden durch die prototypische Implementierung im Intervall von 60 Sekunden abgefragt, weshalb es zu Verzögerungen beim Aktualisieren der Daten kommen kann. Eine Android-APK steht im GitHub-Repository zum Download bereit. Ein Test auf iOS (über Testflight) kann ebenfalls ermöglicht werden. Schreibt mir dazu eine E-Mail.
