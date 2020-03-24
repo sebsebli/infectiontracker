@@ -14,7 +14,7 @@ Meldet euch bei Interesse per E-Mail: [sebastian@lindner.me](mailto:sebastin@lin
 
 Introduction video (german): https://www.youtube.com/watch?v=fzUSl38vk_I&feature=youtu.be
 
-Die App kann über https://exp.host/@sebsebli/infectiontracker getestet werden, sofern der Expo-Client (Android, iOS) installiert ist. Die API abfragen werden durch den Prototypen im Intervall von 20 Sekunden abgefragt, weshalb es zu Verzögerungen beim Aktualisieren der Daten kommen kann. Eine Android-APK liegt ist ebenfalls verfügbar. Ein Test auf iOS (über Testflight) kann ebenfalls ermöglicht werden. Schreibt mir dazu eine E-Mail.
+Die App kann über https://exp.host/@sebsebli/infectiontracker getestet werden, sofern der Expo-Client (Android, iOS) installiert ist. Die API abfragen werden durch die prototypische Implementierung im Intervall von 60 Sekunden abgefragt, weshalb es zu Verzögerungen beim Aktualisieren der Daten kommen kann. Eine Android-APK liegt ist ebenfalls verfügbar. Ein Test auf iOS (über Testflight) kann ebenfalls ermöglicht werden. Schreibt mir dazu eine E-Mail.
 
 **Prototype release (Android)**
 
