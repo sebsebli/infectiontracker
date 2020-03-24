@@ -18,7 +18,7 @@ Aufgrund der aktuellen Situation wird eine Minimierung der sozialen Kontakte bzw
 * Der Infektionsstatus muss von Behördern autorisiert werden, um **keine Falschinformationen** zu verbreiten.
 * Wir legen größten Wert auf **Datenschutz**. Unsere erhobenen Daten können keiner Person zugeordnet werden. Wir verzichten auf das aufzeichnen von Standortdaten.
 * Unsere freien Schnittstellen ermöglichen die **statistische Auswertung** von Infektionsdaten und -verläufen.
-* InfectionTracker ist sofort **multilingual** einsetzbar. Wir ermöglichen mit den 9 vebreitetsten Sprachen sofort den multikulturellen Einsatz. Weitere Sprachen folgen.
+* InfectionTracker ist sofort **multilingual** einsetzbar. Wir ermöglichen mit den 9 verbreitetsten Sprachen sofort den multikulturellen Einsatz. Weitere Sprachen folgen.
 
 ## Demo
 Die App kann über https://exp.host/@sebsebli/infectiontracker getestet werden, sofern der Expo-Client (Android, iOS) installiert ist. Die API abfragen werden durch die prototypische Implementierung im Intervall von 60 Sekunden abgefragt, weshalb es zu Verzögerungen beim Aktualisieren der Daten kommen kann. Eine Android-APK steht im GitHub-Repository zum Download bereit. Ein Test auf iOS (über Testflight) kann ebenfalls ermöglicht werden. Schreibt mir dazu eine E-Mail.
