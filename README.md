@@ -20,6 +20,37 @@ Aufgrund der aktuellen Situation wird eine Minimierung der sozialen Kontakte bzw
 * Unsere freien Schnittstellen ermöglichen die **statistische Auswertung** von Infektionsdaten und -verläufen.
 * InfectionTracker ist sofort **multilingual** einsetzbar. Wir ermöglichen mit den 9 verbreitetsten Sprachen sofort den multikulturellen Einsatz. Weitere Sprachen folgen.
 
+**Prototype release (Android)**
+
+https://github.com/sebsebli/infectiontracker/releases/tag/v1.3.0
+
+## Development Requirements
+
+Running instance of https://github.com/kai-raschke/seb_vs_virus_api or use current dev hosting (if available) on https://seb-vs-virus-api.herokuapp.com
+
+## Features
+
+- View your code, check your connections and their health status
+- Change your health status
+- Scan code of someone else to connect to each other
+- Use a group code to connect to several people at once (eg. in a meeting)
+- Multilanguage interface (usual online translation quality) - English, German, Spanish, French, Portuguese, Italian, Hindi, Arabic
+
+<a href="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-01.jpg"><img src="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-01.jpg" width="200"/></a>
+<a href="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-02.jpg"><img src="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-02.jpg" width="200"/></a>
+<a href="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-03.jpg"><img src="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-03.jpg" width="200"/></a>
+<a href="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-04.jpg"><img src="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-04.jpg" width="200"/></a>
+
+## Install
+
+``` npm install expo-cli --global ```
+
+``` npm install ```
+
+## Start
+
+``` npm start ```
+
 ## Demo
 Die App kann über https://exp.host/@sebsebli/infectiontracker getestet werden, sofern der Expo-Client (Android, iOS) installiert ist. Die API abfragen werden durch die prototypische Implementierung im Intervall von 60 Sekunden abgefragt, weshalb es zu Verzögerungen beim Aktualisieren der Daten kommen kann. Eine Android-APK steht im GitHub-Repository zum Download bereit. Ein Test auf iOS (über Testflight) kann ebenfalls ermöglicht werden. Schreibt mir dazu eine E-Mail.
 
