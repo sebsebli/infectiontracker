@@ -1,5 +1,5 @@
 <p align="center">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/fzUSl38vk_I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <img width="300" height="300" src="https://github.com/sebsebli/infectiontracker/blob/master/logo_mit_text.png">
 </p>
 
 # InfectionTracker
