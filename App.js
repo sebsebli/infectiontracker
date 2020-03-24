@@ -21,6 +21,8 @@ import Toast from 'react-native-tiny-toast'
 import Spinner from 'react-native-loading-spinner-overlay';
 import axios from 'axios';
 import Constants from 'expo-constants';
+import * as BackgroundFetch from 'expo-background-fetch';
+import * as TaskManager from 'expo-task-manager';
 i18n.fallbacks = true;
 i18n.defaultLocale = 'de-DE';
 i18n.translations = {
@@ -38,8 +40,6 @@ i18n.translations = {
 // Set the locale once at the beginning of your app.
 i18n.locale = Localization.locale;
 
-
-
 export default function App() {
 
   const [finished, setFinished] = useState(false);
@@ -52,6 +52,9 @@ export default function App() {
   const [check3, setCheck3] = useState(false);
   const [age] = useGlobalState('age');
   const [sex] = useGlobalState('sex');
+
+
+
 
 
   function register() {

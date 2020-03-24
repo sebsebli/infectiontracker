@@ -21,7 +21,8 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "me.lindner.infectiontracker",
-      "buildNumber": "1.4.0"
+      "buildNumber": "1.4.0",
+  
     },
     "android": {
       "package": "me.lindner.infectiontracker",

@@ -12,11 +12,11 @@ import Header from '../components/Header'
 import { QRCode } from 'react-native-custom-qr-codes-expo';
 import { BarCodeScanner, } from 'expo-barcode-scanner';
 import i18n from 'i18n-js';
-import { BlurView } from 'expo-blur';
 
 import axios from 'axios';
 import Spinner from 'react-native-loading-spinner-overlay';
 import GroupsModal from '../components/GroupsModal'
+import ReportModal from '../components/ReportModal'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useGlobalState, setgid, setcontactCount, setcontactStatus, setMYQR } from '../helpers/GlobalState';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input'
@@ -64,6 +64,11 @@ function useInterval(callback, delay) {
         }
     }, [delay]);
 }
+
+
+
+
+
 export default HomePage = (props) => {
     const [modalVisible, setModalVisible] = useState(false);
     const [modalVisibleGrupCode, setmodalVisibleGrupCode] = useState(false);
@@ -71,6 +76,8 @@ export default HomePage = (props) => {
     const [pause, setPause] = useState(false);
     const [groupCode, setGroupCode] = useState('');
     const [loading, setLoading] = useState(false);
+    const [reportVisible, setreportVisible] = useState(false);
+
 
     const [groupError, setGroupError] = useState(false);
     const [loadingHome, setLoadingHome] = useState(false);
@@ -89,7 +96,8 @@ export default HomePage = (props) => {
     const infectData = "@infectDataUS" + uid;
     const codeInputRef = useRef();
     let myQRURL = Linking.makeUrl('INFECTIONTRACKERQR', { uid: uid, type: 'user' });
-
+    
+  
     // Non replaced
     // const statusString = [
     //     'nicht getestet, keine Symptome',
@@ -195,10 +203,20 @@ export default HomePage = (props) => {
 
             console.log("alive", count, status)
             if ((status > 2) && (status > contactState)) {
+                setcontactCount(count)
+                setcontactStatus(status)
                 Notifications.presentLocalNotificationAsync(localNotification)
+                Alert.alert(
+                    "Ein Kontakt wurde positiv getestet", //Achtung
+                    "Bitte übermittelt eure Kontaktinformationen an die zuständige Behörde, damit diese mit euch Kontakt aufnehmen können. Die Kontaktdaten können nur von der jeweiligen Behörde eingesehen werden.", //"Es gab einen Fehler beim Daten übertragen"
+                    [
+                        { text: 'Später', onPress: () => { } },
+                        { text: 'Jetzt angeben', onPress: () => { setreportVisible(true) } },
+                    ],
+                    { cancelable: false }
+                );
             }
-            setcontactCount(count)
-            setcontactStatus(status)
+
 
 
         })).catch(errors => {
@@ -210,7 +228,7 @@ export default HomePage = (props) => {
     useInterval(() => {
         updateMe()
     }, 20000);
-    updateMe();
+
 
     generateGroupCode = async () => {
         if (groupData) {
@@ -343,7 +361,11 @@ export default HomePage = (props) => {
         }
         return
     };
+
     Linking.addEventListener('url', (url) => { _handleUrl(url.url) });
+
+
+
     return (
         <View style={{ flex: 1 }}>
 
@@ -357,6 +379,7 @@ export default HomePage = (props) => {
             <ScrollView>
                 <View style={{ flex: 1, width: '100%', alignItems: 'center', marginTop: 10 }}>
                     <GroupsModal visible={groupsVisible} groups={groupData || {}} hide={() => setgroupsVisible(false)}></GroupsModal>
+                    <ReportModal visible={reportVisible} hide={() => setreportVisible(false)}></ReportModal>
                     <Text style={{
                         fontSize: 14,
                         fontWeight: "400",
@@ -465,6 +488,11 @@ export default HomePage = (props) => {
 
                         </View>
                     </TouchableOpacity>
+                    {(contactState > 2) ?
+                        <TouchableOpacity>
+                            <Text style={{ padding: 5, opacity: 0.7 }} onPress={() => setreportVisible(true)}>Kontaktdaten übermitteln</Text>
+                        </TouchableOpacity>
+                        : null}
                 </View>
             </ScrollView>
 
