@@ -36,11 +36,6 @@ Running instance of https://github.com/kai-raschke/seb_vs_virus_api or use curre
 - Use a group code to connect to several people at once (eg. in a meeting)
 - Multilanguage interface (usual online translation quality) - English, German, Spanish, French, Portuguese, Italian, Hindi, Arabic
 
-<a href="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-01.jpg"><img src="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-01.jpg" width="200"/></a>
-<a href="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-02.jpg"><img src="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-02.jpg" width="200"/></a>
-<a href="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-03.jpg"><img src="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-03.jpg" width="200"/></a>
-<a href="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-04.jpg"><img src="https://raw.githubusercontent.com/sebsebli/infectiontracker/master/docs/screen-04.jpg" width="200"/></a>
-
 ## Install
 
 ``` npm install expo-cli --global ```
