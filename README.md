@@ -22,7 +22,7 @@ Aufgrund der aktuellen Situation wird eine Minimierung der sozialen Kontakte bzw
 
 **Prototype release (Android)**
 
-https://github.com/sebsebli/infectiontracker/releases/tag/v1.3.0
+https://github.com/sebsebli/infectiontracker/releases/tag/v1.5.0
 
 ## Development Requirements
 
