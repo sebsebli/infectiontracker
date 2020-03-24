@@ -2,13 +2,21 @@
   <img width="300" height="300" src="https://github.com/sebsebli/infectiontracker/blob/master/logo_mit_text.png">
 </p>
 
-# infectiontracker
+# InfectionTracker
 **InfectionTracker** soll es ermöglichen, Infektionsketten aufzudecken und so zur schnellen Information von potenziell-betroffenen BürgerInnen beizutragen. Nicht zu vermeidende Kontakte (z.B. durch Umzüge, Arbeit, familiäre Betreuung) können so über einen QR-Code aufgenommen werden. Sollten eine Kontaktperson innerhalb von zwei Wochen Symptome zeigen oder positiv auf COVID-19 getestet werden, so werden alle Kontakte der vergangenen zwei Wochen automatisiert über die potenzielle Gefährdung informiert. Weiterhin bieten wir in diesem Fall Informationen und Handlungsanweisungen, um eine weitere Verbreitung des Virus zu verhindern. Wir verfolgen einen Ansatz, der die Anonymität und den Datenschutz der Nutzer im Fokus hat, ohne die notwendigen Informationen gefährdeten Kontakten vorzuenthalten. Wir hoffen mit unserem Beitrag einen Teil zur Reduzierung der Ausbreitung beitragen zu können.
 
 InfectionTracker wurde innerhalb von 48 Stunden während des [#WirVsVirusHackathon](https://wirvsvirushackathon.org/ "WirVsVirusHacka thon") entwickelt. 
 Wir sind gerne zum Austausch und zur Kooperation bereit. 
 
 Meldet euch bei Interesse per E-Mail: [sebastian@lindner.me](mailto:sebastin@lindner.me "sebastin@lindner.me")
+
+## Was uns abhebt
+* Bei uns bleiben die **Nutzer anonym**. Wir bieten damit eine Möglichkeitj sich auch mit unbekannten Personen zu vernetzen, um zwar informiert und gewarnt zu bleiben, aber ohne den eigenen Gesundheitszustand allen Personen zugänglich zu machen. Wir kennen zu jedem Nutzer nur eine zufallsgenerierte Zeichenkette.
+* Der Infektionsstatus muss von Behördern autorisiert werden, um **keine Falschinformationen** zu verbreiten.
+* Wir legen größten Wert auf **Datenschutz**. Unsere erhobenen Daten können keiner Person zugeordnet werden. Wir verzichten auf das aufzeichnen von Standortdaten.
+* Unsere freien Schnittstellen ermöglichen die **statistische Auswertung** von Infektionsdaten und -verläufen.
+* InfectionTracker ist sofort **multilingual** einsetzbar. Wir ermöglichen mit den 9 vebreitetsten Sprachen sofort den multikulturellen Einsatz. Weitere Sprachen folgen.
+
 
 ## Demo
 
