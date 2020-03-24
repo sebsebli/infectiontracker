@@ -12,7 +12,7 @@ import AppNavigator from './navigation/AppNavigator'
 import * as Localization from 'expo-localization';
 import i18n from 'i18n-js';
 import { AppLoading } from 'expo';
-import { AsyncStorage, View, TouchableOpacity, Text, Modal, SafeAreaView, Alert, Image } from 'react-native';
+import { AsyncStorage, View, TouchableOpacity, Text, Modal, SafeAreaView, Alert, Image, ErrorUtils } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { Ionicons, SimpleLineIcons } from '@expo/vector-icons';
 import { CheckBox } from 'react-native-elements'
@@ -52,7 +52,6 @@ export default function App() {
   const [check3, setCheck3] = useState(false);
   const [age] = useGlobalState('age');
   const [sex] = useGlobalState('sex');
-
 
 
 

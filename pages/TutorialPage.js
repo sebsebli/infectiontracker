@@ -84,7 +84,14 @@ export default class TutorialPage extends Component {
                                         color: '#000000',
                                         textAlign: 'left'
 
-                                    }}>Scan starten</Text>
+                                    }}>Scan starten{'\n'}<Text style={{
+                                        fontSize: 16,
+                                        fontWeight: "400",
+                                        color: '#000000',
+                                        padding: 0,
+
+
+                                    }}>Du kannst den Code mit jedem beliebigen QR-Scanner scannen (bspw. Kamera auf iOS) oder du nutzt den eingebauten Scanner.</Text></Text>
 
                                 </View>
 

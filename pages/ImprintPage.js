@@ -9,6 +9,8 @@
 import React, { Component } from 'react'
 import { Text, StyleSheet, View, ScrollView } from 'react-native'
 import Header from '../components/Header'
+import { Linking } from 'expo';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 export default class ImprintPage extends Component {
     render() {
         return (
@@ -105,8 +107,8 @@ export default class ImprintPage extends Component {
                             alignSelf: 'flex-start'
 
                         }}>
-                            Kontaktieren Sie uns bei Bedarf unter sebastian@lindner.me
-                    </Text>
+                            Kontaktieren Sie uns bei Bedarf unter sebastian@lindner.me</Text>
+
                         <Text style={{
                             fontSize: 16,
                             fontWeight: "600",
@@ -118,7 +120,7 @@ export default class ImprintPage extends Component {
 
                     </View>
                 </ScrollView>
-            </View>
+            </View >
         )
     }
 }

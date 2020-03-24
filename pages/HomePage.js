@@ -96,8 +96,8 @@ export default HomePage = (props) => {
     const infectData = "@infectDataUS" + uid;
     const codeInputRef = useRef();
     let myQRURL = Linking.makeUrl('INFECTIONTRACKERQR', { uid: uid, type: 'user' });
-    
-  
+
+
     // Non replaced
     // const statusString = [
     //     'nicht getestet, keine Symptome',
@@ -227,7 +227,7 @@ export default HomePage = (props) => {
 
     useInterval(() => {
         updateMe()
-    }, 20000);
+    }, 60000);
 
 
     generateGroupCode = async () => {
@@ -490,7 +490,7 @@ export default HomePage = (props) => {
                     </TouchableOpacity>
                     {(contactState > 2) ?
                         <TouchableOpacity>
-                            <Text style={{ padding: 5, opacity: 0.7 }} onPress={() => setreportVisible(true)}>Kontaktdaten übermitteln</Text>
+                            <Text style={{ padding: 15, opacity: 0.7, color: '#EE6c4d' }} onPress={() => setreportVisible(true)}>Kontaktdaten übermitteln</Text>
                         </TouchableOpacity>
                         : null}
                 </View>
