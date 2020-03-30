@@ -79,6 +79,7 @@ export default function HealthPage(props) {
     }
 
     async function handleStateChange(state) {
+        if (state === myState) return
         if (state === 4) {
             setModalVisible(true)
             return
@@ -263,14 +264,14 @@ export default function HealthPage(props) {
                         padding: 20,
                         color: '#fb3640',
                         textAlign: 'center'
-                    }}>Der Nachweis von Corona kann nur von offiziellen Stellen erfolgen.{'\n\n'} <Text style={{
+                    }}>Der Nachweis einer Corona-Infektion kann nur durch offizielle Stellen erfolgen.{'\n\n'} <Text style={{
                         fontSize: 22,
                         fontWeight: "300",
                         padding: 20,
                         color: '#000000',
                         textAlign: 'center'
-                    }}>Zeige den Verantwortlichen diesen Code, um deine Kontakte schnellstmöglich zu informieren!</Text></Text>
-                    < QRCode content={myQR} codeStyle='dot' logo={require('../assets/images/logo.png')} size={200, 200} logoSize={50} />
+                    }}>Zeige den Verantwortlichen deinen Code, um deine Kontakte schnellstmöglich zu informieren!</Text></Text>
+
 
 
 

@@ -48,7 +48,7 @@ export default GroupsModal = (props) => {
                     padding: 20,
                     color: '#ababab'
                 }}>Neuer Gruppen-Code:</Text>
-                <QRCode content={infectData} codeStyle='dot' logo={require('../assets/images/logo.png')} size={200, 200} logoSize={50} />
+                <QRCode content={infectData} codeStyle='dot' logo={require('../assets/images/logo.png')} size={250, 250} logoSize={100} />
 
                 <Text style={{
                     fontSize: 40,
@@ -59,7 +59,14 @@ export default GroupsModal = (props) => {
                     letterSpacing: 20,
                 }}>{props.groups.shortcode}</Text>
 
+                <Text style={{
+                    fontSize: 20,
+                    fontWeight: "400",
+                    padding: 20,
+                    color: '#000000',
+                    textAlign: 'center',
 
+                }}>Hinweis: Gruppen-Codes bleiben 24h aktiv. Wenn du das Fenster schließt, wird dein Code gelöscht. Bitte notiere dir den Code, falls du ihn innerhalb von 24h noch mal verwenden möchtest.</Text>
                 <TouchableOpacity
                     style={{
                         backgroundColor: '#293241',

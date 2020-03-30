@@ -83,7 +83,7 @@ export default HomePage = (props) => {
     const [loadingGroup, setLoadingGroup] = useState(false);
     const [canJoin, setCanJoin] = useState(true);
     const [error, setError] = useState(false);
-
+    const [push, setPush] = useState(false);
     const [contactState] = useGlobalState('contactStatus');
     const [contactCount] = useGlobalState('contactCount');
     const [groupData] = useGlobalState('gid');
@@ -125,8 +125,32 @@ export default HomePage = (props) => {
     }, []);
 
     const handleNotification = (notification) => {
-        // do whatever you want to do with the notification
-        console.log("NEW NOTIFICATION", notification)
+        if (!push) {
+            setPush(true)
+
+            // do whatever you want to do with the notification
+            console.log("NEW NOTIFICATION", notification.data.status)
+
+            setcontactStatus(notification.data.status)
+            Alert.alert(
+                notification.data.status === 3 ? "Kontakt zeigt Symptome" : "Kontakt positiv getestet", //Achtung
+                "Bitte übermittelt eure Kontaktinformationen an die zuständige Behörde, damit diese mit euch Kontakt aufnehmen können. Die Kontaktdaten können nur von der jeweiligen Behörde eingesehen werden.", //"Es gab einen Fehler beim Daten übertragen"
+                [
+                    {
+                        text: 'Später', onPress: () => {
+                            setPush(false)
+                        }
+                    },
+                    {
+                        text: 'Jetzt angeben', onPress: () => {
+                            setreportVisible(true);
+                            setPush(false);
+                        },
+                    }
+                ],
+                { cancelable: false }
+            );
+        }
     };
 
 
@@ -190,21 +214,9 @@ export default HomePage = (props) => {
             const status = responses[1].data
 
             console.log("alive", count, status)
-            if ((status > 2) && (status > contactState)) {
-                setcontactCount(count)
-                setcontactStatus(status)
 
-                Alert.alert(
-                    "Ein Kontakt wurde positiv getestet", //Achtung
-                    "Bitte übermittelt eure Kontaktinformationen an die zuständige Behörde, damit diese mit euch Kontakt aufnehmen können. Die Kontaktdaten können nur von der jeweiligen Behörde eingesehen werden.", //"Es gab einen Fehler beim Daten übertragen"
-                    [
-                        { text: 'Später', onPress: () => { } },
-                        { text: 'Jetzt angeben', onPress: () => { setreportVisible(true) } },
-                    ],
-                    { cancelable: false }
-                );
-            }
-
+            setcontactCount(count)
+            setcontactStatus(status)
 
 
         })).catch(errors => {
@@ -213,29 +225,21 @@ export default HomePage = (props) => {
         })
     }
 
-    useInterval(() => {
-        updateMe()
-    }, 60000);
+
 
 
     generateGroupCode = async () => {
-        if (groupData) {
-            setgroupsVisible(true)
-            return
-        }
+
         setLoadingHome(true)
         axios.post('https://seb-vs-virus-api.herokuapp.com/group', {
             uid: uid,
         })
             .then(async function (response) {
-
-
-
-
-
+                setGroupCode(response.data.shortcode)
                 setgid(response.data)
                 setLoadingHome(false)
                 setgroupsVisible(true)
+                joinGroup();
 
             })
             .catch(function (error) {
@@ -268,7 +272,7 @@ export default HomePage = (props) => {
                     console.log(response)
                     setLoading(false)
                     setModalVisible(false);
-
+                    updateMe()
                     Toast.show('Kontakt hinzugefügt', {
                         position: Toast.position.center,
                         containerStyle: { zIndex: 99 },
@@ -302,6 +306,7 @@ export default HomePage = (props) => {
                     console.log(response)
                     setLoading(false)
                     setModalVisible(false);
+                    updateMe()
                     Toast.show('Gruppe beigetreten', {
                         position: Toast.position.center,
                         containerStyle: { zIndex: 99 },
@@ -349,7 +354,7 @@ export default HomePage = (props) => {
         }
         return
     };
-
+    updateMe()
     Linking.addEventListener('url', (url) => { _handleUrl(url.url) });
 
     Notifications.addListener(handleNotification);
@@ -367,7 +372,11 @@ export default HomePage = (props) => {
 
             <ScrollView>
                 <View style={{ flex: 1, width: '100%', alignItems: 'center', marginTop: 10 }}>
-                    <GroupsModal visible={groupsVisible} groups={groupData || {}} hide={() => setgroupsVisible(false)}></GroupsModal>
+                    <GroupsModal visible={groupsVisible} groups={groupData || {}} hide={() => {
+                        setGroupCode('');
+                        setgid(null);
+                        setgroupsVisible(false)
+                    }}></GroupsModal>
                     <ReportModal visible={reportVisible} hide={() => setreportVisible(false)}></ReportModal>
                     <Text style={{
                         fontSize: 14,
@@ -375,7 +384,7 @@ export default HomePage = (props) => {
                         padding: 20,
                         color: '#ababab'
                     }}>{i18n.t('homeYourCode')}</Text>
-                    <QRCode content={myQRURL} codeStyle='dot' logo={require('../assets/images/logo.png')} size={200, 200} logoSize={50} />
+                    <QRCode content={myQRURL} codeStyle='dot' logo={require('../assets/images/logo.png')} size={250, 250} logoSize={100} />
 
                     <TouchableOpacity style={{
                         backgroundColor: '#293241',
@@ -703,7 +712,7 @@ const styles = StyleSheet.create({
         bottom: 5,
         justifyContent: 'center',
         alignItems: 'center',
-        alignSelf: 'center',
+        right: 15,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
