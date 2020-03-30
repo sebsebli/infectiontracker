@@ -1,12 +1,14 @@
 <p align="center">
   <img width="300" height="300" src="https://github.com/sebsebli/infectiontracker/blob/master/logo_mit_text.png">
 </p>
+
+
+# InfectionTracker
 **Update: #Rober Koch-Institut entwickelt Lösung zum Corona-Tracking**
 _Das [Robert Koch-Institut](https://www.rki.de/) arbeitet derzeit an einer Lösung zum Corona-Tracking. Für uns stand immer das Ziel im Vordergrund, eine Lösung zur Eindämmung des COVID-19-Virus zu entwickeln. Die jüngste Entwicklung zeigt, dass wir mit unserer Idee scheinbar einen guten Ansatz verfolgt haben. Wir haben uns in anbetracht der aktuellen Situation entschieden, keinen weiteren Ansatz zum Tracking zu bieten und stattdessen die vom RKI entwickelte Lösung voll und ganz zu unterstützen. Wir denken, dass nur eine gesamtgesellschaftliche Lösung den gewünschten Erfolg bringen kann._ 
 
 _Wir stellen deshalb die Entwicklung bis auf Weiteres ein und stehen mit unserer erworbenen Expertise gerne zum Austausch bereit._
 
-# InfectionTracker
 **InfectionTracker** soll es ermöglichen, Infektionsketten aufzudecken und so zur schnellen Information von potenziell-betroffenen Bürger:innen beizutragen. Nicht zu vermeidende Kontakte (z.B. durch Umzüge, Arbeit, familiäre Betreuung) können so über einen QR-Code in den eigenen Kontaktverlauf aufgenommen werden. Sollte eine Kontaktperson innerhalb von zwei Wochen Symptome zeigen oder positiv auf COVID-19 getestet werden, so werden alle Kontakte der vergangenen zwei Wochen automatisiert über die potenzielle Gefährdung informiert. Weiterhin bieten wir in diesem Fall hilfreiche Informationen und Handlungsanweisungen, um eine Verbreitung des Virus zu verhindern und Behörden zu entlasten. Wir verfolgen einen Ansatz, der die Anonymität und den Datenschutz der Nutzer im Fokus hat, ohne die notwendigen Informationen gefährdeten Kontakten vorzuenthalten. Wir hoffen mit unserem Beitrag einen Teil zur Reduzierung der Ausbreitung beitragen zu können.
 
 InfectionTracker wurde innerhalb von 48 Stunden während des [#WirVsVirusHackathon](https://wirvsvirushackathon.org/ "WirVsVirusHacka thon") entwickelt. 
