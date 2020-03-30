@@ -5,8 +5,12 @@
     "privacy": "public",
     "scheme": "infectiontracker",
     "sdkVersion": "36.0.0",
-    "platforms": ["ios", "android", "web"],
-    "version": "1.4.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.5.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -17,16 +21,17 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "me.lindner.infectiontracker",
-      "buildNumber": "1.4.0",
-  
+      "buildNumber": "1.5.0"
     },
     "android": {
       "package": "me.lindner.infectiontracker",
-      "versionCode": 3,
+      "versionCode": 4,
       "permissions": [
         "CAMERA",
         "READ_EXTERNAL_STORAGE",
@@ -45,7 +50,7 @@
         "com.sonyericsson.home.permission.BROADCAST_BADGE"
       ]
     },
-    "description": "This app aims at informing people about the health status of recent contacts to reduce the spread of corona virus.",
+    "description": "This app aims at informing people about the health status of recent contacts to reduce the spread of COVID-19 virus. We pay special attention to data protection. You remain anonymous without losing any functions.",
     "githubUrl": "https://github.com/sebsebli/infectiontracker"
   }
 }

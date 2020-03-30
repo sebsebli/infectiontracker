@@ -12,7 +12,7 @@ import Header from '../components/Header'
 import { QRCode } from 'react-native-custom-qr-codes-expo';
 import { BarCodeScanner, } from 'expo-barcode-scanner';
 import i18n from 'i18n-js';
-
+import { Notifications } from 'expo';
 import axios from 'axios';
 import Spinner from 'react-native-loading-spinner-overlay';
 import GroupsModal from '../components/GroupsModal'
@@ -21,8 +21,7 @@ import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { useGlobalState, setgid, setcontactCount, setcontactStatus, setMYQR } from '../helpers/GlobalState';
 import SmoothPinCodeInput from 'react-native-smooth-pincode-input'
 import Toast from 'react-native-tiny-toast'
-import * as Permissions from 'expo-permissions'
-import { Constants, Notifications } from 'expo';
+
 import { Linking } from 'expo';
 const statusColor = [
     '#7dc656',
@@ -125,6 +124,11 @@ export default HomePage = (props) => {
         })();
     }, []);
 
+    const handleNotification = (notification) => {
+        // do whatever you want to do with the notification
+        console.log("NEW NOTIFICATION", notification)
+    };
+
 
 
     joinGroup = () => {
@@ -164,22 +168,6 @@ export default HomePage = (props) => {
     }
 
 
-    useEffect(() => {
-        (async () => {
-
-            const { status } = await BarCodeScanner.requestPermissionsAsync();
-            const { statusPush } = await Permissions.getAsync(
-                Permissions.NOTIFICATIONS
-            );
-            if (statusPush !== 'granted') {
-                await Permissions.askAsync(Permissions.NOTIFICATIONS);
-            }
-
-
-        })();
-    }, []);
-
-
 
 
 
@@ -205,7 +193,7 @@ export default HomePage = (props) => {
             if ((status > 2) && (status > contactState)) {
                 setcontactCount(count)
                 setcontactStatus(status)
-                Notifications.presentLocalNotificationAsync(localNotification)
+
                 Alert.alert(
                     "Ein Kontakt wurde positiv getestet", //Achtung
                     "Bitte übermittelt eure Kontaktinformationen an die zuständige Behörde, damit diese mit euch Kontakt aufnehmen können. Die Kontaktdaten können nur von der jeweiligen Behörde eingesehen werden.", //"Es gab einen Fehler beim Daten übertragen"
@@ -364,6 +352,7 @@ export default HomePage = (props) => {
 
     Linking.addEventListener('url', (url) => { _handleUrl(url.url) });
 
+    Notifications.addListener(handleNotification);
 
 
     return (

@@ -23,6 +23,8 @@ import axios from 'axios';
 import Constants from 'expo-constants';
 import * as BackgroundFetch from 'expo-background-fetch';
 import * as TaskManager from 'expo-task-manager';
+import { Notifications } from 'expo';
+import * as Permissions from 'expo-permissions'
 i18n.fallbacks = true;
 i18n.defaultLocale = 'de-DE';
 i18n.translations = {
@@ -46,7 +48,7 @@ export default function App() {
   const [loading, setLoading] = useState(false);
   const [hasData, setHasData] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
-
+  const [token, setToken] = useState(null);
   const [check1, setCheck1] = useState(false);
   const [check2, setCheck2] = useState(false);
   const [check3, setCheck3] = useState(false);
@@ -57,6 +59,7 @@ export default function App() {
 
 
   function register() {
+    if (token === null) return
     setLoading(true);
     axios.post('https://seb-vs-virus-api.herokuapp.com/register', {
       age: age,
@@ -70,8 +73,35 @@ export default function App() {
         await AsyncStorage.setItem('@infectiontrackerFinalUID', response.data.uid);
         setKEY(response.data.key)
         setUID(response.data.uid)
-        setModalVisible(false)
-        setHasData(true)
+
+
+
+
+
+        axios.post('https://seb-vs-virus-api.herokuapp.com/pushreg', {
+          uid: response.data.uid,
+          key: response.data.key,
+          token: token,
+        })
+          .then(async function (response) {
+
+            setModalVisible(false)
+            setHasData(true)
+
+
+            setLoading(false);
+          })
+          .catch(function (error) {
+            setLoading(false);
+            Toast.show('Es gab einen Fehler', {
+              position: Toast.position.center,
+              containerStyle: { zIndex: 99 },
+            })
+
+          });
+
+
+
 
 
         setLoading(false);
@@ -113,6 +143,24 @@ export default function App() {
     }
 
   }
+
+
+  useEffect(() => {
+    (async () => {
+
+      const { statusPush } = await Permissions.getAsync(
+        Permissions.NOTIFICATIONS
+      );
+      if (statusPush !== 'granted') {
+        await Permissions.askAsync(Permissions.NOTIFICATIONS);
+
+      }
+      let token = await Notifications.getExpoPushTokenAsync();
+      setToken(token)
+      console.log(token)
+
+    })();
+  }, []);
 
   if (finished) {
     // Retrieve data from storage
