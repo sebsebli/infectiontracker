@@ -4,7 +4,7 @@
 
 
 # InfectionTracker
-**Update: #Rober Koch-Institut entwickelt Lösung zum Corona-Tracking**
+**Update: Robert Koch-Institut entwickelt Lösung zum Corona-Tracking**
 
 _Das [Robert Koch-Institut](https://www.rki.de/) arbeitet derzeit an einer Lösung zum Corona-Tracking. Für uns stand immer das Ziel im Vordergrund, eine Lösung zur Eindämmung des COVID-19-Virus zu entwickeln. Die jüngste Entwicklung zeigt, dass wir mit unserer Idee scheinbar einen guten Ansatz verfolgt haben. Wir haben uns in anbetracht der aktuellen Situation entschieden, keinen weiteren Ansatz zum Tracking zu bieten und stattdessen die vom RKI entwickelte Lösung voll und ganz zu unterstützen. Wir denken, dass nur eine gesamtgesellschaftliche Lösung den gewünschten Erfolg bringen kann._ 
 
